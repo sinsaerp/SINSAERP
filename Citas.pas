@@ -246,7 +246,8 @@ var
 begin
   UniMainModule.Query.Close;
   UniMainModule.Query.SQL.Clear;
-  cadena := 'select c.id, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.direccion, c.idapi, c.fechaCita, convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion from citasweb c, epssi e, medicos m'
+  cadena := 'select c.id, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.direccion, c.estado, c.fechaSolicitud, c.idapi, c.fechaCita,'
+    +' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion from citasweb c, epssi e, medicos m'
     + ' where c.medico=m.Codigo and c.codeps=e.codigoEps and  c.fechaCita between '''
     + FormatDateTime('yyyymmdd', FechaIncial.DateTime) + ''' and ''' +
     FormatDateTime('yyyymmdd', fechaFinal.DateTime) +
@@ -305,7 +306,7 @@ begin
     ClaveM.Text := (UniMainModule.Query.FieldByName('clave').AsString);
     MAgenda.Text := UniMainModule.Query.FieldByName('Agenda').AsString;
     IntervaloM.Text := UniMainModule.Query.FieldByName('frecuencia').AsString;
-    Estado:= UniMainModule.Query.FieldByName('web').AsString;
+    Estado := UniMainModule.Query.FieldByName('web').AsString;
   end;
 
   if not(UniMainModule.Query.IsEmpty) and (UniMainModule.i = 10) then
@@ -342,10 +343,10 @@ end;
 
 procedure TcitasF.TurnosMWKeyPress(Sender: TObject; var Key: Char);
 begin
-if Estado=''  then
-begin
+  if Estado = '' then
+  begin
     ShowMessage('Esté Medico no esta sincronizado en la Web');
-end;
+  end;
 end;
 
 procedure TcitasF.ubAsignarHorasClick(Sender: TObject);
@@ -592,7 +593,8 @@ begin
   end
   else
   begin
-    ShowMessage('No se puede realizar ninguna operacion sobre el registro seleccionado');
+    ShowMessage
+      ('No se puede realizar ninguna operacion sobre el registro seleccionado');
   end;
 
 end;
@@ -603,8 +605,8 @@ begin
   Calendar1.Date := Now();
   fecha_deseada.DateTime := Now();
   fechaAsignacion.DateTime := Now();
-  fechaFinal.DateTime:=Now();
-  FechaIncial.DateTime:=Now();
+  fechaFinal.DateTime := Now();
+  FechaIncial.DateTime := Now();
 end;
 
 procedure TcitasF.ubBuscarMedicoClick(Sender: TObject);
@@ -636,7 +638,7 @@ begin
         try
           for ClientItem in ClientList do
           begin
-          nombre := ClientItem.GetValue<string>('afape1') + ' ' +
+            nombre := ClientItem.GetValue<string>('afape1') + ' ' +
               ClientItem.GetValue<string>('afape2') + ' ' +
               ClientItem.GetValue<string>('afnom1') + ' ' +
               ClientItem.GetValue<string>('afnom2');
@@ -651,8 +653,8 @@ begin
             begin
               UniMainModule.Query.SQL.Clear;
               UniMainModule.Query.SQL.Text :=
-                'INSERT INTO citasweb (codeps, tipidafil, afcodigo, afape1, afape2, afnom1, afnom2, nombrec, fecha_nacimiento, sexo, email, telefono, direccion, medico, fechaCita, horaCita, descripcion, idapi, codigo) VALUES '
-                + '(:Codeps, :Tipidafil, :Afcodigo, :Afape1, :Afape2, :Afnom1, :Afnom2, :NombreC, :Fecha, :Sexo, :Email, :Telefono, :Direccion, :Medico,  :FechaCita, :HoraCita, :Descripcion, :IdApi, :Codigo)';
+                'INSERT INTO citasweb (codeps, tipidafil, afcodigo, afape1, afape2, afnom1, afnom2, nombrec, fecha_nacimiento, sexo, email, telefono, direccion, medico, fechaCita, horaCita, descripcion, idapi, codigo, fechaSolicitud) VALUES '
+                + '(:Codeps, :Tipidafil, :Afcodigo, :Afape1, :Afape2, :Afnom1, :Afnom2, :NombreC, :Fecha, :Sexo, :Email, :Telefono, :Direccion, :Medico,  :FechaCita, :HoraCita, :Descripcion, :IdApi, :Codigo, :FechaSolicitud)';
               UniMainModule.Query.ParamByName('Codeps').Value :=
                 ClientItem.GetValue<string>('codeps');
               UniMainModule.Query.ParamByName('Tipidafil').Value :=
@@ -690,6 +692,8 @@ begin
                 ClientItem.GetValue<string>('id');
               UniMainModule.Query.ParamByName('Codigo').Value :=
                 ClientItem.GetValue<string>('codigo');
+              UniMainModule.Query.ParamByName('FechaSolicitud').Value :=
+                ClientItem.GetValue<string>('fecha');
               UniMainModule.Query.ExecSQL;
             end;
 
@@ -701,7 +705,8 @@ begin
       finally
         ClientList.Free;
         UniMainModule.Query.SQL.Clear;
-        cadena := 'select c.id, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.direccion, c.idapi, c.fechaCita, convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion, c.estado from citasweb c, epssi e, medicos m'
+        cadena := 'select c.id, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.direccion, c.idapi, c.fechaCita, c.fechaSolicitud,'
+        +' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion, c.estado from citasweb c, epssi e, medicos m'
           + ' where c.medico=m.Codigo and c.codeps=e.codigoEps and  c.fechaCita between '''
           + FormatDateTime('yyyymmdd', FechaIncial.DateTime) + ''' and ''' +
           FormatDateTime('yyyymmdd', fechaFinal.DateTime) + ''' ';

@@ -19,7 +19,6 @@ object HistorialCitasF: THistorialCitasF
     TabOrder = 0
     ParentColor = False
     Color = 11169097
-    ExplicitWidth = 842
     object UniImage1: TUniImage
       Left = 3
       Top = 3
@@ -303,7 +302,6 @@ object HistorialCitasF: THistorialCitasF
       Hint = ''
       Alignment = taCenter
       Caption = 'paciente'
-      Align = alCustom
       ParentFont = False
       Font.Color = clWhite
       Font.Height = -16

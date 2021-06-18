@@ -40,6 +40,7 @@ end;
 
 procedure THistorialCitasF.UniFormShow(Sender: TObject);
 begin
+Paciente.Caption:=NombreU;
 UniMainModule.QueryAgenda.Close;
 UniMainModule.QueryAgenda.SQL.Text:='select  m.Nombre as medico, c.Fecha, c.Servicio, convert(varchar(5), c.hora, 108) as hora from CitasServicios c, Medicos m'+
 ' where c.Medico=m.Codigo and c.Paciente=:Codigo order by c.fecha desc';

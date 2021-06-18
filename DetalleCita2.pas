@@ -47,6 +47,8 @@ type
     RESTRequest1: TRESTRequest;
     RESTResponse1: TRESTResponse;
     ubHistorial: TUniSpeedButton;
+    UniLabel15: TUniLabel;
+    FechaSolicitud: TUniEdit;
     procedure UniFormShow(Sender: TObject);
     procedure ubActualizarClick(Sender: TObject);
     procedure ubGuardarClick(Sender: TObject);
@@ -150,6 +152,7 @@ begin
     Direccion.Text := UniMainModule.Query.FieldByName('direccion').AsString;
     EPS.Text := UniMainModule.Query.FieldByName('eps').AsString;
     Fecha.Text := UniMainModule.Query.FieldByName('fechaCita').AsString;
+    FechaSolicitud.Text := UniMainModule.Query.FieldByName('fechaSolicitud').AsString;
     Medico.Text := UniMainModule.Query.FieldByName('medico').AsString;
     Hora.Text := UniMainModule.Query.FieldByName('hora').AsString;
     Descripcion.Text := UniMainModule.Query.FieldByName('descripcion').AsString;

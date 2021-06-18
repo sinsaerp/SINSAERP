@@ -18,7 +18,6 @@ type
     UniImage1: TUniImage;
     UniLabel1: TUniLabel;
     procedure UniDBGrid1Exit(Sender: TObject);
-    procedure ubSincronizarClick(Sender: TObject);
     procedure UniFormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -41,43 +40,7 @@ begin
     (THorasWebAsignadas));
 end;
 
-procedure THorasWebAsignadas.ubSincronizarClick(Sender: TObject);
-var
-  cadena, status, URL: string;
-  i: Integer;
-  doc, obj: TJSONObject;
-begin
-  URL := 'http://localhost/citas/api/';
-  RESTClient2.BaseURL := URL + 'horario';
-  while not UniMainModule.Query.Eof do
-  begin
-    RESTRequest2.Params[0].value := UniMainModule.Query.FieldByName
-      ('medico').AsString;
-    RESTRequest2.Params[1].value := UniMainModule.Query.FieldByName
-      ('fecha').AsString;
-    RESTRequest2.Params[2].value := UniMainModule.Query.FieldByName
-      ('hora').AsString;
-    RESTRequest2.Execute;
-    if RESTResponse2.StatusCode = 200 then
-    begin
-      doc := RESTResponse2.JSONValue as TJSONObject;
-      status := doc.GetValue('status').value;
-      if status = 'success' then
-      begin
-        UniMainModule.QueryAgenda.SQL.Clear;
-        UniMainModule.QueryAgenda.SQL.Text :=
-          ('Update AsignacionHorasWeb set estado=1 where id=:Id');
-        UniMainModule.QueryAgenda.ParamByName('Id').value :=
-          UniMainModule.Query.FieldByName('id').AsString;
-        UniMainModule.QueryAgenda.ExecSQL;
-        i := i + 1;
-      end;
-    end;
-    UniMainModule.Query.Next;
-  end;
-  ShowMessage('Total Datos Enviados a la Web ' + i.ToString);
-  UniMainModule.Query.Close;
-end;
+
 
 procedure THorasWebAsignadas.UniDBGrid1Exit(Sender: TObject);
 begin

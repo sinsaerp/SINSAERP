@@ -1,9 +1,10 @@
 object UniLoginForm1: TUniLoginForm1
   Left = 0
   Top = 0
-  ClientHeight = 265
-  ClientWidth = 530
+  ClientHeight = 304
+  ClientWidth = 546
   Caption = 'INICIO DE SESION'
+  BorderStyle = bsNone
   OldCreateOrder = False
   MonitoredKeys.Keys = <>
   PixelsPerInch = 96
@@ -11,8 +12,8 @@ object UniLoginForm1: TUniLoginForm1
   object UniPanel1: TUniPanel
     Left = 0
     Top = 0
-    Width = 530
-    Height = 265
+    Width = 546
+    Height = 304
     Hint = ''
     Align = alClient
     ParentFont = False
@@ -20,6 +21,8 @@ object UniLoginForm1: TUniLoginForm1
     Font.Style = [fsBold]
     TabOrder = 0
     Caption = ''
+    ExplicitWidth = 530
+    ExplicitHeight = 265
     object UniImage1: TUniImage
       Left = 25
       Top = 55
@@ -1493,12 +1496,13 @@ object UniLoginForm1: TUniLoginForm1
     object UniPanel2: TUniPanel
       Left = 1
       Top = 1
-      Width = 528
+      Width = 544
       Height = 48
       Hint = ''
       Align = alTop
       TabOrder = 4
       Caption = ''
+      ExplicitWidth = 528
     end
     object UniLabel2: TUniLabel
       Left = 168
@@ -1531,13 +1535,15 @@ object UniLoginForm1: TUniLoginForm1
     end
     object UniPanel3: TUniPanel
       Left = 1
-      Top = 203
-      Width = 528
+      Top = 242
+      Width = 544
       Height = 61
       Hint = ''
       Align = alBottom
       TabOrder = 8
       Caption = ''
+      ExplicitTop = 203
+      ExplicitWidth = 528
       object ubIngresar: TUniSpeedButton
         Left = 215
         Top = 3

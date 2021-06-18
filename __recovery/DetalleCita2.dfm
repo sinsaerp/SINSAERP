@@ -22,8 +22,6 @@ object DetalleCitaForm: TDetalleCitaForm
     TitlePosition = tpBottom
     Title = 'Datos de M'#233'dico'
     Caption = ''
-    ExplicitWidth = 498
-    ExplicitHeight = 638
     object UniLabel2: TUniLabel
       Left = 18
       Top = 79
@@ -61,8 +59,8 @@ object DetalleCitaForm: TDetalleCitaForm
       TabOrder = 4
     end
     object Estado: TUniRadioGroup
-      Left = 18
-      Top = 480
+      Left = 17
+      Top = 528
       Width = 471
       Height = 50
       Hint = ''
@@ -75,8 +73,8 @@ object DetalleCitaForm: TDetalleCitaForm
       Columns = 3
     end
     object ubGuardar: TUniSpeedButton
-      Left = 18
-      Top = 536
+      Left = 17
+      Top = 584
       Width = 135
       Height = 49
       Hint = ''
@@ -87,8 +85,8 @@ object DetalleCitaForm: TDetalleCitaForm
       OnClick = ubGuardarClick
     end
     object ubActualizar: TUniSpeedButton
-      Left = 352
-      Top = 536
+      Left = 351
+      Top = 584
       Width = 137
       Height = 49
       Hint = ''
@@ -196,7 +194,7 @@ object DetalleCitaForm: TDetalleCitaForm
     end
     object UniLabel11: TUniLabel
       Left = 18
-      Top = 300
+      Top = 332
       Width = 33
       Height = 13
       Hint = ''
@@ -205,7 +203,7 @@ object DetalleCitaForm: TDetalleCitaForm
     end
     object Medico: TUniEdit
       Left = 18
-      Top = 319
+      Top = 351
       Width = 471
       Hint = ''
       Text = ''
@@ -214,7 +212,7 @@ object DetalleCitaForm: TDetalleCitaForm
     end
     object UniLabel12: TUniLabel
       Left = 18
-      Top = 347
+      Top = 387
       Width = 54
       Height = 13
       Hint = ''
@@ -223,7 +221,7 @@ object DetalleCitaForm: TDetalleCitaForm
     end
     object Descripcion: TUniEdit
       Left = 18
-      Top = 366
+      Top = 406
       Width = 471
       Hint = ''
       Text = ''
@@ -232,7 +230,7 @@ object DetalleCitaForm: TDetalleCitaForm
     end
     object UniLabel13: TUniLabel
       Left = 18
-      Top = 404
+      Top = 444
       Width = 71
       Height = 13
       Hint = ''
@@ -241,7 +239,7 @@ object DetalleCitaForm: TDetalleCitaForm
     end
     object Observaciones: TUniMemo
       Left = 18
-      Top = 423
+      Top = 463
       Width = 471
       Height = 51
       Hint = ''
@@ -284,8 +282,8 @@ object DetalleCitaForm: TDetalleCitaForm
       ReadOnly = True
     end
     object ubHistorial: TUniSpeedButton
-      Left = 166
-      Top = 536
+      Left = 165
+      Top = 584
       Width = 160
       Height = 49
       Hint = ''
@@ -305,12 +303,11 @@ object DetalleCitaForm: TDetalleCitaForm
     TabOrder = 1
     ParentColor = False
     Color = 11169097
-    ExplicitWidth = 498
     object UniImage1: TUniImage
       Left = 3
       Top = 3
       Width = 73
-      Height = 87
+      Height = 73
       Hint = ''
       ParentRTL = False
       Picture.Data = {
@@ -581,6 +578,24 @@ object DetalleCitaForm: TDetalleCitaForm
       Font.Style = [fsBold]
       TabOrder = 2
     end
+  end
+  object UniLabel15: TUniLabel
+    Left = 18
+    Top = 381
+    Width = 86
+    Height = 13
+    Hint = ''
+    Caption = 'Fecha de Solicitud'
+    TabOrder = 2
+  end
+  object FechaSolicitud: TUniEdit
+    Left = 18
+    Top = 400
+    Width = 470
+    Hint = ''
+    Text = ''
+    TabOrder = 3
+    ReadOnly = True
   end
   object RESTClient1: TRESTClient
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'

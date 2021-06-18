@@ -2,12 +2,12 @@ object MainForm: TMainForm
   AlignWithMargins = True
   Left = 0
   Top = 0
-  Width = 998
-  Height = 636
+  ClientHeight = 587
+  ClientWidth = 992
   Caption = 'SINSA ERP '
+  BorderStyle = bsDialog
   WindowState = wsMaximized
   OldCreateOrder = False
-  AutoScroll = True
   Menu = UniMainMenu1
   MonitoredKeys.Keys = <>
   PixelsPerInch = 96
@@ -16,14 +16,15 @@ object MainForm: TMainForm
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 984
+    Width = 986
     Height = 89
     Hint = ''
     TabOrder = 0
     ParentColor = False
     Color = clSkyBlue
+    ExplicitWidth = 984
     object UniImage2: TUniImage
-      Left = 895
+      Left = 897
       Top = 0
       Width = 89
       Height = 89
@@ -1476,6 +1477,7 @@ object MainForm: TMainForm
         4747773A1F665FEFFE3F24DE6155505F23390000000049454E44AE426082}
       Proportional = True
       Align = alRight
+      ExplicitLeft = 895
     end
   end
   object UniImage1: TUniImage
@@ -1741,9 +1743,9 @@ object MainForm: TMainForm
   end
   object UniLabel1: TUniLabel
     AlignWithMargins = True
-    Left = 240
+    Left = 64
     Top = 8
-    Width = 496
+    Width = 873
     Height = 25
     Hint = ''
     Alignment = taCenter
@@ -1755,7 +1757,7 @@ object MainForm: TMainForm
     TabOrder = 2
   end
   object UniLabel2: TUniLabel
-    Left = 8
+    Left = 2
     Top = 39
     Width = 982
     Height = 19
