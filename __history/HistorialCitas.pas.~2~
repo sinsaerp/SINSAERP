@@ -1,0 +1,47 @@
+unit HistorialCitas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, Data.DB, uniBasicGrid, uniDBGrid, uniLabel,
+  Vcl.Imaging.pngimage, uniImage, uniGUIBaseClasses, uniToolBar;
+
+type
+  THistorialCitasF = class(TUniForm)
+    UniToolBar1: TUniToolBar;
+    UniImage1: TUniImage;
+    UniLabel1: TUniLabel;
+    UniDBGrid1: TUniDBGrid;
+    UniLabel2: TUniLabel;
+    DataSource1: TDataSource;
+    procedure UniFormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    AfCoidgo: string;
+    { Public declarations }
+  end;
+
+function HistorialCitasF: THistorialCitasF;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function HistorialCitasF: THistorialCitasF;
+begin
+  Result := THistorialCitasF(UniMainModule.GetFormInstance(THistorialCitasF));
+end;
+
+procedure THistorialCitasF.UniFormShow(Sender: TObject);
+begin
+UniMainModule.QueryAgenda.Close;
+
+end;
+
+end.

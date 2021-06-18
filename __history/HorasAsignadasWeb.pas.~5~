@@ -1,0 +1,46 @@
+unit HorasAsignadasWeb;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniLabel, uniToolBar, uniGUIBaseClasses,
+  uniBasicGrid, uniDBGrid, Data.DB, uniButton, uniBitBtn, uniSpeedButton,
+  Vcl.Imaging.pngimage, uniImage;
+
+type
+  THorasWebAsignadas = class(TUniForm)
+    DataSource1: TDataSource;
+    UniDBGrid1: TUniDBGrid;
+    UniToolBar1: TUniToolBar;
+    UniImage1: TUniImage;
+    UniLabel1: TUniLabel;
+    ubSincronizar: TUniSpeedButton;
+    procedure UniDBGrid1Exit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+function HorasWebAsignadas: THorasWebAsignadas;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function HorasWebAsignadas: THorasWebAsignadas;
+begin
+  Result := THorasWebAsignadas(UniMainModule.GetFormInstance(THorasWebAsignadas));
+end;
+
+procedure THorasWebAsignadas.UniDBGrid1Exit(Sender: TObject);
+begin
+UniMainModule.Query.Close;
+end;
+
+end.

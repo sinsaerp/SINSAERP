@@ -1,0 +1,81 @@
+unit Main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIRegClasses, uniGUIForm, uniGUIBaseClasses, uniTreeView,
+  uniTreeMenu, Vcl.StdCtrls, Vcl.Imaging.pngimage, uniImage, uniLabel,
+  uniToolBar, Vcl.Menus, uniMainMenu, uniMemo;
+
+type
+  TMainForm = class(TUniForm)
+    UniToolBar1: TUniToolBar;
+    UniImage1: TUniImage;
+    UniLabel1: TUniLabel;
+    UniImage2: TUniImage;
+    UniLabel2: TUniLabel;
+    UniMainMenu1: TUniMainMenu;
+    Admisiones1: TUniMenuItem;
+    Actualizar1: TUniMenuItem;
+    Pacientes1: TUniMenuItem;
+    Ejecutar1: TUniMenuItem;
+    opCitas: TUniMenuItem;
+
+    procedure Actualizar1Click(Sender: TObject);
+    procedure Pacientes1Click(Sender: TObject);
+    procedure opCitasClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+
+   procedure ShowCallback(Sender:TComponent; Asresult: Integer);
+
+  end;
+
+function MainForm: TMainForm;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  uniGUIVars, MainModule, uniGUIApplication, Busqueda, Pacientes, Citas;
+
+function MainForm: TMainForm;
+begin
+  Result := TMainForm(UniMainModule.GetFormInstance(TMainForm));
+end;
+
+procedure TMainForm.Actualizar1Click(Sender: TObject);
+begin
+  UniMainModule.i:=0;
+ busquedaf.ShowModal(ShowCallback);
+
+
+
+end;
+
+
+procedure TMainForm.opCitasClick(Sender: TObject);
+begin
+   Citas.citasf.ShowModal();
+end;
+
+procedure TMainForm.Pacientes1Click(Sender: TObject);
+begin
+    Pacientes.pacientesf.ShowModal();
+end;
+
+procedure TMainForm.ShowCallback(Sender:TComponent; Asresult: Integer);
+ begin
+    if not(UniMainModule.Query.IsEmpty)then
+      ShowMessage(UniMainModule.Query.FieldByName('codigo').AsString);
+ end;
+
+initialization
+  RegisterAppFormClass(TMainForm);
+
+end.

@@ -1,0 +1,85 @@
+unit HorasAsignadasWeb;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniLabel, uniToolBar, uniGUIBaseClasses,
+  uniBasicGrid, uniDBGrid, Data.DB, uniButton, uniBitBtn, uniSpeedButton,
+  Vcl.Imaging.pngimage, uniImage, System.JSON;
+
+type
+  THorasWebAsignadas = class(TUniForm)
+    DataSource1: TDataSource;
+    UniDBGrid1: TUniDBGrid;
+    UniToolBar1: TUniToolBar;
+    UniImage1: TUniImage;
+    UniLabel1: TUniLabel;
+    ubSincronizar: TUniSpeedButton;
+    procedure UniDBGrid1Exit(Sender: TObject);
+    procedure ubSincronizarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+function HorasWebAsignadas: THorasWebAsignadas;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication, Sincronizar;
+
+function HorasWebAsignadas: THorasWebAsignadas;
+begin
+  Result := THorasWebAsignadas(UniMainModule.GetFormInstance
+    (THorasWebAsignadas));
+end;
+
+procedure THorasWebAsignadas.ubSincronizarClick(Sender: TObject);
+var
+  cadena, status: string;
+  i: Integer;
+  doc, obj: TJSONObject;
+begin
+  sincronizarForm.RESTClient2.BaseURL := sincronizarForm.URL + 'horario';
+  while not UniMainModule.Query.Eof do
+  begin
+    sincronizarForm.RESTRequest2.Params[0].value :=
+      UniMainModule.Query.FieldByName('medico').AsString;
+    sincronizarForm.RESTRequest2.Params[1].value :=
+      UniMainModule.Query.FieldByName('fecha').AsString;
+    sincronizarForm.RESTRequest2.Params[2].value :=
+      UniMainModule.Query.FieldByName('hora').AsString;
+    sincronizarForm.RESTRequest2.Execute;
+    if sincronizarForm.RESTResponse2.StatusCode = 200 then
+    begin
+      doc := sincronizarForm.RESTResponse2.JSONValue as TJSONObject;
+      status := doc.GetValue('status').value;
+      if status = 'success' then
+      begin
+        UniMainModule.QueryAgenda.SQL.Clear;
+        UniMainModule.QueryAgenda.SQL.Text :=
+          ('Update AsignacionHorasWeb set estado=1 where id=:Id');
+        UniMainModule.QueryAgenda.ParamByName('Id').value :=
+          UniMainModule.Query.FieldByName('id').AsString;
+        UniMainModule.QueryAgenda.ExecSQL;
+        i := i + 1;
+      end;
+    end;
+    UniMainModule.Query.Next;
+  end;
+  ShowMessage('Total Datos Enviados a la Web ' + i.ToString);
+  UniMainModule.Query.Close;
+end;
+
+procedure THorasWebAsignadas.UniDBGrid1Exit(Sender: TObject);
+begin
+  UniMainModule.Query.Close;
+end;
+
+end.

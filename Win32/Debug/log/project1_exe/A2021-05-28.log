@@ -1,0 +1,330 @@
+Project1.exe: 00004B3C: 09:52:37 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0
+Project1.exe: 0000179C: 10:28:38 []:>--------------------------------------------------------------<
+Project1.exe: 0000179C: 10:28:38 [TUniServerModule]:Server First Init.
+Project1.exe: 0000179C: 10:28:38 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+Project1.exe: 0000179C: 10:28:38 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 0000179C: 10:28:38 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00001E2C: 10:29:00 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]El nombre de objeto 'eppsi' no es válido. : Addr: $008776C9
+Project1.exe: 0000179C: 10:29:22 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 0000179C: 10:29:22 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 0000179C: 10:29:23 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 0000179C: 10:29:23 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 0000179C: 10:29:23 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 0000179C: 10:29:23 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 0000179C: 10:29:23 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 0000179C: 10:29:23 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 0000179C: 10:29:23 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 0000179C: 10:29:23 []:<-------------------------------------------------------------->
+Project1.exe: 0000179C: 10:29:23 [Terminated]:Exit Code: 0
+Project1.exe: 000026EC: 10:29:30 []:>--------------------------------------------------------------<
+Project1.exe: 000026EC: 10:29:30 [TUniServerModule]:Server First Init.
+Project1.exe: 000026EC: 10:29:30 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 000026EC: 10:29:30 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00002B84: 10:29:34 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: UAWn1FusgA108503D8C ) : Addr: $0079245A
+Project1.exe: 00002140: 10:30:35 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]Los datos de cadena o binarios se truncarían. : Addr: $008776C9
+Project1.exe: 00002140: 10:30:50 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]Los datos de cadena o binarios se truncarían. : Addr: $008776C9
+Project1.exe: 00002258: 10:34:15 [[FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]El nombre de objeto 'etnias' no es válido.-127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]El nombre de objeto 'etnias' no es válido. : Addr: $008776C9
+Project1.exe: 00003294: 11:03:39 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: sM2oKZo4H6108503DC7 ) : Addr: $0079245A
+Project1.exe: 000026EC: 12:01:40 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000026EC: 12:01:40 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000026EC: 12:01:41 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000026EC: 12:01:41 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000026EC: 12:01:41 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000026EC: 12:01:41 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000026EC: 12:01:41 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000026EC: 12:01:41 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000026EC: 12:01:41 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000026EC: 12:01:41 []:<-------------------------------------------------------------->
+Project1.exe: 000026EC: 12:01:41 [Terminated]:Exit Code: 0
+Project1.exe: 00002E10: 12:17:19 []:>--------------------------------------------------------------<
+Project1.exe: 00002E10: 12:17:19 [TUniServerModule]:Server First Init.
+Project1.exe: 00002E10: 12:17:19 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00002E10: 12:17:19 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00002E10: 12:21:24 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00002E10: 12:21:24 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00002E10: 12:21:25 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00002E10: 12:21:25 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00002E10: 12:21:25 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00002E10: 12:21:26 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00002E10: 12:21:26 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00002E10: 12:21:26 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00002E10: 12:21:26 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00002E10: 12:21:26 []:<-------------------------------------------------------------->
+Project1.exe: 00002E10: 12:21:26 [Terminated]:Exit Code: 0
+Project1.exe: 0000363C: 12:21:33 []:>--------------------------------------------------------------<
+Project1.exe: 0000363C: 12:21:33 [TUniServerModule]:Server First Init.
+Project1.exe: 0000363C: 12:21:33 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 0000363C: 12:21:33 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00002960: 12:21:38 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: 9xAuToJY8n108505B13 ) : Addr: $0079A966
+Project1.exe: 0000094C: 12:21:58 [127.0.0.1]:EDatabaseError : Query: Cannot perform this operation on a closed dataset : Addr: $0066778A
+Project1.exe: 0000094C: 12:22:15 [127.0.0.1]:EDatabaseError : Query: Cannot perform this operation on a closed dataset : Addr: $0066778A
+Project1.exe: 0000363C: 12:22:45 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 0000363C: 12:22:45 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 0000363C: 12:22:47 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 0000363C: 12:22:47 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 0000363C: 12:22:47 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 0000363C: 12:22:47 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 0000363C: 12:22:47 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 0000363C: 12:22:47 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 0000363C: 12:22:47 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 0000363C: 12:22:47 []:<-------------------------------------------------------------->
+Project1.exe: 0000363C: 12:22:47 [Terminated]:Exit Code: 0
+Project1.exe: 00002D90: 12:22:49 []:>--------------------------------------------------------------<
+Project1.exe: 00002D90: 12:22:49 [TUniServerModule]:Server First Init.
+Project1.exe: 00002D90: 12:22:49 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00002D90: 12:22:49 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00002C74: 12:22:53 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: hNhG9CEnOj108505C2E ) : Addr: $0079A966
+Project1.exe: 00003608: 12:22:58 [127.0.0.1]:EDatabaseError : Query: Cannot perform this operation on a closed dataset : Addr: $0066778A
+Project1.exe: 00002D90: 12:23:46 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00002D90: 12:23:46 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00002D90: 12:23:47 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00002D90: 12:23:47 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00002D90: 12:23:47 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00002D90: 12:23:47 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00002D90: 12:23:47 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00002D90: 12:23:47 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00002D90: 12:23:47 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00002D90: 12:23:47 []:<-------------------------------------------------------------->
+Project1.exe: 00002D90: 12:23:47 [Terminated]:Exit Code: 0
+Project1.exe: 000027C0: 12:23:50 []:>--------------------------------------------------------------<
+Project1.exe: 000027C0: 12:23:50 [TUniServerModule]:Server First Init.
+Project1.exe: 000027C0: 12:23:50 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 000027C0: 12:23:50 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00000308: 12:23:55 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: gaQdRKVZ8y108505C85 ) : Addr: $0079A966
+Project1.exe: 00000308: 12:23:59 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]El nombre de columna 'autonumerico' no es válido. : Addr: $0087FBD5
+Project1.exe: 000038D8: 15:15:34 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: aL1rxgv1dW108505CCC ) : Addr: $0079A966
+Project1.exe: 000027C0: 15:44:51 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000027C0: 15:44:51 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000027C0: 15:44:52 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000027C0: 15:44:52 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000027C0: 15:44:52 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000027C0: 15:44:52 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000027C0: 15:44:52 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000027C0: 15:44:52 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000027C0: 15:44:52 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000027C0: 15:44:52 []:<-------------------------------------------------------------->
+Project1.exe: 000027C0: 15:44:52 [Terminated]:Exit Code: 0
+Project1.exe: 00001BC4: 15:45:07 []:>--------------------------------------------------------------<
+Project1.exe: 00001BC4: 15:45:07 [TUniServerModule]:Server First Init.
+Project1.exe: 00001BC4: 15:45:07 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00001BC4: 15:45:07 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 0000159C: 15:45:19 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]El nombre de columna 'autonumerico' no es válido. : Addr: $0087FBD5
+Project1.exe: 00001BC4: 15:45:34 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00001BC4: 15:45:34 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00001BC4: 15:45:35 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00001BC4: 15:45:35 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00001BC4: 15:45:35 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00001BC4: 15:45:35 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00001BC4: 15:45:35 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00001BC4: 15:45:35 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00001BC4: 15:45:35 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00001BC4: 15:45:35 []:<-------------------------------------------------------------->
+Project1.exe: 00001BC4: 15:45:35 [Terminated]:Exit Code: 0
+Project1.exe: 0000188C: 15:45:38 []:>--------------------------------------------------------------<
+Project1.exe: 0000188C: 15:45:38 [TUniServerModule]:Server First Init.
+Project1.exe: 0000188C: 15:45:39 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 0000188C: 15:45:39 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 000008F4: 15:45:40 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: SKwosOgEn9108509367 ) : Addr: $0079A966
+Project1.exe: 000008F4: 15:45:47 [127.0.0.1]:EArgumentOutOfRangeException : Argument out of range : Addr: $004C4157
+Project1.exe: 000008F4: 15:45:50 [127.0.0.1]:EArgumentOutOfRangeException : Argument out of range : Addr: $004C4157
+Project1.exe: 0000188C: 15:47:08 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 0000188C: 15:47:08 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 0000188C: 15:47:09 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 0000188C: 15:47:09 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 0000188C: 15:47:09 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 0000188C: 15:47:09 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 0000188C: 15:47:09 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 0000188C: 15:47:09 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 0000188C: 15:47:09 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 0000188C: 15:47:09 []:<-------------------------------------------------------------->
+Project1.exe: 0000188C: 15:47:09 [Terminated]:Exit Code: 0
+Project1.exe: 00001260: 15:47:17 []:>--------------------------------------------------------------<
+Project1.exe: 00001260: 15:47:17 [TUniServerModule]:Server First Init.
+Project1.exe: 00001260: 15:47:17 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00001260: 15:47:17 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 0000469C: 15:47:21 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: Wps42OZrES108509389 ) : Addr: $0079A966
+Project1.exe: 00001260: 15:48:30 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00001260: 15:48:30 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003FD8: 15:49:05 []:>--------------------------------------------------------------<
+Project1.exe: 00003FD8: 15:49:05 [TUniServerModule]:Server First Init.
+Project1.exe: 00003FD8: 15:49:05 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+Project1.exe: 00003FD8: 15:49:05 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003FD8: 15:49:05 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 0000010C: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 0000010C: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 0000010C: 15:49:05 [HandleFileRequest[127.0.0.1]]:File not found: F:\SinsaERP\Win32\Debug\favicon.ico
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 000047E4: 15:49:05 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: icUSRK7otU1085093FB ) : Addr: $0079A966
+Project1.exe: 00003FD8: 15:52:42 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003FD8: 15:52:42 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003204: 15:56:49 []:>--------------------------------------------------------------<
+Project1.exe: 00003204: 15:56:49 [TUniServerModule]:Server First Init.
+Project1.exe: 00003204: 15:56:49 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+Project1.exe: 00003204: 15:56:49 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003204: 15:56:49 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 000034D8: 15:56:49 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: lnupCbkKPK108509477 ) : Addr: $0079A966
+Project1.exe: 00003204: 16:00:17 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003204: 16:00:17 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00000E0C: 16:00:36 []:>--------------------------------------------------------------<
+Project1.exe: 00000E0C: 16:00:36 [TUniServerModule]:Server First Init.
+Project1.exe: 00000E0C: 16:00:36 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+Project1.exe: 00000E0C: 16:00:36 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00000E0C: 16:00:36 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00001148: 16:00:36 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: plnGDycgDl10850969A ) : Addr: $0079A966
+Project1.exe: 00000E0C: 16:10:08 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00000E0C: 16:10:08 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00000E0C: 16:10:08 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00000E0C: 16:10:08 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00000E0C: 16:10:08 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00000E0C: 16:10:08 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00000E0C: 16:10:08 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00000E0C: 16:10:08 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00000E0C: 16:10:08 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00000E0C: 16:10:08 []:<-------------------------------------------------------------->
+Project1.exe: 00000E0C: 16:10:08 [Terminated]:Exit Code: 0
+Project1.exe: 000026F4: 16:10:16 []:>--------------------------------------------------------------<
+Project1.exe: 000026F4: 16:10:16 [TUniServerModule]:Server First Init.
+Project1.exe: 000026F4: 16:10:16 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 000026F4: 16:10:16 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 000026F4: 16:11:32 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000026F4: 16:11:32 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000026F4: 16:11:33 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000026F4: 16:11:33 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000026F4: 16:11:33 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000026F4: 16:11:33 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000026F4: 16:11:33 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000026F4: 16:11:33 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000026F4: 16:11:33 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000026F4: 16:11:33 []:<-------------------------------------------------------------->
+Project1.exe: 000026F4: 16:11:33 [Terminated]:Exit Code: 0
+Project1.exe: 00003450: 16:11:41 []:>--------------------------------------------------------------<
+Project1.exe: 00003450: 16:11:41 [TUniServerModule]:Server First Init.
+Project1.exe: 00003450: 16:11:41 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003450: 16:11:41 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00003450: 16:13:03 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003450: 16:13:03 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003450: 16:13:03 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003450: 16:13:03 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003450: 16:13:03 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003450: 16:13:03 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003450: 16:13:03 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003450: 16:13:03 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003450: 16:13:03 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003450: 16:13:03 []:<-------------------------------------------------------------->
+Project1.exe: 00003450: 16:13:03 [Terminated]:Exit Code: 0
+Project1.exe: 00000684: 16:13:07 []:>--------------------------------------------------------------<
+Project1.exe: 00000684: 16:13:07 [TUniServerModule]:Server First Init.
+Project1.exe: 00000684: 16:13:07 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00000684: 16:13:07 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00001E9C: 16:13:36 []:>--------------------------------------------------------------<
+Project1.exe: 00001E9C: 16:13:36 [TUniServerModule]:Server First Init.
+Project1.exe: 00001E9C: 16:13:36 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+Project1.exe: 00001E9C: 16:13:36 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00001E9C: 16:13:36 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00004164: 16:13:40 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: ShJLKTALDy108509799 ) : Addr: $0079A966
+Project1.exe: 00001E9C: 16:15:58 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00001E9C: 16:15:58 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00001E9C: 16:15:59 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00001E9C: 16:15:59 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00001E9C: 16:15:59 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00001E9C: 16:15:59 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00001E9C: 16:15:59 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00001E9C: 16:15:59 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00001E9C: 16:15:59 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00001E9C: 16:15:59 []:<-------------------------------------------------------------->
+Project1.exe: 00001E9C: 16:15:59 [Terminated]:Exit Code: 0
+Project1.exe: 00002448: 16:16:02 []:>--------------------------------------------------------------<
+Project1.exe: 00002448: 16:16:02 [TUniServerModule]:Server First Init.
+Project1.exe: 00002448: 16:16:02 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00002448: 16:16:02 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00003704: 16:16:06 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: CUoHq2P1Uv108509B20 ) : Addr: $0079A966
+Project1.exe: 00002448: 16:31:49 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00002448: 16:31:49 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00002448: 16:31:50 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00002448: 16:31:50 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00002448: 16:31:50 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00002448: 16:31:50 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00002448: 16:31:50 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00002448: 16:31:50 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00002448: 16:31:50 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00002448: 16:31:50 []:<-------------------------------------------------------------->
+Project1.exe: 00002448: 16:31:50 [Terminated]:Exit Code: 0
+Project1.exe: 00003184: 16:42:54 []:>--------------------------------------------------------------<
+Project1.exe: 00003184: 16:42:54 [TUniServerModule]:Server First Init.
+Project1.exe: 00003184: 16:42:55 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003184: 16:42:55 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 0000409C: 16:42:58 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: GEmzhE53x9108509BC9 ) : Addr: $0079A966
+Project1.exe: 00003184: 16:44:33 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003184: 16:44:33 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003184: 16:44:34 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003184: 16:44:34 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003184: 16:44:34 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003184: 16:44:34 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003184: 16:44:34 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003184: 16:44:34 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003184: 16:44:34 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003184: 16:44:34 []:<-------------------------------------------------------------->
+Project1.exe: 00003184: 16:44:34 [Terminated]:Exit Code: 0
+Project1.exe: 00003188: 16:44:37 []:>--------------------------------------------------------------<
+Project1.exe: 00003188: 16:44:37 [TUniServerModule]:Server First Init.
+Project1.exe: 00003188: 16:44:37 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003188: 16:44:37 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00002A74: 16:44:41 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: ZPpxtJqKic10850A314 ) : Addr: $0079A966
+Project1.exe: 00003188: 16:45:21 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003188: 16:45:21 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003188: 16:45:22 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003188: 16:45:22 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003188: 16:45:22 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003188: 16:45:22 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003188: 16:45:23 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003188: 16:45:23 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003188: 16:45:23 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003188: 16:45:23 []:<-------------------------------------------------------------->
+Project1.exe: 00003188: 16:45:23 [Terminated]:Exit Code: 0
+Project1.exe: 00002A60: 16:45:45 []:>--------------------------------------------------------------<
+Project1.exe: 00002A60: 16:45:45 [TUniServerModule]:Server First Init.
+Project1.exe: 00002A60: 16:45:45 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00002A60: 16:45:45 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 000041E0: 16:45:47 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: najo8ExCPz10850A389 ) : Addr: $0079A966
+Project1.exe: 00002A60: 16:48:47 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00002A60: 16:48:47 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00002A60: 16:48:48 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00002A60: 16:48:48 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00002A60: 16:48:48 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00002A60: 16:48:48 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00002A60: 16:48:49 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00002A60: 16:48:49 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00002A60: 16:48:49 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00002A60: 16:48:49 []:<-------------------------------------------------------------->
+Project1.exe: 00002A60: 16:48:49 [Terminated]:Exit Code: 0
+Project1.exe: 0000312C: 16:48:52 []:>--------------------------------------------------------------<
+Project1.exe: 0000312C: 16:48:52 [TUniServerModule]:Server First Init.
+Project1.exe: 0000312C: 16:48:52 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 0000312C: 16:48:52 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00003F78: 16:48:57 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: PHHFkw8WtK10850A3D6 ) : Addr: $0079A966

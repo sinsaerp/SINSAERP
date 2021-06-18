@@ -1,0 +1,7 @@
+unit Parametros;
+
+interface
+
+implementation
+   public URL:='localhost';
+end.

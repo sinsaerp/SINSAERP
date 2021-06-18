@@ -1,0 +1,6 @@
+Project1.exe: 00001BE8: 14:57:11 [127.0.0.1]:Failed Sequence Recovery: SeqId: 47, Event: click
+Project1.exe: 00001BE8: 14:57:54 [127.0.0.1]:Sequence sent from cache:  SeqId: 47
+Project1.exe: 00001BE8: 14:57:54 [127.0.0.1]:Processed: Id: 47, Evt: click, [Ywv12kVlZ31085B3483]
+Project1.exe: 0000264C: 14:58:18 [127.0.0.1]:Failed Sequence Recovery: SeqId: 47, Event: click
+Project1.exe: 0000264C: 14:58:35 [127.0.0.1]:Sequence sent from cache:  SeqId: 47
+Project1.exe: 0000264C: 14:58:35 [127.0.0.1]:Processed: Id: 47, Evt: click, [Y7ZjQkoiNM1085B34D8]

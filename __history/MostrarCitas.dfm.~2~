@@ -1,0 +1,50 @@
+object citaPacienteF: TcitaPacienteF
+  Left = 0
+  Top = 0
+  ClientHeight = 597
+  ClientWidth = 930
+  Caption = 'Cita Paciente'
+  OnShow = UniFormShow
+  OldCreateOrder = False
+  MonitoredKeys.Keys = <>
+  PixelsPerInch = 96
+  TextHeight = 13
+  object UniToolBar1: TUniToolBar
+    Left = 0
+    Top = 0
+    Width = 930
+    Height = 73
+    Hint = ''
+    TabOrder = 0
+    ParentColor = False
+    Color = 11169097
+    ExplicitLeft = 8
+    ExplicitWidth = 910
+    object ubVerCita: TUniSpeedButton
+      Left = 816
+      Top = 16
+      Width = 99
+      Height = 41
+      Hint = ''
+      Caption = 'Ver Cita'
+      ParentColor = False
+      Color = clWindow
+      TabOrder = 1
+    end
+  end
+  object UniDBGrid1: TUniDBGrid
+    Left = 0
+    Top = 73
+    Width = 930
+    Height = 524
+    Hint = ''
+    LoadMask.Message = 'Loading data...'
+    Align = alClient
+    TabOrder = 1
+  end
+  object DataSource1: TDataSource
+    DataSet = UniMainModule.Query
+    Left = 360
+    Top = 264
+  end
+end

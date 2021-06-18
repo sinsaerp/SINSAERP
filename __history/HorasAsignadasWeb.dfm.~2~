@@ -1,0 +1,69 @@
+object HorasAsignadas: THorasAsignadas
+  Left = 0
+  Top = 0
+  ClientHeight = 630
+  ClientWidth = 393
+  Caption = 'Horas Asignadas a la Web'
+  BorderStyle = bsDialog
+  OldCreateOrder = False
+  MonitoredKeys.Keys = <>
+  PixelsPerInch = 96
+  TextHeight = 13
+  object UniDBGrid1: TUniDBGrid
+    Left = 0
+    Top = 49
+    Width = 393
+    Height = 581
+    Hint = ''
+    DataSource = DataSource1
+    LoadMask.Message = 'Loading data...'
+    Align = alClient
+    TabOrder = 0
+    Columns = <
+      item
+        FieldName = 'hora'
+        Title.Caption = 'Hora Cita'
+        Width = 64
+      end
+      item
+        FieldName = 'Fecha'
+        Title.Caption = 'Fecha'
+        Width = 96
+      end
+      item
+        FieldName = 'medico'
+        Title.Caption = 'medico'
+        Width = 203
+      end>
+  end
+  object UniToolBar1: TUniToolBar
+    Left = 0
+    Top = 0
+    Width = 393
+    Height = 49
+    Hint = ''
+    TabOrder = 1
+    ParentColor = False
+    Color = clBtnFace
+    ExplicitLeft = -155
+    ExplicitWidth = 607
+    object UniLabel1: TUniLabel
+      Left = 0
+      Top = 0
+      Width = 248
+      Height = 23
+      Hint = ''
+      Caption = 'Horas Asignadas a la Web'
+      Align = alLeft
+      ParentFont = False
+      Font.Height = -19
+      Font.Style = [fsBold]
+      TabOrder = 1
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = UniMainModule.QueryAgenda
+    Left = 136
+    Top = 312
+  end
+end

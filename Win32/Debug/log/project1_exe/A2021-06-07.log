@@ -1,0 +1,5 @@
+Project1.exe: 00003CEC: 13:27:17 []:>--------------------------------------------------------------<
+Project1.exe: 00003CEC: 13:27:17 [TUniServerModule]:Server First Init.
+Project1.exe: 00003CEC: 13:27:18 [TUniServerModule]:Global Cache Folder Erased. <10> Files deleted.
+Project1.exe: 00003CEC: 13:27:18 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003CEC: 13:27:18 [TUniServerModule]:HTTP Server Started on Port: 8077

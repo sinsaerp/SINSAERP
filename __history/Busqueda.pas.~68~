@@ -1,0 +1,215 @@
+unit Busqueda;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniButton, uniBitBtn, uniSpeedButton, uniEdit,
+  uniGUIBaseClasses, uniBasicGrid, uniDBGrid, Data.DB, uniMemo, uniDBMemo;
+
+type
+  Tbusquedaf = class(TUniForm)
+    UniDBGrid1: TUniDBGrid;
+    Busqueda: TUniEdit;
+    UniDBMemo1: TUniDBMemo;
+    DataSource1: TDataSource;
+    procedure BusquedaKeyPress(Sender: TObject; var Key: Char);
+    procedure BusquedaChange(Sender: TObject);
+    procedure UniFormShow(Sender: TObject);
+    procedure UniDBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  var
+    numeros: string;
+  public
+    tipopres: string;
+  end;
+
+function busquedaf: Tbusquedaf;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication, Main;
+
+function busquedaf: Tbusquedaf;
+begin
+  Result := Tbusquedaf(UniMainModule.GetFormInstance(Tbusquedaf));
+end;
+
+procedure Tbusquedaf.BusquedaChange(Sender: TObject);
+var
+  opcion: Integer;
+  cadena: string;
+begin
+  opcion := UniMainModule.i;
+  if (opcion = 0) then
+  begin
+    if (numeros.Equals('0')) then
+      cadena := 'Select afcodigo as codigo, nombrecompleto as descripcion, * from Usuarios Where afcodigo like ''%'
+        + Busqueda.Text + '%'''
+    else
+      cadena := 'Select afcodigo as codigo, nombrecompleto as descripcion, *  from Usuarios Where NombreCompleto like ''%'
+        + Busqueda.Text + '%''';
+
+    if (Length(Busqueda.Text) >= 3) and (Busqueda.Text <> '') then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion'
+    end;
+
+  end;
+
+  if (opcion = 1) then
+  begin
+    ///
+    ///
+    cadena := 'Select Descripcion, Codigo, TipoMedico, valor, tipo from TipoConsulta where Consulta=''1'' and '
+      + 'Descripcion+Codigo like ''%' + Busqueda.Text +
+      '%'' AND TipoMedico IN (' + UniMainModule.TipoC +
+      ', 0) order by Descripcion';
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add(cadena);
+    UniMainModule.Query.Open;
+    UniDBMemo1.DataField := 'Descripcion'
+
+  end;
+
+  if (opcion = 2) then
+  begin
+    ///
+    cadena := 'Select Nombre as Descripcion, Codigo,Usuario, Clave, Especialidad, RM, Perfil, Direccion, Agenda, IDentificacion, Frecuencia from Medicos where Codigo+NOMBRE like ''%'
+      + Busqueda.Text + '%''';
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add(cadena);
+    UniMainModule.Query.Open;
+    UniDBMemo1.DataField := 'Descripcion'
+  end;
+
+  if (opcion = 4) then
+  begin
+    cadena := 'Select municipio as Descripcion, Codigo, Departamento  from municipios where municipio like ''%'
+      + Busqueda.Text + '%''';
+    if (Length(Busqueda.Text) >= 3) then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion'
+    end;
+
+  end;
+
+  if (opcion = 10) then
+  begin
+    /// ///
+    cadena := 'Select Descripcion as Descripcion,DX as codigo from Diagnosticoscie10 Where DESCRIPCION+DX  like ''%'
+      + Busqueda.Text + '%''';
+    if (Length(Busqueda.Text) >= 3) then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion'
+    end;
+  end;
+
+   //Buscar Especialidades
+  if (opcion = 9) then
+  begin
+    /// ///
+    cadena := 'Select especialidad as Descripcion, codigo from especialidad Where especialidad  like ''%'
+      + Busqueda.Text + '%''';
+    if (Length(Busqueda.Text) >= 3) then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion'
+    end;
+  end;
+
+  if (opcion = 8) then
+  begin
+
+    cadena := 'select nombre as descripcion, codigoeps as codigo, nit, direccione, telefonoe, contrato, tipocliente, logo from epssi where nombre '
+      + 'like ''%' + Busqueda.Text + '%''';
+    if (Length(Busqueda.Text) >= 3) then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion'
+    end;
+  end;
+
+  /// ////////////contrato
+  if (opcion = 16) then
+  begin
+    /// ///
+    cadena := 'Select NumeroC as Descripcion, LPServicio as codigo,LPInsumo,Tipo,Manual,ObjetoContrato  from contratosin where Entidad='''
+      + Busqueda.Text + ''' AND ESTADO=''ACTIVO''';
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add(cadena);
+    UniMainModule.Query.Open;
+    UniDBMemo1.DataField := 'Descripcion'
+
+  end;
+
+  if (opcion = 22) then
+  begin
+    /// ///
+    cadena := 'Select Porcentaje as descripcion,Nivel as codigo from RangoCopagos where TIPO='''
+      + Busqueda.Text + '''';
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add(cadena);
+    UniMainModule.Query.Open;
+    UniDBMemo1.DataField := 'Descripcion'
+  end;
+
+  if (opcion = 25) then
+  begin
+    ///
+    cadena := 'Select Nombre as Descripcion, Codigo , Usuario, Clave, Especialidad, RM, Perfil, Direccion, Agenda, Frecuencia, '
+      + 'Servicios from Medicos where Codigo+NOMBRE like ''%' + Busqueda.Text +
+      '%'' and tipopres = ' + tipopres + ' and Agenda=''SI'' ';
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add(cadena);
+    // ShowMessage(cadena);
+    UniMainModule.Query.Open;
+    UniDBMemo1.DataField := 'Descripcion'
+  end;
+
+end;
+
+procedure Tbusquedaf.BusquedaKeyPress(Sender: TObject; var Key: Char);
+begin
+
+  if not(Upcase(Key) in [#8, 'A' .. 'Z', 'Ñ', 'ñ']) then
+    numeros := '0'
+  else
+    numeros := '1';
+
+  if (Key = #13) then
+    ModalResult := mrOk
+  else
+    Busqueda.SetFocus;
+
+end;
+
+procedure Tbusquedaf.UniDBGrid1DblClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tbusquedaf.UniFormShow(Sender: TObject);
+begin
+  UniMainModule.Query.Close;
+end;
+
+end.

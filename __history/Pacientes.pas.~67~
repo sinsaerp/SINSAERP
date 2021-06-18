@@ -1,0 +1,355 @@
+unit Pacientes;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniGUIBaseClasses, uniTabControl, uniButton,
+  uniBitBtn, uniSpeedButton, uniDateTimePicker, uniMultiItem, uniComboBox,
+  uniEdit, uniLabel, uniPanel, uniPageControl, Data.DB, uniDBComboBox;
+
+type
+  Tpacientesf = class(TUniForm)
+    UniPageControl1: TUniPageControl;
+    UniTabSheet1: TUniTabSheet;
+    UniLabel1: TUniLabel;
+    IdentificacionA: TUniEdit;
+    UniLabel2: TUniLabel;
+    TDAfiliado: TUniComboBox;
+    UniLabel3: TUniLabel;
+    PrimerApellidoA: TUniEdit;
+    UniLabel4: TUniLabel;
+    SegundoApellidoA: TUniEdit;
+    UniLabel5: TUniLabel;
+    UniLabel6: TUniLabel;
+    PrimerNombreA: TUniEdit;
+    SegundoNombreA: TUniEdit;
+    UniLabel7: TUniLabel;
+    TipoBeneficiario: TUniComboBox;
+    UniLabel8: TUniLabel;
+    SexoA: TUniComboBox;
+    UniLabel9: TUniLabel;
+    FechaNacimientoA: TUniDateTimePicker;
+    UniLabel10: TUniLabel;
+    EPS: TUniEdit;
+    UniLabel11: TUniLabel;
+    Municipio: TUniEdit;
+    UniSpeedButton1: TUniSpeedButton;
+    UniSpeedButton2: TUniSpeedButton;
+    UniSpeedButton3: TUniSpeedButton;
+    UniLabel12: TUniLabel;
+    Zona: TUniComboBox;
+    UniLabel13: TUniLabel;
+    educativo: TUniComboBox;
+    UniLabel14: TUniLabel;
+    NivelA: TUniEdit;
+    UniSpeedButton4: TUniSpeedButton;
+    UniLabel15: TUniLabel;
+    TelefonoA: TUniEdit;
+    UniLabel16: TUniLabel;
+    DireccionA: TUniEdit;
+    UniLabel17: TUniLabel;
+    correo_e: TUniEdit;
+    ubLimpiar: TUniSpeedButton;
+    ubGuardar: TUniSpeedButton;
+    ubCerrar: TUniSpeedButton;
+    ubEliminar: TUniSpeedButton;
+    UniLabel18: TUniLabel;
+    UniLabel19: TUniLabel;
+    DataSource1: TDataSource;
+    Etnia: TUniComboBox;
+    Poblacion: TUniComboBox;
+    procedure UniFormShow(Sender: TObject);
+    procedure ubGuardarClick(Sender: TObject);
+    procedure UniSpeedButton3Click(Sender: TObject);
+    procedure ShowCallback(Sender: TComponent; Asresult: Integer);
+    procedure UniSpeedButton2Click(Sender: TObject);
+    procedure UniSpeedButton1Click(Sender: TObject);
+    procedure ubCerrarClick(Sender: TObject);
+    procedure UniSpeedButton4Click(Sender: TObject);
+    procedure LimpiarCampos();
+    procedure ubLimpiarClick(Sender: TObject);
+    procedure IdentificacionAKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+    Departamento: string;
+  public
+    { Public declarations }
+  end;
+
+function pacientesf: Tpacientesf;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication, Busqueda;
+
+function pacientesf: Tpacientesf;
+begin
+  Result := Tpacientesf(UniMainModule.GetFormInstance(Tpacientesf));
+end;
+
+procedure Tpacientesf.ubCerrarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tpacientesf.ubGuardarClick(Sender: TObject);
+var
+  Consulta, NombreCom: String;
+  dias: Double;
+  FechaAfiliacion: TDateTime;
+  EdadI, EdadF: string;
+begin
+
+  if ((EPS.Text = '') or (IdentificacionA.Text = '') or
+    (PrimerApellidoA.Text = '') or (PrimerNombreA.Text = '')) then
+  begin
+    ShowMessage('Datos En Blanco... ');
+    exit;
+  end;
+  FechaAfiliacion := Now;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from  Identificaciones where TipoId='''
+    + TDAfiliado.Text + '''');
+  UniMainModule.Query.open;
+  EdadI := UniMainModule.Query.Fieldbyname('Inicio').AsString;;
+  EdadF := UniMainModule.Query.Fieldbyname('fin').AsString;
+  dias := (FechaAfiliacion - FechaNacimientoA.DateTime) / 365;
+  if not((dias >= StrToFloat(EdadI)) and (dias <= StrToFloat(EdadF))) then
+  begin
+    ShowMessage('Edad no corresponde a tipo de id verifique... ' +
+      FloatToStr(dias));
+    exit;
+  end;
+
+  NombreCom := UpperCase(PrimerApellidoA.Text) + ' ' + UpperCase(SegundoApellidoA.Text) + ' ' +
+    UpperCase(PrimerNombreA.Text) + ' ' + UpperCase(SegundoNombreA.Text);
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from Usuarios where AfCodigo=''' +
+    IdentificacionA.Text + '''');
+  UniMainModule.Query.open;
+  if (UniMainModule.Query.IsEmpty) then
+  begin
+
+    Consulta := 'insert into Usuarios(CODEPS, TIPIDECOTPP, TIPIDAFIL,AfCodigo,' +
+      'afape1,afape2,afnom1,afnom2,FECHA_NACIMIENTO,SEXO,TIPAFILIADO,TELEFONO,DIRECCION,CODDPTO,CODMPIO,ZONA,FECAFILSGSSS,eVENTO,Nombre,FechaEvento,TIPIDEAPORTANTE,NombreCompleto,nivelescolar, correoe, etnia, poblacion)'
+      + ' values(''' + EPS.Text + ''',''' + TDAfiliado.Text + ''',''' + TipoBeneficiario.Text+ ''','''+
+      IdentificacionA.Text + ''',''' + UpperCase(PrimerApellidoA.Text) + ''',''' +
+      UpperCase(SegundoApellidoA.Text) + ''',''' + UpperCase(PrimerNombreA.Text) + ''',''' +
+      UpperCase(SegundoNombreA.Text) + ''',''' + FormatDateTime('yyyymmdd',
+      FechaNacimientoA.DateTime) + ''',''' + SexoA.Text + ''',''' +
+      TipoBeneficiario.Text + ''',''' + TelefonoA.Text + ''',''' +
+      DireccionA.Text + ''',''' + Departamento + ''',''' + Municipio.Text +
+      ''',''' + Zona.Text + ''',''' + FormatDateTime('yyyymmdd',
+      FechaAfiliacion) + ''',1,''I'',''' + FormatDateTime('yyyymmdd', Now) +
+      ''',''' + NivelA.Text + ''',''' + NombreCom + ''',''' + educativo.Text +
+      ''',''' + correo_e.Text + ''', ''' + Etnia.Text + ''',''' +
+      Poblacion.Text + ''' )';
+
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add(Consulta);
+    UniMainModule.Query.ExecSQL;
+
+    ShowMessage('Registro guardado satisfactoriamente');
+    LimpiarCampos;
+  end
+  else
+  begin
+    // Showmessage('bbbbbbbbbbbbb');
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add('Update Usuarios set CODEPS=''' + EPS.Text +
+      ''',TIPIDEAFIL=''' + TDAfiliado.Text +
+       ''',TIPIDECOTPP=''' + TipoBeneficiario.Text + ''',AfCodigo=''' +
+      IdentificacionA.Text + ''',afape1=''' + UpperCase(PrimerApellidoA.Text) +
+      ''',afape2=''' + UpperCase(SegundoApellidoA.Text) + ''',afnom1=''' +
+      UpperCase(PrimerNombreA.Text) + ''',afnom2=''' + UpperCase(SegundoNombreA.Text) +
+      ''',FECHA_NACIMIENTO=''' + FormatDateTime('yyyymmdd',
+      FechaNacimientoA.DateTime) + ''',SEXO=''' + SexoA.Text +
+      ''',TIPAFILIADO=''' + TipoBeneficiario.Text + ''',TELEFONO=''' +
+      TelefonoA.Text + ''',DIRECCION=''' + DireccionA.Text + ''',CODDPTO=''' +
+      Departamento + ''',CODMPIO=''' + Municipio.Text + ''',ZONA=''' + Zona.Text
+      + ''',FECAFILSGSSS=''' + FormatDateTime('yyyymmdd', FechaAfiliacion) +
+      ''',NombreCompleto=''' + NombreCom + ''',correoe=''' + correo_e.Text +
+      ''',TIPIDEAPORTANTE=''' + NivelA.Text + ''', nivelescolar = ''' +
+      educativo.Text + ''', etnia = ''' + Etnia.Text + ''', poblacion = ''' +
+      Poblacion.Text + ''' where AfCodigo=''' + IdentificacionA.Text + '''');
+    UniMainModule.Query.ExecSQL;
+
+    ShowMessage('Registro Actualizado satisfactoriamente');
+    LimpiarCampos;
+  end;
+end;
+
+procedure Tpacientesf.ubLimpiarClick(Sender: TObject);
+begin
+  LimpiarCampos;
+end;
+
+procedure Tpacientesf.UniFormShow(Sender: TObject);
+begin
+  UniMainModule.Query.Close;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select descripcion from etnias');
+  UniMainModule.Query.open;
+  Etnia.Clear;
+  while not UniMainModule.Query.Eof do
+  begin
+    Etnia.Items.Add(UniMainModule.Query.Fieldbyname('descripcion').AsString);
+    UniMainModule.Query.Next;
+  end;
+
+  UniMainModule.Query.Close;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select descripcion from poblacion');
+  UniMainModule.Query.open;
+  Poblacion.Clear;
+  while not UniMainModule.Query.Eof do
+  begin
+    Poblacion.Items.Add(UniMainModule.Query.Fieldbyname('descripcion')
+      .AsString);
+    UniMainModule.Query.Next;
+  end;
+
+end;
+
+procedure Tpacientesf.UniSpeedButton1Click(Sender: TObject);
+begin
+  UniMainModule.i := 0;
+  busquedaf.ShowModal(ShowCallback);
+end;
+
+procedure Tpacientesf.UniSpeedButton2Click(Sender: TObject);
+begin
+  UniMainModule.i := 8;
+  busquedaf.ShowModal(ShowCallback);
+end;
+
+procedure Tpacientesf.UniSpeedButton3Click(Sender: TObject);
+begin
+  UniMainModule.i := 4;
+  busquedaf.ShowModal(ShowCallback);
+end;
+
+procedure Tpacientesf.UniSpeedButton4Click(Sender: TObject);
+begin
+  UniMainModule.i := 22;
+  busquedaf.ShowModal(ShowCallback);
+end;
+
+procedure Tpacientesf.ShowCallback(Sender: TComponent; Asresult: Integer);
+begin
+  if not(UniMainModule.Query.IsEmpty) and (UniMainModule.i = 0) then
+  begin
+    IdentificacionA.Text := (UniMainModule.Query.Fieldbyname('Codigo')
+      .AsString);
+  end;
+
+  if not(UniMainModule.Query.IsEmpty) and (UniMainModule.i = 4) then
+  begin
+    Municipio.Text := (UniMainModule.Query.Fieldbyname('Codigo').AsString);
+    Departamento := (UniMainModule.Query.Fieldbyname('departamento').AsString);
+  end;
+
+  if not(UniMainModule.Query.IsEmpty) and (UniMainModule.i = 8) then
+  begin
+    EPS.Text := (UniMainModule.Query.Fieldbyname('Codigo').AsString);
+  end;
+
+  if not(UniMainModule.Query.IsEmpty) and (UniMainModule.i = 22) then
+  begin
+    NivelA.Text := (UniMainModule.Query.Fieldbyname('Descripcion').AsString);
+  end;
+
+end;
+
+procedure Tpacientesf.IdentificacionAKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #32) then
+    Key := #0;
+
+  if (Key = #13) then
+  begin
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add('select * from Usuarios where AfCodigo=''' +
+      IdentificacionA.Text + '''');
+    UniMainModule.Query.open;
+    if not(UniMainModule.Query.IsEmpty) then
+    begin
+
+      // TDAfiliado.Text:=fprincipal.Query.Fieldbyname('TIPIDEAFIL').AsString;
+      TDAfiliado.ItemIndex := TDAfiliado.Items.IndexOf
+        (UniMainModule.Query.Fieldbyname('TIPIDEAFIL').AsString);
+      IdentificacionA.Text := UniMainModule.Query.Fieldbyname
+        ('AfCodigo').AsString;
+      PrimerApellidoA.Text := UniMainModule.Query.Fieldbyname('afape1')
+        .AsString;
+      SegundoApellidoA.Text := UniMainModule.Query.Fieldbyname
+        ('afape2').AsString;
+      PrimerNombreA.Text := UniMainModule.Query.Fieldbyname('afnom1').AsString;
+      SegundoNombreA.Text := UniMainModule.Query.Fieldbyname('afnom2').AsString;
+      TipoBeneficiario.ItemIndex := TipoBeneficiario.Items.IndexOf
+        (UniMainModule.Query.Fieldbyname('TIPAFILIADO').AsString);
+      // TipoBeneficiario.Text:=fprincipal.Query.Fieldbyname('TIPAFILIADO').AsString;
+
+      // SexoA.Text:=fprincipal.Query.Fieldbyname('SEXO').AsString;
+      SexoA.ItemIndex := SexoA.Items.IndexOf
+        (UniMainModule.Query.Fieldbyname('SEXO').AsString);
+
+      NivelA.Text := UniMainModule.Query.Fieldbyname('TIPIDEAPORTANTE')
+        .AsString;
+
+      educativo.Text := UniMainModule.Query.Fieldbyname('nivelescolar')
+        .AsString;
+
+      FechaNacimientoA.DateTime := UniMainModule.Query.Fieldbyname
+        ('FECHA_NACIMIENTO').AsDateTime;
+      EPS.Text := UniMainModule.Query.Fieldbyname('CODEPS').AsString;
+      Departamento := UniMainModule.Query.Fieldbyname('CODDPTO').AsString;
+      Municipio.Text := UniMainModule.Query.Fieldbyname('CODMPIO').AsString;
+      Zona.Text := UniMainModule.Query.Fieldbyname('ZONA').AsString;
+      TelefonoA.Text := UniMainModule.Query.Fieldbyname('TELEFONO').AsString;
+      DireccionA.Text := UniMainModule.Query.Fieldbyname('DIRECCION').AsString;
+      Etnia.ItemIndex := Etnia.Items.IndexOf
+        (UniMainModule.Query.Fieldbyname('etnia').AsString);
+      Poblacion.ItemIndex := Poblacion.Items.IndexOf
+        (UniMainModule.Query.Fieldbyname('poblacion').AsString);
+      correo_e.Text := UniMainModule.Query.Fieldbyname('correoe').AsString;
+
+    end;
+    { ELSE
+      ShowMessage('NO EXISTE ESTA IDENTIFICACION ..');
+    }
+    TDAfiliado.SetFocus;
+  end;
+end;
+
+procedure Tpacientesf.LimpiarCampos();
+begin
+  IdentificacionA.Clear;
+  TDAfiliado.Text:='';
+  PrimerApellidoA.Clear;
+  SegundoApellidoA.Clear;
+  PrimerNombreA.Clear;
+  SegundoNombreA.Clear;
+  FechaNacimientoA.DateTime:=Now();
+  TipoBeneficiario.Text:='';
+  SexoA.Text := '';
+  EPS.Clear;
+  Municipio.Text := '001';
+  Zona.Text := '';
+  educativo.Text := '';
+  NivelA.Text := '';
+  TelefonoA.Text := '';
+  DireccionA.Text := '';
+  Etnia.Text := '';
+  Poblacion.Text := '';
+  correo_e.Text := '';
+
+end;
+
+end.

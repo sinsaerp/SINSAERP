@@ -1,0 +1,47 @@
+unit Medicos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, Vcl.Imaging.pngimage, uniImage, uniToolBar,
+  uniRadioGroup, uniButton, uniBitBtn, uniSpeedButton, uniEdit, uniLabel,
+  uniGUIBaseClasses, uniPanel;
+
+type
+  TmedicosForm = class(TUniForm)
+    UniPanel1: TUniPanel;
+    UniLabel2: TUniLabel;
+    Codigo: TUniEdit;
+    ubBuscar: TUniSpeedButton;
+    Nombre: TUniEdit;
+    UniLabel3: TUniLabel;
+    Estado: TUniRadioGroup;
+    ubNuevo: TUniSpeedButton;
+    ubActualizar: TUniSpeedButton;
+    ubCancelar: TUniSpeedButton;
+    UniToolBar1: TUniToolBar;
+    UniImage1: TUniImage;
+    UniLabel1: TUniLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+function medicosForm: TmedicosForm;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function medicosForm: TmedicosForm;
+begin
+  Result := TmedicosForm(UniMainModule.GetFormInstance(TmedicosForm));
+end;
+
+end.
