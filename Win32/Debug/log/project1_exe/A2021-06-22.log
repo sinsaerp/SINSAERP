@@ -1,0 +1,18 @@
+Project1.exe: 000027A8: 10:07:42 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000027A8: 10:07:42 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000027A8: 10:07:42 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000027A8: 10:07:42 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000027A8: 10:07:42 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000027A8: 10:07:42 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000027A8: 10:07:42 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000027A8: 10:07:42 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000027A8: 10:07:43 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000027A8: 10:07:43 []:<-------------------------------------------------------------->
+Project1.exe: 000027A8: 10:07:43 [Terminated]:Exit Code: 0
+Project1.exe: 00003618: 10:15:46 []:>--------------------------------------------------------------<
+Project1.exe: 00003618: 10:15:46 [TUniServerModule]:Server First Init.
+Project1.exe: 00003618: 10:15:46 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003618: 10:15:46 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00004280: 10:16:47 [127.0.0.1]:EConvertError : '' is not a valid integer value : Addr: $00427806
+Project1.exe: 00004334: 10:16:57 [127.0.0.1]:EConvertError : '' is not a valid integer value : Addr: $00427806
+Project1.exe: 00002940: 10:29:57 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: gFGcnJJUfb108765FBE ) : Addr: $0079A966

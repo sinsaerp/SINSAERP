@@ -47,7 +47,6 @@ object HorasWebAsignadas: THorasWebAsignadas
     TabOrder = 1
     ParentColor = False
     Color = 11169097
-    ExplicitWidth = 430
     object UniImage1: TUniImage
       Left = 3
       Top = 3

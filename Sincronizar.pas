@@ -66,7 +66,7 @@ var
   doc, obj: TJSONObject;
 begin
   i := 0;
-  cadena := 'select tipomedico, descripcion from tipoconsulta where web=1';
+  cadena := 'select codigo, tipomedico, descripcion from tipoconsulta where web=1';
   UniMainModule.Query.SQL.Clear;
   UniMainModule.Query.SQL.Add(cadena);
   UniMainModule.Query.Open;

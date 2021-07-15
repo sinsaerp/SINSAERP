@@ -1,8 +1,8 @@
 object citasF: TcitasF
   Left = 0
   Top = 0
-  ClientHeight = 749
-  ClientWidth = 1194
+  ClientHeight = 865
+  ClientWidth = 1211
   Caption = 'Modulo de Citas'
   OnShow = UniFormShow
   OldCreateOrder = False
@@ -12,15 +12,19 @@ object citasF: TcitasF
   object UniPageControl1: TUniPageControl
     Left = 0
     Top = 89
-    Width = 1194
-    Height = 660
+    Width = 1211
+    Height = 776
     Hint = ''
     ActivePage = UniTabSheet5
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1194
+    ExplicitHeight = 660
     object UniTabSheet1: TUniTabSheet
       Hint = ''
       Caption = 'Citas medicas'
+      ExplicitWidth = 1186
+      ExplicitHeight = 632
       object educativo: TUniComboBox
         Left = 610
         Top = 125
@@ -665,10 +669,14 @@ object citasF: TcitasF
     object UniTabSheet4: TUniTabSheet
       Hint = ''
       Caption = 'Reportes'
+      ExplicitWidth = 1186
+      ExplicitHeight = 632
     end
     object TabAgenda: TUniTabSheet
       Hint = ''
       Caption = 'Agenda y Medicos'
+      ExplicitWidth = 1186
+      ExplicitHeight = 632
       object UniLabel28: TUniLabel
         Left = 24
         Top = 24
@@ -1173,6 +1181,8 @@ object citasF: TcitasF
     object UniTabSheet5: TUniTabSheet
       Hint = ''
       Caption = 'Citas Web'
+      ExplicitWidth = 1186
+      ExplicitHeight = 632
       object UniLabel48: TUniLabel
         Left = 25
         Top = 43
@@ -1302,12 +1312,13 @@ object citasF: TcitasF
   object UniToolBar1: TUniToolBar
     Left = 0
     Top = 0
-    Width = 1194
+    Width = 1211
     Height = 89
     Hint = ''
     TabOrder = 1
     ParentColor = False
     Color = 11169097
+    ExplicitWidth = 1194
     object UniImage1: TUniImage
       Left = 3
       Top = 3

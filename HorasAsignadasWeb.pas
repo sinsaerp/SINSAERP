@@ -40,8 +40,6 @@ begin
     (THorasWebAsignadas));
 end;
 
-
-
 procedure THorasWebAsignadas.UniDBGrid1Exit(Sender: TObject);
 begin
   UniMainModule.Query.Close;

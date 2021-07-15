@@ -51,8 +51,8 @@
     <Transaction>2021/06/16 11:46:34.000.270,=D:\SinsaERP\Unit1.pas</Transaction>
     <Transaction>2021/06/16 11:46:45.000.974,D:\SinsaERP\Unit1.dfm=D:\SinsaERP\DetalleCita2.dfm</Transaction>
     <Transaction>2021/06/16 11:46:45.000.974,D:\SinsaERP\Unit1.pas=D:\SinsaERP\DetalleCita2.pas</Transaction>
-    <Transaction>2021/06/17 15:21:01.652,=F:\SinsaERP\Unit1.pas</Transaction>
-    <Transaction>2021/06/17 15:21:09.416,F:\SinsaERP\HistorialCitas.pas=F:\SinsaERP\Unit1.pas</Transaction>
-    <Transaction>2021/06/17 15:21:09.416,F:\SinsaERP\HistorialCitas.dfm=F:\SinsaERP\Unit1.dfm</Transaction>
+    <Transaction>2021/06/17 15:21:01.000.652,=F:\SinsaERP\Unit1.pas</Transaction>
+    <Transaction>2021/06/17 15:21:09.000.416,F:\SinsaERP\HistorialCitas.pas=F:\SinsaERP\Unit1.pas</Transaction>
+    <Transaction>2021/06/17 15:21:09.000.416,F:\SinsaERP\HistorialCitas.dfm=F:\SinsaERP\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

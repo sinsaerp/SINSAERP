@@ -273,9 +273,9 @@ object DetalleCitaForm: TDetalleCitaForm
       TabOrder = 26
     end
     object EPS: TUniEdit
-      Left = 18
+      Left = 82
       Top = 193
-      Width = 471
+      Width = 407
       Hint = ''
       Text = ''
       TabOrder = 27
@@ -292,6 +292,15 @@ object DetalleCitaForm: TDetalleCitaForm
       Color = clWindow
       TabOrder = 28
       OnClick = ubHistorialClick
+    end
+    object Codigo: TUniEdit
+      Left = 18
+      Top = 193
+      Width = 60
+      Hint = ''
+      Text = ''
+      TabOrder = 29
+      ReadOnly = True
     end
   end
   object UniToolBar1: TUniToolBar

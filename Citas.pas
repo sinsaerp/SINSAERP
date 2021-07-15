@@ -705,7 +705,7 @@ begin
       finally
         ClientList.Free;
         UniMainModule.Query.SQL.Clear;
-        cadena := 'select c.id, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.direccion, c.idapi, c.fechaCita, c.fechaSolicitud,'
+        cadena := 'select c.codeps, c.id, c.afape1, c.afape2, c.afnom1, c.afnom2, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.email, c.fecha_nacimiento,  c.direccion, c.idapi, c.fechaCita, c.fechaSolicitud,'
         +' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion, c.estado from citasweb c, epssi e, medicos m'
           + ' where c.medico=m.Codigo and c.codeps=e.codigoEps and  c.fechaCita between '''
           + FormatDateTime('yyyymmdd', FechaIncial.DateTime) + ''' and ''' +

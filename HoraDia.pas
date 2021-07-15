@@ -6,15 +6,17 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIForm, uniBasicGrid, uniDBGrid, uniGUIBaseClasses,
-  uniToolBar, uniLabel, Data.DB, uniButton, uniBitBtn, uniSpeedButton;
+  uniToolBar, uniLabel, Data.DB, uniButton, uniBitBtn, uniSpeedButton,
+  Vcl.Imaging.pngimage, uniImage;
 
 type
   THorasAsignada = class(TUniForm)
     UniToolBar1: TUniToolBar;
     UniDBGrid1: TUniDBGrid;
     DataSource1: TDataSource;
-    UniLabel1: TUniLabel;
     ubConfirmarHoras: TUniSpeedButton;
+    UniLabel1: TUniLabel;
+    UniImage1: TUniImage;
 
     procedure ubConfirmarHorasClick(Sender: TObject);
   private

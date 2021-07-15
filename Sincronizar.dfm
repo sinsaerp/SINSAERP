@@ -1,10 +1,11 @@
 object sincronizarForm: TsincronizarForm
   Left = 0
   Top = 0
-  ClientHeight = 505
-  ClientWidth = 528
+  ClientHeight = 515
+  ClientWidth = 538
   Caption = 'Sincronizar Datos'
   OnShow = UniFormShow
+  BorderStyle = bsDialog
   OldCreateOrder = False
   MonitoredKeys.Keys = <>
   PixelsPerInch = 96
@@ -12,8 +13,8 @@ object sincronizarForm: TsincronizarForm
   object UniPanel1: TUniPanel
     Left = 0
     Top = 89
-    Width = 528
-    Height = 416
+    Width = 538
+    Height = 426
     Hint = ''
     Align = alClient
     TabOrder = 0
@@ -69,7 +70,7 @@ object sincronizarForm: TsincronizarForm
     object UniPanel2: TUniPanel
       Left = 1
       Top = 1
-      Width = 526
+      Width = 536
       Height = 83
       Hint = ''
       Align = alTop
@@ -136,7 +137,7 @@ object sincronizarForm: TsincronizarForm
   object UniToolBar1: TUniToolBar
     Left = 0
     Top = 0
-    Width = 528
+    Width = 538
     Height = 89
     Hint = ''
     TabOrder = 1
