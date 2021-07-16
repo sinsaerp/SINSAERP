@@ -1,0 +1,257 @@
+Project1.exe: 00000960: 12:15:25 []:>--------------------------------------------------------------<
+Project1.exe: 00000960: 12:15:25 [TUniServerModule]:Server First Init.
+Project1.exe: 00000960: 12:15:25 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+Project1.exe: 00000960: 12:15:25 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00000960: 12:15:25 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00001058: 12:15:52 [127.0.0.1]:ERESTException : REST request failed: Error sending data: (12029) No se pudo establecer conexión con el servidor : Addr: $00B8F136
+Project1.exe: 00000960: 12:24:38 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00000960: 12:24:39 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00000960: 12:24:39 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00000960: 12:24:39 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00000960: 12:24:39 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00000960: 12:24:39 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00000960: 12:24:39 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00000960: 12:24:39 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00000960: 12:24:39 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00000960: 12:24:39 []:<-------------------------------------------------------------->
+Project1.exe: 00000960: 12:24:39 [Terminated]:Exit Code: 0
+Project1.exe: 00002A20: 12:24:42 []:>--------------------------------------------------------------<
+Project1.exe: 00002A20: 12:24:42 [TUniServerModule]:Server First Init.
+Project1.exe: 00002A20: 12:24:42 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00002A20: 12:24:42 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00000D70: 12:24:47 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: 371oJQ9NRF108999886 ) : Addr: $0079A966
+Project1.exe: 00002A20: 12:36:50 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00002A20: 12:36:50 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00002A20: 12:36:50 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00002A20: 12:36:50 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00002A20: 12:36:50 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00002A20: 12:36:50 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00002A20: 12:36:50 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00002A20: 12:36:50 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00002A20: 12:36:50 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00002A20: 12:36:50 []:<-------------------------------------------------------------->
+Project1.exe: 00002A20: 12:36:50 [Terminated]:Exit Code: 0
+Project1.exe: 00003720: 12:36:57 []:>--------------------------------------------------------------<
+Project1.exe: 00003720: 12:36:57 [TUniServerModule]:Server First Init.
+Project1.exe: 00003720: 12:36:57 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003720: 12:36:57 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 0000276C: 12:36:58 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: v23FYCDYFQ108999B09 ) : Addr: $0079A966
+Project1.exe: 0000276C: 12:37:25 [127.0.0.1]:ERESTException : REST request failed: Error sending data: (12029) No se pudo establecer conexión con el servidor : Addr: $00B8F136
+Project1.exe: 00003720: 13:53:39 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003720: 13:53:39 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003720: 13:53:40 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003720: 13:53:40 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003720: 13:53:40 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003720: 13:53:40 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003720: 13:53:40 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003720: 13:53:40 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003720: 13:53:40 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003720: 13:53:40 []:<-------------------------------------------------------------->
+Project1.exe: 00003720: 13:53:40 [Terminated]:Exit Code: 0
+Project1.exe: 00003D5C: 15:57:27 []:>--------------------------------------------------------------<
+Project1.exe: 00003D5C: 15:57:27 [TUniServerModule]:Server First Init.
+Project1.exe: 00003D5C: 15:57:27 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003D5C: 15:57:27 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00003D5C: 15:58:08 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003D5C: 15:58:08 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003D5C: 15:58:09 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003D5C: 15:58:09 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003D5C: 15:58:09 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003D5C: 15:58:09 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003D5C: 15:58:09 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003D5C: 15:58:09 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003D5C: 15:58:09 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003D5C: 15:58:09 []:<-------------------------------------------------------------->
+Project1.exe: 00003D5C: 15:58:09 [Terminated]:Exit Code: 0
+Project1.exe: 00003650: 15:58:42 []:>--------------------------------------------------------------<
+Project1.exe: 00003650: 15:58:42 [TUniServerModule]:Server First Init.
+Project1.exe: 00003650: 15:58:42 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+Project1.exe: 00003650: 15:58:42 [TUniServerModule]:HTTP Server Started on Port: 8077
+Project1.exe: 00003650: 16:00:41 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003650: 16:00:41 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003650: 16:00:42 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003650: 16:00:42 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003650: 16:00:42 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003650: 16:00:42 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003650: 16:00:42 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003650: 16:00:42 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003650: 16:00:42 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003650: 16:00:42 []:<-------------------------------------------------------------->
+Project1.exe: 00003650: 16:00:42 [Terminated]:Exit Code: 0
+Project1.exe: 000029A0: 16:00:45 []:>--------------------------------------------------------------<
+Project1.exe: 000029A0: 16:00:45 [TUniServerModule]:Server First Init.
+Project1.exe: 000029A0: 16:00:45 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 000029A0: 16:00:45 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 0000053C: 16:00:57 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\favicon.ico
+Project1.exe: 000029A0: 16:01:43 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000029A0: 16:01:43 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000029A0: 16:01:44 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000029A0: 16:01:44 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000029A0: 16:01:44 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000029A0: 16:01:44 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000029A0: 16:01:44 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000029A0: 16:01:44 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000029A0: 16:01:44 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000029A0: 16:01:44 []:<-------------------------------------------------------------->
+Project1.exe: 000029A0: 16:01:44 [Terminated]:Exit Code: 0
+Project1.exe: 00004180: 16:01:47 []:>--------------------------------------------------------------<
+Project1.exe: 00004180: 16:01:47 [TUniServerModule]:Server First Init.
+Project1.exe: 00004180: 16:01:47 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00004180: 16:01:47 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 00004180: 16:04:28 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00004180: 16:04:28 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00004180: 16:04:29 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00004180: 16:04:29 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00004180: 16:04:29 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00004180: 16:04:29 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00004180: 16:04:29 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00004180: 16:04:29 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00004180: 16:04:29 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00004180: 16:04:29 []:<-------------------------------------------------------------->
+Project1.exe: 00004180: 16:04:29 [Terminated]:Exit Code: 0
+Project1.exe: 00000A6C: 16:46:31 []:>--------------------------------------------------------------<
+Project1.exe: 00000A6C: 16:46:31 [TUniServerModule]:Server First Init.
+Project1.exe: 00000A6C: 16:46:31 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00000A6C: 16:46:31 [TUniServerModule]:HTTP Server Started on Port: 8080
+                                                                                                              Project1.exe: 00003148: 21:19:12 []:>--------------------------------------------------------------<
+Project1.exe: 00003148: 21:19:12 [TUniServerModule]:Server First Init.
+Project1.exe: 00003148: 21:19:12 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+Project1.exe: 00003148: 21:19:12 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00003148: 21:19:12 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 0000208C: 21:26:53 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\resources\theme-classic-all.css
+Project1.exe: 000016A8: 21:26:53 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 000030E8: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 00002BD8: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 00003164: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\ext-all.js
+Project1.exe: 00000F8C: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\theme-classic.js
+Project1.exe: 00001318: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\locale\locale-es.js
+Project1.exe: 00002E2C: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\locale\locale-es.js
+Project1.exe: 0000180C: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 000004DC: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 00000854: 21:26:54 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 00000D38: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\resources\theme-classic-all.css
+Project1.exe: 000029C8: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\ext-all.js
+Project1.exe: 000032DC: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 000034F8: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 000034FC: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 00003500: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\theme-classic.js
+Project1.exe: 00003504: 21:26:56 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\locale\locale-es.js
+Project1.exe: 00003508: 21:26:57 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 00003520: 21:26:57 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 00003524: 21:26:57 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 000033A0: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\resources\theme-classic-all.css
+Project1.exe: 00003534: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 00000378: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 0000274C: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 000029C8: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\theme-classic.js
+Project1.exe: 00003490: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\ext-all.js
+Project1.exe: 00003484: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\locale\locale-es.js
+Project1.exe: 00003474: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\theme-classic.js
+Project1.exe: 00000D38: 21:27:15 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\locale\locale-es.js
+Project1.exe: 00003494: 21:27:16 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 0000348C: 21:27:16 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 00003498: 21:27:16 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 00003488: 21:27:20 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\classic\theme-classic\resources\theme-classic-all.css
+Project1.exe: 00003464: 21:27:20 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome\resources\font-awesome-all.css
+Project1.exe: 000032DC: 21:27:20 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-pictos\resources\font-pictos-all.css
+Project1.exe: 00003468: 21:27:20 [HandleFileRequest[127.0.0.1]]:File not found: F:\sinsaerp\Win32\Debug\ext-7.2.0\build\packages\font-awesome-4.7.0\resources\font-awesome-all.css
+Project1.exe: 00003148: 21:27:35 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003148: 21:27:35 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003148: 21:27:36 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003148: 21:27:36 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003148: 21:27:36 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003148: 21:27:36 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003148: 21:27:36 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003148: 21:27:36 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003148: 21:27:36 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003148: 21:27:36 []:<-------------------------------------------------------------->
+Project1.exe: 00003148: 21:27:36 [Terminated]:Exit Code: 0
+Project1.exe: 00003334: 21:28:37 []:>--------------------------------------------------------------<
+Project1.exe: 00003334: 21:28:37 [TUniServerModule]:Server First Init.
+Project1.exe: 00003334: 21:28:37 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00003334: 21:28:37 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 00000E44: 21:29:33 [127.0.0.1]:ERESTException : REST request failed: Error sending data: (12029) No se pudo establecer conexión con el servidor : Addr: $00B8F136
+Project1.exe: 00003254: 21:30:32 [127.0.0.1]:EDatabaseError : Query: Field 'Fecha' not found : Addr: $0066778A
+Project1.exe: 00003254: 21:30:37 [127.0.0.1]:EConvertError : '' is not a valid integer value : Addr: $00427806
+Project1.exe: 00003254: 21:30:41 [127.0.0.1]:EConvertError : '' is not a valid integer value : Addr: $00427806
+Project1.exe: 00003334: 21:32:41 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003334: 21:32:41 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003334: 21:32:42 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003334: 21:32:42 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003334: 21:32:42 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003334: 21:32:42 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003334: 21:32:42 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003334: 21:32:43 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003334: 21:32:43 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003334: 21:32:43 []:<-------------------------------------------------------------->
+Project1.exe: 00003334: 21:32:43 [Terminated]:Exit Code: 0
+Project1.exe: 00003190: 21:35:23 []:>--------------------------------------------------------------<
+Project1.exe: 00003190: 21:35:23 [TUniServerModule]:Server First Init.
+Project1.exe: 00003190: 21:35:23 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00003190: 21:35:23 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 000023C8: 21:35:25 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: pHqpoceRwJ1089A2EAF ) : Addr: $0079A966
+Project1.exe: 00000990: 21:37:47 [127.0.0.1]:EConvertError : '' is not a valid integer value : Addr: $00427806
+Project1.exe: 00003190: 21:47:22 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003190: 21:47:22 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003190: 21:47:23 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003190: 21:47:23 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003190: 21:47:23 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003190: 21:47:23 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003190: 21:47:23 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003190: 21:47:23 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003190: 21:47:23 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003190: 21:47:23 []:<-------------------------------------------------------------->
+Project1.exe: 00003190: 21:47:23 [Terminated]:Exit Code: 0
+Project1.exe: 000030B8: 21:47:35 []:>--------------------------------------------------------------<
+Project1.exe: 000030B8: 21:47:35 [TUniServerModule]:Server First Init.
+Project1.exe: 000030B8: 21:47:36 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 000030B8: 21:47:36 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 000034DC: 21:47:40 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: rJJN3v4Pz81089A313C ) : Addr: $0079A966
+Project1.exe: 000030B8: 21:48:39 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000030B8: 21:48:39 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000030B8: 21:48:40 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000030B8: 21:48:40 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000030B8: 21:48:40 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000030B8: 21:48:40 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000030B8: 21:48:40 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000030B8: 21:48:40 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000030B8: 21:48:40 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000030B8: 21:48:40 []:<-------------------------------------------------------------->
+Project1.exe: 000030B8: 21:48:40 [Terminated]:Exit Code: 0
+Project1.exe: 00001A74: 21:48:44 []:>--------------------------------------------------------------<
+Project1.exe: 00001A74: 21:48:44 [TUniServerModule]:Server First Init.
+Project1.exe: 00001A74: 21:48:44 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00001A74: 21:48:44 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 00001A74: 21:49:49 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00001A74: 21:49:49 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00001A74: 21:49:50 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00001A74: 21:49:50 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00001A74: 21:49:50 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00001A74: 21:49:50 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00001A74: 21:49:50 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00001A74: 21:49:50 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00001A74: 21:49:50 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00001A74: 21:49:50 []:<-------------------------------------------------------------->
+Project1.exe: 00001A74: 21:49:50 [Terminated]:Exit Code: 0
+Project1.exe: 00000C38: 21:49:55 []:>--------------------------------------------------------------<
+Project1.exe: 00000C38: 21:49:55 [TUniServerModule]:Server First Init.
+Project1.exe: 00000C38: 21:49:55 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00000C38: 21:49:55 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 00003044: 21:50:23 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: 4sT71FW5qj1089A33BA ) : Addr: $0079A966
+Project1.exe: 00000C38: 22:29:09 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00000C38: 22:29:09 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00000C38: 22:29:10 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00000C38: 22:29:10 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00000C38: 22:29:10 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00000C38: 22:29:10 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00000C38: 22:29:10 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00000C38: 22:29:10 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00000C38: 22:29:10 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00000C38: 22:29:10 []:<-------------------------------------------------------------->
+Project1.exe: 00000C38: 22:29:10 [Terminated]:Exit Code: 0
+Project1.exe: 00002C04: 22:29:14 []:>--------------------------------------------------------------<
+Project1.exe: 00002C04: 22:29:14 [TUniServerModule]:Server First Init.
+Project1.exe: 00002C04: 22:29:14 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00002C04: 22:29:14 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 000033B8: 22:30:30 [127.0.0.1]:ERESTException : REST request failed: Error sending data: (12029) No se pudo establecer conexión con el servidor : Addr: $00B8F136
+Project1.exe: 00003700: 22:35:32 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: di4DW842cj1089A3476 ) : Addr: $0079A966

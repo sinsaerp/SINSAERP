@@ -151,6 +151,7 @@ type
     DataSource1: TDataSource;
     Filtrar: TUniEdit;
     UniLabel50: TUniLabel;
+    UniLabel47: TUniLabel;
 
     procedure uiCrearPClick(Sender: TObject);
     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
