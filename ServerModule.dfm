@@ -1,10 +1,13 @@
 object UniServerModule: TUniServerModule
   OldCreateOrder = False
+  AutoCoInitialize = True
   TempFolder = 'temp\'
+  Port = 8080
   Title = 'SINSA ERP'
   BGColor = clWhite
   SuppressErrors = []
   Bindings = <>
+  ExtLocale = 'es'
   SSL.SSLOptions.RootCertFile = 'root.pem'
   SSL.SSLOptions.CertFile = 'cert.pem'
   SSL.SSLOptions.KeyFile = 'key.pem'
@@ -13,8 +16,10 @@ object UniServerModule: TUniServerModule
   SSL.SSLOptions.Mode = sslmUnassigned
   SSL.SSLOptions.VerifyMode = []
   SSL.SSLOptions.VerifyDepth = 0
+  ExOptions.PatchVCL = False
+  ExOptions.AllowUIChangeInDataRequest = False
   ConnectionFailureRecovery.ErrorMessage = 'Connection Error'
   ConnectionFailureRecovery.RetryMessage = 'Retrying...'
-  Height = 150
-  Width = 215
+  Height = 225
+  Width = 283
 end
