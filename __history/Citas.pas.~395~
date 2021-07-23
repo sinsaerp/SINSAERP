@@ -360,7 +360,7 @@ procedure TcitasF.TurnosMWKeyPress(Sender: TObject; var Key: Char);
 begin
   if Estado = '' then
   begin
-    ShowMessage('EstÃ© Medico no esta sincronizado en la Web');
+    ShowMessage('Esté Medico no esta sincronizado en la Web');
   end;
 end;
 
@@ -517,8 +517,11 @@ procedure TcitasF.uiGuardarClick(Sender: TObject);
 var
   consulta, rip, numeroC: string;
 begin
-  if NumeroCita.Text = '0' then
-  begin
+   if (IdentificacionA.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un Paciente');
+       exit;
+    end;
   if (codigoConsulta.Text='') then
     begin
        ShowMessage('Debe seleccionar un tipo de consulta');
@@ -541,6 +544,9 @@ begin
        ShowMessage('Debe seleccionar un Diagnostico');
        exit;
     end;
+  
+  if NumeroCita.Text = '0' then
+  begin
     UniMainModule.FDConnection.StartTransaction;
     try
       // Actualizar
@@ -952,7 +958,7 @@ begin
     begin
       if Turnos.Text = '' then
       begin
-        ShowMessage('Turnos en la maÃ±ana esta vacio');
+        ShowMessage('Turnos en la mañana esta vacio');
         exit;
       end;
       if TurnosT2.Text = '' then
@@ -963,7 +969,7 @@ begin
       if StrToInt(TurnosMW.Text) > StrToInt(Turnos.Text) then
       begin
         ShowMessage
-          ('Los turnos web en la jornada maÃ±ana es mayor a los turnos presenciales');
+          ('Los turnos web en la jornada mañana es mayor a los turnos presenciales');
         exit;
       end;
       if StrToInt(TurnosTW.Text) > StrToInt(TurnosT2.Text) then
@@ -989,7 +995,7 @@ begin
     end
     else
     begin
-      MessageDlg('Â¿ Este Turno Ya existe Desea Modificarlo?', mtConfirmation,
+      MessageDlg('¿ Este Turno Ya existe Desea Modificarlo?', mtConfirmation,
         mbYesNoCancel,
         procedure(Sender: TComponent; Ans: Integer)
         begin
@@ -1016,14 +1022,14 @@ begin
     end;
   end
   else
-    ShowMessage('Dato del mÃ©dico en Blanco....');
+    ShowMessage('Dato del médico en Blanco....');
 
 end;
 
 procedure TcitasF.ubEliminarClick(Sender: TObject);
 begin
   MessageDlg
-    ('Â¿EstÃ¡ seguro que desea eliminar este registro de horario del mÃ©dicos?',
+    ('¿Está seguro que desea eliminar este registro de horario del médicos?',
     mtConfirmation, mbYesNoCancel,
     procedure(Sender: TComponent; Ans: Integer)
     begin

@@ -648,55 +648,11 @@ object citasF: TcitasF
           Hint = ''
           Caption = 'Horas Disponibles'
           ExplicitHeight = 179
-          object UniDBGrid3: TUniDBGrid
-            Left = 0
-            Top = 0
-            Width = 1108
-            Height = 155
-            Hint = ''
-            DataSource = DataSource2
-            LoadMask.Message = 'Loading data...'
-            TabOrder = 0
-            Columns = <
-              item
-                FieldName = 'codigo'
-                Title.Caption = 'C'#243'digo'
-                Width = 127
-              end
-              item
-                FieldName = 'servicio'
-                Title.Caption = ' Descripci'#243'n'
-                Width = 516
-              end
-              item
-                FieldName = 'fecha'
-                Title.Caption = 'Fecha'
-                Width = 110
-              end
-              item
-                FieldName = 'hora'
-                Title.Caption = ' Hora'
-                Width = 79
-              end
-              item
-                FieldName = 'cantidad'
-                Title.Caption = 'Cantidad'
-                Width = 69
-              end
-              item
-                FieldName = 'especialidad'
-                Title.Caption = ' Tipo'
-                Width = 179
-              end>
-          end
         end
         object UniTabSheet3: TUniTabSheet
           Hint = ''
           Caption = 'Servicios del Paciente'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 1111
-          ExplicitHeight = 183
+          ExplicitHeight = 179
         end
       end
       object ValorModeradora: TUniEdit
@@ -751,6 +707,47 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         TabOrder = 68
       end
+      object UniDBGrid3: TUniDBGrid
+        Left = 17
+        Top = 418
+        Width = 1102
+        Height = 155
+        Hint = ''
+        DataSource = DataSource2
+        LoadMask.Message = 'Loading data...'
+        TabOrder = 69
+        Columns = <
+          item
+            FieldName = 'codigo'
+            Title.Caption = 'C'#243'digo'
+            Width = 127
+          end
+          item
+            FieldName = 'servicio'
+            Title.Caption = ' Descripci'#243'n'
+            Width = 516
+          end
+          item
+            FieldName = 'fecha'
+            Title.Caption = 'Fecha'
+            Width = 110
+          end
+          item
+            FieldName = 'hora'
+            Title.Caption = ' Hora'
+            Width = 79
+          end
+          item
+            FieldName = 'cantidad'
+            Title.Caption = 'Cantidad'
+            Width = 69
+          end
+          item
+            FieldName = 'especialidad'
+            Title.Caption = ' Tipo'
+            Width = 179
+          end>
+      end
       object etnia: TUniComboBox
         Left = 818
         Top = 125
@@ -770,7 +767,7 @@ object citasF: TcitasF
           'Maestr'#237'a '#9
           'Doctorado '#9
           'Ninguno')
-        TabOrder = 69
+        TabOrder = 70
         CharCase = ecUpperCase
         IconItems = <>
       end
@@ -781,7 +778,7 @@ object citasF: TcitasF
         Height = 13
         Hint = ''
         Caption = 'Etnia'
-        TabOrder = 70
+        TabOrder = 71
       end
       object poblacion: TUniComboBox
         Left = 935
@@ -802,7 +799,7 @@ object citasF: TcitasF
           'Maestr'#237'a '#9
           'Doctorado '#9
           'Ninguno')
-        TabOrder = 71
+        TabOrder = 72
         CharCase = ecUpperCase
         IconItems = <>
       end
@@ -813,7 +810,7 @@ object citasF: TcitasF
         Height = 13
         Hint = ''
         Caption = 'Poblaci'#243'n'
-        TabOrder = 72
+        TabOrder = 73
       end
     end
     object UniTabSheet4: TUniTabSheet
@@ -2308,8 +2305,8 @@ object citasF: TcitasF
       TabOrder = 2
     end
     object UniLabel54: TUniLabel
-      Left = 1005
-      Top = 35
+      Left = 1132
+      Top = 18
       Width = 75
       Height = 25
       Hint = ''

@@ -332,3 +332,49 @@ Project1.exe: 000035C0: 15:39:56 [TUniServerModule]:Server First Init.
 Project1.exe: 000035C0: 15:39:56 [TUniServerModule]:Starting HTTP Server on Port: 8080...
 Project1.exe: 000035C0: 15:39:56 [TUniServerModule]:HTTP Server Started on Port: 8080
 Project1.exe: 00003534: 15:40:00 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: zylsBMnMOy108A603A8 ) : Addr: $0079A966
+Project1.exe: 000035C0: 15:50:42 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000035C0: 15:50:42 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000035C0: 15:50:42 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000035C0: 15:50:42 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000035C0: 15:50:42 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000035C0: 15:50:42 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000035C0: 15:50:42 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000035C0: 15:50:42 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000035C0: 15:50:42 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000035C0: 15:50:42 []:<-------------------------------------------------------------->
+Project1.exe: 000035C0: 15:50:42 [Terminated]:Exit Code: 0
+Project1.exe: 00003024: 16:12:00 []:>--------------------------------------------------------------<
+Project1.exe: 00003024: 16:12:00 [TUniServerModule]:Server First Init.
+Project1.exe: 00003024: 16:12:00 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00003024: 16:12:00 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 00002B8C: 16:12:24 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0]SQL Server Network Interfaces: Error Locating Server/Instance Specified [xFFFFFFFF].  : Addr: $0086615A
+Project1.exe: 00003BAC: 16:12:39 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0]SQL Server Network Interfaces: Error Locating Server/Instance Specified [xFFFFFFFF].  : Addr: $0086615A
+Project1.exe: 000022B4: 16:12:55 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0]SQL Server Network Interfaces: Error Locating Server/Instance Specified [xFFFFFFFF].  : Addr: $0086615A
+Project1.exe: 00003D40: 16:13:11 [127.0.0.1]:EMSSQLNativeException : [FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0]SQL Server Network Interfaces: Error Locating Server/Instance Specified [xFFFFFFFF].  : Addr: $0086615A
+Project1.exe: 00003024: 16:18:57 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00003024: 16:18:57 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00003024: 16:18:58 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00003024: 16:18:58 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00003024: 16:18:58 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00003024: 16:18:58 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00003024: 16:18:58 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00003024: 16:18:58 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00003024: 16:18:58 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00003024: 16:18:58 []:<-------------------------------------------------------------->
+Project1.exe: 00003024: 16:18:58 [Terminated]:Exit Code: 0
+Project1.exe: 00000378: 16:19:02 []:>--------------------------------------------------------------<
+Project1.exe: 00000378: 16:19:02 [TUniServerModule]:Server First Init.
+Project1.exe: 00000378: 16:19:02 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 00000378: 16:19:02 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 0000109C: 16:19:04 [127.0.0.1]:EUniSessionException : Invalid session or session Timeout. (Session not found: gtffMaAccK108A60F83 ) : Addr: $0079A966
+Project1.exe: 00000378: 16:20:56 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 00000378: 16:20:56 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 00000378: 16:20:58 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 00000378: 16:20:58 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 00000378: 16:20:58 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 00000378: 16:20:58 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 00000378: 16:20:58 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 00000378: 16:20:58 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 00000378: 16:20:58 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 00000378: 16:20:58 []:<-------------------------------------------------------------->
+Project1.exe: 00000378: 16:20:58 [Terminated]:Exit Code: 0

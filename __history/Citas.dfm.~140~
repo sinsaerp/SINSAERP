@@ -2308,8 +2308,8 @@ object citasF: TcitasF
       TabOrder = 2
     end
     object UniLabel54: TUniLabel
-      Left = 1005
-      Top = 35
+      Left = 1132
+      Top = 18
       Width = 75
       Height = 25
       Hint = ''

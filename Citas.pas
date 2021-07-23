@@ -84,7 +84,6 @@ type
     UniLabel7: TUniLabel;
     UniPageControl2: TUniPageControl;
     UniTabSheet2: TUniTabSheet;
-    UniTabSheet3: TUniTabSheet;
     UniToolBar1: TUniToolBar;
     UniImage1: TUniImage;
     UniLabel1: TUniLabel;
@@ -157,13 +156,14 @@ type
     UniLabel54: TUniLabel;
     NumeroCita: TUniEdit;
     UniSpeedButton1: TUniSpeedButton;
-    UniDBGrid3: TUniDBGrid;
     DataSource2: TDataSource;
     FechaExpedicion: TUniDateTimePicker;
     etnia: TUniComboBox;
     UniLabel55: TUniLabel;
     poblacion: TUniComboBox;
     UniLabel56: TUniLabel;
+    UniTabSheet3: TUniTabSheet;
+    UniDBGrid3: TUniDBGrid;
 
     procedure uiCrearPClick(Sender: TObject);
     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
@@ -517,8 +517,17 @@ procedure TcitasF.uiGuardarClick(Sender: TObject);
 var
   consulta, rip, numeroC: string;
 begin
-  if NumeroCita.Text = '0' then
-  begin
+   if (IdentificacionA.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un Paciente');
+       exit;
+    end;
+    
+     if (Medico.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un Medico');
+       exit;
+    end;
   if (codigoConsulta.Text='') then
     begin
        ShowMessage('Debe seleccionar un tipo de consulta');
@@ -541,6 +550,9 @@ begin
        ShowMessage('Debe seleccionar un Diagnostico');
        exit;
     end;
+  
+  if NumeroCita.Text = '0' then
+  begin
     UniMainModule.FDConnection.StartTransaction;
     try
       // Actualizar
