@@ -65,6 +65,7 @@ var
   i: Integer;
   doc, obj: TJSONObject;
 begin
+  ubActualizar.Enabled:=False;
   i := 0;
   cadena := 'select codigo, tipomedico, descripcion from tipoconsulta where web=1';
   UniMainModule.Query.SQL.Clear;
@@ -77,6 +78,8 @@ begin
       ('tipomedico').AsString;
     RESTRequest1.Params[1].value := UniMainModule.Query.FieldByName
       ('descripcion').AsString;
+    RESTRequest1.Params[2].value := UniMainModule.Query.FieldByName
+      ('codigo').AsString;
     RESTRequest1.Execute;
     if RESTResponse1.StatusCode = 200 then
     begin
@@ -91,6 +94,7 @@ begin
   end;
 
   ShowMessage('Total Tipo de Consultas Enviadas a la Web ' + i.ToString);
+  ubActualizar.Enabled:=True;
   UniMainModule.Query.Close;
 
 end;

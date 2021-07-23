@@ -75,6 +75,7 @@ begin
       + 'Descripcion+Codigo like ''%' + Busqueda.Text +
       '%'' AND TipoMedico IN (' + UniMainModule.TipoC +
       ', 0) order by Descripcion';
+
     UniMainModule.Query.SQL.Clear;
     UniMainModule.Query.SQL.Add(cadena);
     UniMainModule.Query.Open;
@@ -186,7 +187,7 @@ begin
   begin
     /// ///
     cadena := 'Select NumeroC as Descripcion, LPServicio as codigo,LPInsumo,Tipo,Manual,ObjetoContrato  from contratosin where Entidad='''
-      + Busqueda.Text + ''' AND ESTADO=''ACTIVO''';
+      + Busqueda.Text + ''' and citas=''1'' AND ESTADO=''ACTIVO''';
     UniMainModule.Query.SQL.Clear;
     UniMainModule.Query.SQL.Add(cadena);
     UniMainModule.Query.Open;

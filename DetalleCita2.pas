@@ -59,7 +59,7 @@ type
   public
     { Public declarations }
     afape1, afape2, afnom1, afnom2, fechaNacimiento, sexo, correo: string;
-    autorizacion, codmedico, tipo : string;
+    autorizacion, codmedico, tipo, codconsulta, regimen : string;
   end;
 
 function DetalleCitaForm: TDetalleCitaForm;
@@ -120,7 +120,7 @@ begin
           status := doc.GetValue('status').Value;
           if status = 'success' then
           begin
-          UniMainModule.FDConnection.StartTransaction;
+             UniMainModule.FDConnection.StartTransaction;
             try
               UniMainModule.Query.SQL.Clear;
             consulta := 'SELECT * FROM usuarios WHERE afcodigo=''' +
@@ -251,8 +251,8 @@ begin
               //Insertar en Citas
               UniMainModule.Query.SQL.Clear;
               consulta :=
-                'INSERT INTO citas (paciente, medico, consecutivo, hora, fecha, fechacita, horacita, tipoconsulta, horacitax, autorizacionc, marcar)'
-                + 'VALUES (:Paciente, :Medico, :Consecutivo, :Hora, :Fecha, :FechaCita, :HoraCita, :Tipo, :HoraX, :Autorizacion, :Marcar) ';
+                'INSERT INTO citas (paciente, medico, consecutivo, hora, fecha, fechacita, horacita, tipoconsulta, horacitax, autorizacionc, marcar, codigoconsulta)'
+                + 'VALUES (:Paciente, :Medico, :Consecutivo, :Hora, :Fecha, :FechaCita, :HoraCita, :Tipo, :HoraX, :Autorizacion, :Marcar, :Codigo) ';
               UniMainModule.Query.SQL.Text := consulta;
               UniMainModule.Query.Params.ParamByName('Paciente').Value :=
                Documento.Text;
@@ -270,6 +270,7 @@ begin
                UniMainModule.Query.Params.ParamByName('HoraX').Value := StrToDateTime(hora.Text);
               UniMainModule.Query.Params.ParamByName('Autorizacion').Value := autorizacion;
               UniMainModule.Query.Params.ParamByName('Marcar').Value := '1';
+              UniMainModule.Query.Params.ParamByName('Codigo').Value := codconsulta;
               UniMainModule.Query.ExecSQL;
 
               //Insertar en Citas Servicios
@@ -286,7 +287,7 @@ begin
                StrToDateTime( Hora.Text);
               UniMainModule.Query.Params.ParamByName('Fecha').Value :=
                 StrToDate(Fecha.Text);
-              UniMainModule.Query.Params.ParamByName('Codigo').Value := '00';
+              UniMainModule.Query.Params.ParamByName('Codigo').Value := codconsulta;
               UniMainModule.Query.Params.ParamByName('Servicio').Value := Descripcion.Text;
               UniMainModule.Query.Params.ParamByName('Cantidad').Value := '1';
               UniMainModule.Query.Params.ParamByName('Rips').Value := rip;
@@ -351,6 +352,7 @@ begin
     sexo := UniMainModule.Query.FieldByName('sexo').AsString;
     correo := UniMainModule.Query.FieldByName('email').AsString;
     codmedico := UniMainModule.Query.FieldByName('codmedico').AsString;
+    codconsulta := UniMainModule.Query.FieldByName('codconsulta').AsString;
 
 
   end;

@@ -19,6 +19,7 @@ type
     UniImage1: TUniImage;
 
     procedure ubConfirmarHorasClick(Sender: TObject);
+    procedure UniDBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +38,7 @@ implementation
 {$R *.dfm}
 
 uses
-  MainModule, uniGUIApplication;
+  MainModule, uniGUIApplication, Citas;
 
 function HorasAsignada: THorasAsignada;
 begin
@@ -89,6 +90,12 @@ begin
 
   end;
 
+end;
+
+procedure THorasAsignada.UniDBGrid1DblClick(Sender: TObject);
+begin
+Citas.citasf.HoraAsignacion.DateTime:=UniMainModule.QueryAgenda.FieldByName('hora').AsDateTime;
+close;
 end;
 
 end.

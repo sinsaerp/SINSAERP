@@ -24,4 +24,9 @@ object UniMainModule: TUniMainModule
     Left = 440
     Top = 56
   end
+  object QueryGrid: TFDQuery
+    Connection = FDConnection
+    Left = 376
+    Top = 120
+  end
 end

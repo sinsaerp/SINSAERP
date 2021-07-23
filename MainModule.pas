@@ -15,6 +15,7 @@ type
     FDConnection: TFDConnection;
     Query: TFDQuery;
     QueryAgenda: TFDQuery;
+    QueryGrid: TFDQuery;
   private
     { Private declarations }
   public

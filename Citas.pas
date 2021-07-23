@@ -27,7 +27,6 @@ type
     UniTabSheet4: TUniTabSheet;
     ATAfiliado: TUniEdit;
     Autorizacion: TUniEdit;
-    autorizada: TUniEdit;
     btnBuscarP: TUniButton;
     cantidad_servicios: TUniEdit;
     CEPS: TUniEdit;
@@ -152,6 +151,19 @@ type
     Filtrar: TUniEdit;
     UniLabel50: TUniLabel;
     UniLabel47: TUniLabel;
+    UniLabel51: TUniLabel;
+    UniLabel52: TUniLabel;
+    UniLabel53: TUniLabel;
+    UniLabel54: TUniLabel;
+    NumeroCita: TUniEdit;
+    UniSpeedButton1: TUniSpeedButton;
+    UniDBGrid3: TUniDBGrid;
+    DataSource2: TDataSource;
+    FechaExpedicion: TUniDateTimePicker;
+    etnia: TUniComboBox;
+    UniLabel55: TUniLabel;
+    poblacion: TUniComboBox;
+    UniLabel56: TUniLabel;
 
     procedure uiCrearPClick(Sender: TObject);
     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
@@ -159,7 +171,6 @@ type
     procedure btnBuscarPClick(Sender: TObject);
     procedure ubBuscarCodigoClick(Sender: TObject);
     procedure TipoConsultaDblClick(Sender: TObject);
-    procedure dcprincipalDblClick(Sender: TObject);
     procedure uiBuscarContratoClick(Sender: TObject);
     procedure uiHorasClick(Sender: TObject);
     procedure ubBuscarMedicoClick(Sender: TObject);
@@ -174,11 +185,14 @@ type
     procedure FiltrarKeyPress(Sender: TObject; var Key: Char);
     procedure UniDBGrid2DblClick(Sender: TObject);
     procedure TurnosMWKeyPress(Sender: TObject; var Key: Char);
+    procedure uiGuardarClick(Sender: TObject);
+    procedure ubBuscarDiagnosticoClick(Sender: TObject);
 
   private
     CodigoMedico, Departamento, Municipio, NombreCom, EPSU, Intervalo: string;
     TurnosM, TurnosT: Integer;
     Estado: string;
+
   public
     { Public declarations }
   end;
@@ -231,14 +245,10 @@ begin
   else
   begin
     Turnos.Text := '0';
+    TurnosMW.Text := '0';
+    TurnosTW.Text := '0';
     TurnosT2.Text := '0';
   end;
-end;
-
-procedure TcitasF.dcprincipalDblClick(Sender: TObject);
-begin
-  UniMainModule.i := 10;
-  busquedaf.ShowModal(ShowCallback);
 end;
 
 procedure TcitasF.FiltrarKeyPress(Sender: TObject; var Key: Char);
@@ -248,7 +258,7 @@ begin
   UniMainModule.Query.Close;
   UniMainModule.Query.SQL.Clear;
   cadena := 'select c.id, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.direccion, c.estado, c.fechaSolicitud, c.idapi, c.fechaCita,'
-    +' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion from citasweb c, epssi e, medicos m'
+    + ' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion from citasweb c, epssi e, medicos m'
     + ' where c.medico=m.Codigo and c.codeps=e.codigoEps and  c.fechaCita between '''
     + FormatDateTime('yyyymmdd', FechaIncial.DateTime) + ''' and ''' +
     FormatDateTime('yyyymmdd', fechaFinal.DateTime) +
@@ -272,6 +282,8 @@ begin
     email.Text := UniMainModule.Query.FieldByName('correoe').AsString;
     CEPS.Text := UniMainModule.Query.FieldByName('codeps').AsString;
     educativo.Text := UniMainModule.Query.FieldByName('nivelescolar').AsString;
+    etnia.Text := UniMainModule.Query.FieldByName('etnia').AsString;
+    poblacion.Text := UniMainModule.Query.FieldByName('poblacion').AsString;
     citaPacienteF.paciente := IdentificacionA.Text;
     citaPacienteF.ShowModal();
     UniMainModule.i := 10;
@@ -285,6 +297,8 @@ begin
     UniMainModule.TipoC := (UniMainModule.Query.FieldByName('Servicios')
       .AsString);
     Intervalo := (UniMainModule.Query.FieldByName('frecuencia').AsString);
+    UniMainModule.TipoC := UniMainModule.Query.FieldByName
+      ('especialidad').AsString;
 
   end;
 
@@ -468,6 +482,12 @@ begin
   end;
 end;
 
+procedure TcitasF.ubBuscarDiagnosticoClick(Sender: TObject);
+begin
+  UniMainModule.i := 10;
+  busquedaf.ShowModal(ShowCallback);
+end;
+
 procedure TcitasF.uiBuscarContratoClick(Sender: TObject);
 begin
   if IdentificacionA.Text = '' then
@@ -491,6 +511,177 @@ end;
 procedure TcitasF.uiCrearPClick(Sender: TObject);
 begin
   pacientesf.Show();
+end;
+
+procedure TcitasF.uiGuardarClick(Sender: TObject);
+var
+  consulta, rip, numeroC: string;
+begin
+  if NumeroCita.Text = '0' then
+  begin
+  if (codigoConsulta.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un tipo de consulta');
+       exit;
+    end;
+    if (cantidad_servicios.Text='') then
+    begin
+       ShowMessage('Debe Ingresar una cantidad');
+       exit;
+    end
+    else
+    begin
+      if (StrToInt(cantidad_servicios.Text)<=0) then
+      begin
+          ShowMessage('Cantidad no permitida');
+      end;
+    end;
+    if (DXP.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un Diagnostico');
+       exit;
+    end;
+    UniMainModule.FDConnection.StartTransaction;
+    try
+      // Actualizar
+      UniMainModule.Query.SQL.Clear;
+      consulta :=
+        'UPDATE usuarios SET  telefono=:Telefono, direccion=:Direccion, correoe=:Correo, nivelescolar=:Niv, etnia=:Etnia, poblacion=:Poblacion'
+        + ' WHERE afcodigo=:Afcodigo ';
+      UniMainModule.Query.SQL.Text := consulta;
+      UniMainModule.Query.Params.ParamByName('NiV').Value := educativo.Text;
+      UniMainModule.Query.Params.ParamByName('Telefono').Value := Telefono.Text;
+      UniMainModule.Query.Params.ParamByName('Direccion').Value :=
+        DireccionU.Text;
+      UniMainModule.Query.Params.ParamByName('Correo').Value := email.Text;
+      UniMainModule.Query.Params.ParamByName('Etnia').Value := etnia.Text;
+      UniMainModule.Query.Params.ParamByName('Poblacion').Value := poblacion.Text;
+      UniMainModule.Query.Params.ParamByName('Afcodigo').Value := IdentificacionA.Text;
+      UniMainModule.Query.ExecSQL;
+
+      // Obtener maximo rips de la tabla ripsg
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add('select MAX(rips)+1  as rips from RipsG');
+      UniMainModule.Query.Open();
+      rip := UniMainModule.Query.FieldByName('rips').AsString;
+      
+
+      // Contrato
+      numeroC := Contrato.Text;
+
+      // Registrar Datos en RIPSG
+      UniMainModule.Query.SQL.Clear;
+      consulta :=
+        'INSERT INTO ripsg (rips, identificacion, eps, fechar, usuario, ripsestado, tiporips, dependencia, contratoe, autorizacion)'
+        + 'VALUES (:Rips, :Identificacion, :Eps, :FechaR, :Usuario, :RipsEstado, :Tipo, :Dependencia, :Contrato, :Autorizacion) ';
+      UniMainModule.Query.SQL.Text := consulta;
+      UniMainModule.Query.Params.ParamByName('Rips').Value := rip;
+      UniMainModule.Query.Params.ParamByName('Identificacion').Value :=
+        IdentificacionA.Text;
+      UniMainModule.Query.Params.ParamByName('Eps').Value := CEPS.Text;
+      UniMainModule.Query.Params.ParamByName('FechaR').Value := Now;
+      UniMainModule.Query.Params.ParamByName('Usuario').Value := '1';
+      UniMainModule.Query.Params.ParamByName('RipsEstado').Value := '0';
+      UniMainModule.Query.Params.ParamByName('Tipo').Value := 'EVENTO';
+      UniMainModule.Query.Params.ParamByName('Dependencia').Value := '0001';
+      UniMainModule.Query.Params.ParamByName('Contrato').Value := numeroC;
+      UniMainModule.Query.Params.ParamByName('Autorizacion').Value :=
+        Autorizacion.Text;
+      UniMainModule.Query.ExecSQL;
+
+      // Insertar en DXRIPS
+      UniMainModule.Query.SQL.Clear;
+      consulta :=
+        'INSERT INTO dxrips (rips, dxp, fechai, horai, autorizacion, servicio, centrocosto, medicorecibe)'
+        + 'VALUES (:Rips, :Dxp, :Fecha, :Hora, :Autorizacion, :Servicio, :Centro, :Medico) ';
+      UniMainModule.Query.SQL.Text := consulta;
+      UniMainModule.Query.Params.ParamByName('Rips').Value := rip;
+      UniMainModule.Query.Params.ParamByName('Dxp').Value := DXP.Text;
+      UniMainModule.Query.Params.ParamByName('Fecha').Value :=
+        StrToDate(fechaAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Hora').Value :=
+        StrToTime(HoraAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Autorizacion').Value :=
+        Autorizacion.Text;
+      UniMainModule.Query.Params.ParamByName('Servicio').Value :=
+        'Consulta Externa';
+      UniMainModule.Query.Params.ParamByName('Medico').Value := Medico.Text;
+      UniMainModule.Query.Params.ParamByName('Centro').Value := '0001';
+      UniMainModule.Query.ExecSQL;
+
+      // Insertar en Citas
+      UniMainModule.Query.SQL.Clear;
+      consulta :=
+        'INSERT INTO citas (paciente, medico, consecutivo, hora, fecha, fechacita, horacita, tipoconsulta, horacitax, autorizacionc, marcar, codigoconsulta)'
+        + 'VALUES (:Paciente, :Medico, :Consecutivo, :Hora, :Fecha, :FechaCita, :HoraCita, :Tipo, :HoraX, :Autorizacion, :Marcar, :Codigo) ';
+      UniMainModule.Query.SQL.Text := consulta;
+      UniMainModule.Query.Params.ParamByName('Paciente').Value :=
+        IdentificacionA.Text;
+      UniMainModule.Query.Params.ParamByName('Medico').Value := Medico.Text;
+      UniMainModule.Query.Params.ParamByName('Consecutivo').Value := rip;
+      UniMainModule.Query.Params.ParamByName('Hora').Value :=
+        StrToDateTime(HoraAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Fecha').Value :=
+        StrToDate(fecha_deseada.Text);
+      UniMainModule.Query.Params.ParamByName('FechaCita').Value :=
+        StrToDate(fechaAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('HoraCita').Value :=
+        (HoraAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Tipo').Value :=
+        UniMainModule.TipoC;
+      UniMainModule.Query.Params.ParamByName('HoraX').Value :=
+        StrToDateTime(HoraAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Autorizacion').Value :=
+        Autorizacion.Text;
+      UniMainModule.Query.Params.ParamByName('Marcar').Value := '1';
+      UniMainModule.Query.Params.ParamByName('Codigo').Value :=
+        codigoConsulta.Text;
+      UniMainModule.Query.ExecSQL;
+
+      // Insertar en Citas Servicios
+      UniMainModule.Query.SQL.Clear;
+      consulta :=
+        'INSERT INTO citasservicios (paciente, medico, hora, fecha, codigo, servicio, cantidad, rips)'
+        + 'VALUES (:Paciente, :Medico, :Hora, :Fecha, :Codigo, :Servicio, :Cantidad, :Rips) ';
+      UniMainModule.Query.SQL.Text := consulta;
+      UniMainModule.Query.Params.ParamByName('Paciente').Value :=
+        IdentificacionA.Text;
+      UniMainModule.Query.Params.ParamByName('Medico').Value := Medico.Text;
+      UniMainModule.Query.Params.ParamByName('Hora').Value :=
+        StrToDateTime(HoraAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Fecha').Value :=
+        StrToDate(fechaAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Codigo').Value :=
+        codigoConsulta.Text;
+      UniMainModule.Query.Params.ParamByName('Servicio').Value :=
+        TipoConsulta.Text;
+      UniMainModule.Query.Params.ParamByName('Cantidad').Value :=
+        cantidad_servicios.Text;
+      UniMainModule.Query.Params.ParamByName('Rips').Value := rip;
+      UniMainModule.Query.ExecSQL; 
+      
+      UniMainModule.FDConnection.Commit;
+      ShowMessage('Datos Registrados Exitosamente');
+      NumeroCita.Text := rip;
+
+      //Mostrar en la grilla
+       UniMainModule.QueryGrid.SQL.Clear;
+      UniMainModule.QueryGrid.SQL.Add('select c.codigo, c.Servicio, c.Fecha, c.cantidad, CONVERT(VARCHAR(5), c.hora, 108) as hora, e.especialidad '+
+      ' from CitasServicios as c inner join citas ci on ci.consecutivo=c.rips inner join especialidad e on e.codigo=ci.tipoconsulta where c.rips=:Rips order by c.fecha desc');
+      UniMainModule.QueryGrid.Params.ParamByName('Rips').Value:=rip;
+      UniMainModule.QueryGrid.Open();
+
+      
+    except
+      UniMainModule.FDConnection.Rollback;
+      ShowMessage('Error en las operaciones');
+
+    end;
+  end
+  else
+  begin
+
+  end;
 end;
 
 procedure TcitasF.uiHorasClick(Sender: TObject);
@@ -608,6 +799,30 @@ begin
   fechaAsignacion.DateTime := Now();
   fechaFinal.DateTime := Now();
   FechaIncial.DateTime := Now();
+
+  UniMainModule.Query.Close;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select descripcion from etnias');
+  UniMainModule.Query.open;
+  Etnia.Clear;
+  while not UniMainModule.Query.Eof do
+  begin
+    Etnia.Items.Add(UniMainModule.Query.Fieldbyname('descripcion').AsString);
+    UniMainModule.Query.Next;
+  end;
+
+  UniMainModule.Query.Close;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select descripcion from poblacion');
+  UniMainModule.Query.open;
+  Poblacion.Clear;
+  while not UniMainModule.Query.Eof do
+  begin
+    Poblacion.Items.Add(UniMainModule.Query.Fieldbyname('descripcion')
+      .AsString);
+    UniMainModule.Query.Next;
+  end;
+  
 end;
 
 procedure TcitasF.ubBuscarMedicoClick(Sender: TObject);
@@ -654,8 +869,8 @@ begin
             begin
               UniMainModule.Query.SQL.Clear;
               UniMainModule.Query.SQL.Text :=
-                'INSERT INTO citasweb (codeps, tipidafil, afcodigo, afape1, afape2, afnom1, afnom2, nombrec, fecha_nacimiento, sexo, email, telefono, direccion, medico, fechaCita, horaCita, descripcion, idapi, codigo, fechaSolicitud) VALUES '
-                + '(:Codeps, :Tipidafil, :Afcodigo, :Afape1, :Afape2, :Afnom1, :Afnom2, :NombreC, :Fecha, :Sexo, :Email, :Telefono, :Direccion, :Medico,  :FechaCita, :HoraCita, :Descripcion, :IdApi, :Codigo, :FechaSolicitud)';
+                'INSERT INTO citasweb (codeps, tipidafil, afcodigo, afape1, afape2, afnom1, afnom2, nombrec, fecha_nacimiento, sexo, email, telefono, direccion, medico, fechaCita, horaCita, descripcion, idapi, codigo, fechaSolicitud, regimen) VALUES '
+                + '(:Codeps, :Tipidafil, :Afcodigo, :Afape1, :Afape2, :Afnom1, :Afnom2, :NombreC, :Fecha, :Sexo, :Email, :Telefono, :Direccion, :Medico,  :FechaCita, :HoraCita, :Descripcion, :IdApi, :Codigo, :FechaSolicitud, :Regimen)';
               UniMainModule.Query.ParamByName('Codeps').Value :=
                 ClientItem.GetValue<string>('codeps');
               UniMainModule.Query.ParamByName('Tipidafil').Value :=
@@ -695,19 +910,19 @@ begin
                 ClientItem.GetValue<string>('codigo');
               UniMainModule.Query.ParamByName('FechaSolicitud').Value :=
                 ClientItem.GetValue<string>('fecha');
+              UniMainModule.Query.ParamByName('Regimen').Value :=
+                ClientItem.GetValue<string>('regimen');
               UniMainModule.Query.ExecSQL;
             end;
-
           end;
-
         finally
 
         end;
       finally
         ClientList.Free;
         UniMainModule.Query.SQL.Clear;
-        cadena := 'select c.codeps, c.id, c.afape1, c.afape2, c.afnom1, c.afnom2, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.email, c.fecha_nacimiento,  c.direccion, c.idapi, c.fechaCita, c.fechaSolicitud,'
-        +' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, e.Nombre as eps, c.descripcion, c.estado from citasweb c, epssi e, medicos m'
+        cadena := 'select c.codeps, c.id, c.codigo as codconsulta, c.afape1, c.afape2, c.afnom1, c.afnom2, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.email, c.fecha_nacimiento,  c.direccion, c.idapi, c.fechaCita, c.fechaSolicitud,'
+          + ' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, m.codigo as codmedico, e.Nombre as eps, c.descripcion, c.estado from citasweb c, epssi e, medicos m'
           + ' where c.medico=m.Codigo and c.codeps=e.codigoEps and  c.fechaCita between '''
           + FormatDateTime('yyyymmdd', FechaIncial.DateTime) + ''' and ''' +
           FormatDateTime('yyyymmdd', fechaFinal.DateTime) + ''' ';
