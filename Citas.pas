@@ -45,17 +45,10 @@ type
     Telefono: TUniEdit;
     tipoCita: TUniRadioGroup;
     TipoConsulta: TUniEdit;
-    ubAgenda: TUniButton;
     ubBuscarCodigo: TUniButton;
     ubBuscarDiagnostico: TUniButton;
-    ubCancelarCita: TUniButton;
-    ubCitas: TUniButton;
     ubGuardarObs: TUniButton;
-    ubImprimir: TUniButton;
-    ubNuevo: TUniButton;
-    ubProgramas: TUniButton;
     ubQuitar: TUniButton;
-    ubReprogramar: TUniButton;
     ubValor: TUniButton;
     uiBuscarContrato: TUniButton;
     uiBuscarMedico: TUniButton;
@@ -157,13 +150,14 @@ type
     NumeroCita: TUniEdit;
     UniSpeedButton1: TUniSpeedButton;
     DataSource2: TDataSource;
-    FechaExpedicion: TUniDateTimePicker;
     etnia: TUniComboBox;
     UniLabel55: TUniLabel;
     poblacion: TUniComboBox;
     UniLabel56: TUniLabel;
     UniTabSheet3: TUniTabSheet;
     UniDBGrid3: TUniDBGrid;
+    btnAgendaMes: TUniSpeedButton;
+    UniSpeedButton2: TUniSpeedButton;
 
     procedure uiCrearPClick(Sender: TObject);
     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
@@ -187,6 +181,9 @@ type
     procedure TurnosMWKeyPress(Sender: TObject; var Key: Char);
     procedure uiGuardarClick(Sender: TObject);
     procedure ubBuscarDiagnosticoClick(Sender: TObject);
+    procedure btnAgendaMesClick(Sender: TObject);
+    function verificarHora(med: string; fec:string;  hor:string): boolean;
+    procedure HoraAsignacionChange(Sender: TObject);
 
   private
     CodigoMedico, Departamento, Municipio, NombreCom, EPSU, Intervalo: string;
@@ -205,11 +202,22 @@ implementation
 
 uses
   MainModule, uniGUIApplication, Busqueda, Pacientes, MostrarCitas, HoraDia,
-  HorasAsignadasWeb, DetalleCita, DetalleCita2;
+  HorasAsignadasWeb, DetalleCita, DetalleCita2, AgendaMes;
 
 function citasf: TcitasF;
 begin
   Result := TcitasF(UniMainModule.GetFormInstance(TcitasF));
+end;
+
+procedure TcitasF.btnAgendaMesClick(Sender: TObject);
+begin
+if (CodigoMedico<>'') and (Medico.Text<>'') then
+begin
+   AgendaMes.FCalendarioAgenda.CodMed.Text:=CodigoMedico;
+   AgendaMes.FCalendarioAgenda.NombreMed.Text:=Medico.Text;
+   AgendaMes.FCalendarioAgenda.Fecha.Date:=fechaAsignacion.DateTime;
+end;
+AgendaMes.FCalendarioAgenda.ShowModal();
 end;
 
 procedure TcitasF.btnBuscarPClick(Sender: TObject);
@@ -265,6 +273,37 @@ begin
     ''' and c.afcodigo+c.nombrec like ''%' + Filtrar.Text + '%''';
   UniMainModule.Query.SQL.Add(cadena);
   UniMainModule.Query.Open();
+end;
+
+procedure TcitasF.HoraAsignacionChange(Sender: TObject);
+begin
+if (IdentificacionA.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un Paciente');
+       exit;
+  end;
+ if (Medico.Text='') then
+    begin
+       ShowMessage('Debe seleccionar un Medico');
+       exit;
+  end;
+   if (fechaAsignacion.Text='') then
+    begin
+       ShowMessage('Debe seleccionar una fecha de asignación');
+       exit;
+    end;
+    
+  if not verificarHora(CodigoMedico, fechaAsignacion.Text, HoraAsignacion.Text) then
+    begin
+       ShowMessage('Esta Hora ya se encuentra asignada');
+       uiGuardar.Enabled:=false;
+       exit;
+    end
+    else
+    begin
+     uiGuardar.Enabled:=true;
+    end; 
+    
 end;
 
 procedure TcitasF.ShowCallback(Sender: TComponent; Asresult: Integer);
@@ -523,7 +562,7 @@ begin
        exit;
     end;
     
-     if (Medico.Text='') then
+    if (Medico.Text='') then
     begin
        ShowMessage('Debe seleccionar un Medico');
        exit;
@@ -537,20 +576,25 @@ begin
     begin
        ShowMessage('Debe Ingresar una cantidad');
        exit;
-    end
-    else
-    begin
+    end;
+   
       if (StrToInt(cantidad_servicios.Text)<=0) then
       begin
           ShowMessage('Cantidad no permitida');
       end;
-    end;
+   
     if (DXP.Text='') then
     begin
        ShowMessage('Debe seleccionar un Diagnostico');
        exit;
     end;
-  
+
+    if not verificarHora(CodigoMedico, fechaAsignacion.Text, HoraAsignacion.Text) then
+    begin
+       ShowMessage('Esta Hora ya se encuentra asignada');
+       exit;
+    end;
+
   if NumeroCita.Text = '0' then
   begin
     UniMainModule.FDConnection.StartTransaction;
@@ -629,7 +673,7 @@ begin
       UniMainModule.Query.SQL.Text := consulta;
       UniMainModule.Query.Params.ParamByName('Paciente').Value :=
         IdentificacionA.Text;
-      UniMainModule.Query.Params.ParamByName('Medico').Value := Medico.Text;
+      UniMainModule.Query.Params.ParamByName('Medico').Value := CodigoMedico;
       UniMainModule.Query.Params.ParamByName('Consecutivo').Value := rip;
       UniMainModule.Query.Params.ParamByName('Hora').Value :=
         StrToDateTime(HoraAsignacion.Text);
@@ -658,7 +702,7 @@ begin
       UniMainModule.Query.SQL.Text := consulta;
       UniMainModule.Query.Params.ParamByName('Paciente').Value :=
         IdentificacionA.Text;
-      UniMainModule.Query.Params.ParamByName('Medico').Value := Medico.Text;
+      UniMainModule.Query.Params.ParamByName('Medico').Value := CodigoMedico;
       UniMainModule.Query.Params.ParamByName('Hora').Value :=
         StrToDateTime(HoraAsignacion.Text);
       UniMainModule.Query.Params.ParamByName('Fecha').Value :=
@@ -837,6 +881,17 @@ begin
   
 end;
 
+function TcitasF.verificarHora(med, fec, hor: string): boolean;
+begin
+    UniMainModule.Query.SQL.Clear;
+     UniMainModule.Query.SQL.Text:='select * from citas where fechacita=:Fecha and medico=:Medico and horacita=:Hora';
+     UniMainModule.Query.ParamByName('Fecha').Value:=fec;
+     UniMainModule.Query.ParamByName('Medico').Value:=med;
+     UniMainModule.Query.ParamByName('Hora').Value:=hor;
+     UniMainModule.Query.Open;
+     result:=UniMainModule.Query.IsEmpty;
+end;
+
 procedure TcitasF.ubBuscarMedicoClick(Sender: TObject);
 begin
   UniMainModule.i := 2;
@@ -932,14 +987,14 @@ begin
         end;
       finally
         ClientList.Free;
-        UniMainModule.Query.SQL.Clear;
+        UniMainModule.QueryGrid.SQL.Clear;
         cadena := 'select c.codeps, c.id, c.codigo as codconsulta, c.afape1, c.afape2, c.afnom1, c.afnom2, c.nombrec, c.tipidafil, c.afcodigo, c.sexo, c.telefono, c.email, c.fecha_nacimiento,  c.direccion, c.idapi, c.fechaCita, c.fechaSolicitud,'
           + ' convert(varchar(5), c.horacita, 108) as hora ,m.Nombre as medico, m.codigo as codmedico, e.Nombre as eps, c.descripcion, c.estado from citasweb c, epssi e, medicos m'
           + ' where c.medico=m.Codigo and c.codeps=e.codigoEps and  c.fechaCita between '''
           + FormatDateTime('yyyymmdd', FechaIncial.DateTime) + ''' and ''' +
           FormatDateTime('yyyymmdd', fechaFinal.DateTime) + ''' ';
-        UniMainModule.Query.SQL.Add(cadena);
-        UniMainModule.Query.Open();
+        UniMainModule.QueryGrid.SQL.Add(cadena);
+        UniMainModule.QueryGrid.Open();
 
       end;
   end;
@@ -1031,6 +1086,8 @@ begin
     ShowMessage('Dato del médico en Blanco....');
 
 end;
+
+
 
 procedure TcitasF.ubEliminarClick(Sender: TObject);
 begin
