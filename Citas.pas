@@ -158,6 +158,8 @@ type
     UniDBGrid3: TUniDBGrid;
     btnAgendaMes: TUniSpeedButton;
     UniSpeedButton2: TUniSpeedButton;
+    autorizada: TUniDateTimePicker;
+    ubCancelar: TUniSpeedButton;
 
     procedure uiCrearPClick(Sender: TObject);
     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
@@ -182,8 +184,15 @@ type
     procedure uiGuardarClick(Sender: TObject);
     procedure ubBuscarDiagnosticoClick(Sender: TObject);
     procedure btnAgendaMesClick(Sender: TObject);
+
     function verificarHora(med: string; fec:string;  hor:string): boolean;
+    function contadorCitas(med: string; fec:string): boolean;
+
     procedure HoraAsignacionChange(Sender: TObject);
+    procedure ubGuardarObsClick(Sender: TObject);
+    procedure ubValorClick(Sender: TObject);
+    procedure ubCancelarClick(Sender: TObject);
+    procedure UniSpeedButton2Click(Sender: TObject);
 
   private
     CodigoMedico, Departamento, Municipio, NombreCom, EPSU, Intervalo: string;
@@ -257,6 +266,46 @@ begin
     TurnosTW.Text := '0';
     TurnosT2.Text := '0';
   end;
+end;
+
+function TcitasF.contadorCitas(med, fec: string): boolean;
+var
+  conm, citasm, citast, cont: Integer;
+begin
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Text :=
+    'select * from horariom where fecha=:Fecha and medico=:Medico ';
+  UniMainModule.Query.ParamByName('Fecha').Value := fec;
+  UniMainModule.Query.ParamByName('Medico').Value := med;
+  UniMainModule.Query.Open;
+  if not UniMainModule.Query.IsEmpty then
+  begin
+    if (UniMainModule.Query.FieldByName('horai1').AsDateTime >= StrToTime('06:00:00')) and (UniMainModule.Query.FieldByName('horaf1').AsDateTime <= StrToTime('12:00:00')) then
+    begin
+      conm := UniMainModule.Query.FieldByName('turnos1').AsInteger;
+      UniMainModule.Query.SQL.Text :=
+        'SELECT * FROM citas WHERE CONVERT(varchar(10), HoraCitaX, 108) >=''6:00'' and  CONVERT(varchar(10), HoraCitaX, 108)<=''12:00'' and medico=:Medico and fechacita=:Fecha';
+      UniMainModule.Query.ParamByName('Fecha').Value := fec;
+      UniMainModule.Query.ParamByName('Medico').Value := med;
+      UniMainModule.Query.Open;
+      citasm := UniMainModule.Query.RecordCount;
+      if conm <= citasm then
+        Result := true;
+    end
+    else
+    begin
+      cont := UniMainModule.Query.FieldByName('turnos2').AsInteger;
+      UniMainModule.Query.SQL.Text :=
+        'SELECT * FROM citas WHERE CONVERT(varchar(10), HoraCitaX, 108) >=''14:00'' and  CONVERT(varchar(10), HoraCitaX, 108)<=''18:00'' and medico=:Medico and fechacita=:Fecha';
+      UniMainModule.Query.ParamByName('Fecha').Value := fec;
+      UniMainModule.Query.ParamByName('Medico').Value := med;
+      UniMainModule.Query.Open;
+      citast := UniMainModule.Query.RecordCount;
+      if cont <= citast then
+        Result := true;
+    end
+  end;
+
 end;
 
 procedure TcitasF.FiltrarKeyPress(Sender: TObject; var Key: Char);
@@ -589,14 +638,25 @@ begin
        exit;
     end;
 
+
+  if NumeroCita.Text = '0' then
+  begin
     if not verificarHora(CodigoMedico, fechaAsignacion.Text, HoraAsignacion.Text) then
     begin
        ShowMessage('Esta Hora ya se encuentra asignada');
        exit;
     end;
 
-  if NumeroCita.Text = '0' then
-  begin
+
+    if  contadorCitas(CodigoMedico, fechaAsignacion.Text) then
+    begin
+      ShowMessage('Ha llegado al total de citas agendadas para el medico y fecha seleccionada');
+      exit;
+    end
+    else
+    begin
+
+    end;
     UniMainModule.FDConnection.StartTransaction;
     try
       // Actualizar
@@ -721,11 +781,18 @@ begin
       NumeroCita.Text := rip;
 
       //Mostrar en la grilla
-       UniMainModule.QueryGrid.SQL.Clear;
+      UniMainModule.QueryGrid.SQL.Clear;
       UniMainModule.QueryGrid.SQL.Add('select c.codigo, c.Servicio, c.Fecha, c.cantidad, CONVERT(VARCHAR(5), c.hora, 108) as hora, e.especialidad '+
       ' from CitasServicios as c inner join citas ci on ci.consecutivo=c.rips inner join especialidad e on e.codigo=ci.tipoconsulta where c.rips=:Rips order by c.fecha desc');
       UniMainModule.QueryGrid.Params.ParamByName('Rips').Value:=rip;
       UniMainModule.QueryGrid.Open();
+
+      codigoConsulta.Clear;
+      TipoConsulta.Clear;
+      dcprincipal.Clear;
+      cantidad_servicios.Text:='1';
+      DXP.Clear;
+
 
       
     except
@@ -736,7 +803,34 @@ begin
   end
   else
   begin
+    // Insertar en Citas Servicios
+      UniMainModule.Query.SQL.Clear;
+      consulta :=
+        'INSERT INTO citasservicios (paciente, medico, hora, fecha, codigo, servicio, cantidad, rips)'
+        + 'VALUES (:Paciente, :Medico, :Hora, :Fecha, :Codigo, :Servicio, :Cantidad, :Rips) ';
+      UniMainModule.Query.SQL.Text := consulta;
+      UniMainModule.Query.Params.ParamByName('Paciente').Value :=
+        IdentificacionA.Text;
+      UniMainModule.Query.Params.ParamByName('Medico').Value := CodigoMedico;
+      UniMainModule.Query.Params.ParamByName('Hora').Value :=
+        StrToDateTime(HoraAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Fecha').Value :=
+        StrToDate(fechaAsignacion.Text);
+      UniMainModule.Query.Params.ParamByName('Codigo').Value :=
+        codigoConsulta.Text;
+      UniMainModule.Query.Params.ParamByName('Servicio').Value :=
+        TipoConsulta.Text;
+      UniMainModule.Query.Params.ParamByName('Cantidad').Value :=
+        cantidad_servicios.Text;
+      UniMainModule.Query.Params.ParamByName('Rips').Value := NumeroCita.Text;
+      UniMainModule.Query.ExecSQL;
 
+       //Mostrar en la grilla
+       UniMainModule.QueryGrid.SQL.Clear;
+      UniMainModule.QueryGrid.SQL.Add('select c.codigo, c.Servicio, c.Fecha, c.cantidad, CONVERT(VARCHAR(5), c.hora, 108) as hora, e.especialidad '+
+      ' from CitasServicios as c inner join citas ci on ci.consecutivo=c.rips inner join especialidad e on e.codigo=ci.tipoconsulta where c.rips=:Rips order by c.fecha desc');
+      UniMainModule.QueryGrid.Params.ParamByName('Rips').Value:=rip;
+      UniMainModule.QueryGrid.Open();
   end;
 end;
 
@@ -881,6 +975,31 @@ begin
   
 end;
 
+procedure TcitasF.UniSpeedButton2Click(Sender: TObject);
+begin
+UniMainModule.Query.SQL.Clear;
+UniMainModule.QueryGrid.SQL.Clear;
+NumeroCita.Text:='0';
+IdentificacionA.Clear;
+NombreC.Clear;
+ATAfiliado.Clear;
+FechaN.Clear;
+Telefono.Clear;
+Contrato.Clear;
+DireccionU.Clear;
+email.Clear;
+Medico.Clear;
+Autorizacion.Clear;
+ValorModeradora.Clear;
+codigoConsulta.Text;
+DXP.Clear;
+
+
+
+
+
+end;
+
 function TcitasF.verificarHora(med, fec, hor: string): boolean;
 begin
     UniMainModule.Query.SQL.Clear;
@@ -896,6 +1015,44 @@ procedure TcitasF.ubBuscarMedicoClick(Sender: TObject);
 begin
   UniMainModule.i := 2;
   busquedaf.ShowModal(ShowCallback);
+end;
+
+procedure TcitasF.ubCancelarClick(Sender: TObject);
+begin
+UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Text :=
+    'Select * from citas where paciente=:Paciente and fechacita=:Fecha and horacita=:Hora';
+  UniMainModule.Query.ParamByName('Paciente').Value := IdentificacionA.Text;
+  UniMainModule.Query.ParamByName('Fecha').Value :=
+    FormatDateTime('yyyymmdd', fechaAsignacion.DateTime);
+  UniMainModule.Query.ParamByName('Hora').Value := FormatDateTime('hh:mm AM/PM',
+    HoraAsignacion.DateTime);
+  UniMainModule.Query.Open;
+  // ShowMessage(Consulta);
+  If (UniMainModule.Query.IsEmpty) Then
+    ShowMessage('Cita No Encontrada.....')
+  else
+  begin
+
+    MessageDlg('¿Está seguro que desea cancelar la cita seleccionada?',
+      mtConfirmation, mbYesNoCancel,
+      procedure(Sender: TComponent; Ans: Integer)
+      begin
+        if Ans = mrYes then
+        begin
+          UniMainModule.Query.SQL.Clear;
+          UniMainModule.Query.SQL.Add
+            ('Update Citas set Asistio=2 where Consecutivo = ' + NumeroCita.Text
+            + '; ' + 'Update ripsg set RipsEstado = 2,Autorizacion='''' where rips = '
+            + NumeroCita.Text);
+          UniMainModule.Query.ExecSQL;
+          ShowMessage('Datos Actualizados exitosamente');
+        end;
+      end);
+    Abort;
+
+  end
+
 end;
 
 procedure TcitasF.ubConsultarClick(Sender: TObject);
@@ -1138,6 +1295,52 @@ begin
 
   end;
 
+end;
+
+procedure TcitasF.ubGuardarObsClick(Sender: TObject);
+begin
+  if DatosIngreso.Text <> '' then
+  begin
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add('update dxrips set condicionentrada = ''' +
+      DatosIngreso.Text + ''', autorizacion = ''' + Autorizacion.Text +
+      ''' where rips = ' + NumeroCita.Text);
+    UniMainModule.Query.ExecSQL;
+    ShowMessage('Datos Actualizados exitosamente');
+  end;
+end;
+
+procedure TcitasF.ubValorClick(Sender: TObject);
+var
+  fecha_autor: string;
+begin
+ValorModeradora.SetFocus;
+  if (autorizada.Text = 'null') OR (autorizada.GetTextLen = 0) OR
+    (autorizada.Text = '') then
+    fecha_autor := 'null'
+  else
+    fecha_autor := '''' + FormatDateTime('yyyymmdd',
+      autorizada.DateTime) + '''';
+
+  if (Autorizacion.Text <> '') then
+  begin
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add('select * from RipsG where Autorizacion=''' +
+      Autorizacion.Text + '''');
+    UniMainModule.Query.Open;
+
+    if not UniMainModule.Query.IsEmpty then
+    begin
+      if (UniMainModule.Query.FieldByName('rips').AsString <> NumeroCita.Text)
+      then
+      begin
+        ShowMessage('Esta Autorizacion ya Existe en el Rips = ' +
+          UniMainModule.Query.FieldByName('Rips').AsString +
+          ' , Verifique no se puede ACTUALIZAR.....');
+        exit;
+      end;
+    end;
+  end;
 end;
 
 procedure TcitasF.ubVerHorasClick(Sender: TObject);
