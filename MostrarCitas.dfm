@@ -18,8 +18,6 @@ object citaPacienteF: TcitaPacienteF
     TabOrder = 0
     ParentColor = False
     Color = 11169097
-    ExplicitLeft = 8
-    ExplicitWidth = 910
     object ubVerCita: TUniSpeedButton
       Left = 792
       Top = 0
@@ -31,8 +29,6 @@ object citaPacienteF: TcitaPacienteF
       ParentColor = False
       Color = clMenuHighlight
       TabOrder = 1
-      ExplicitTop = 3
-      ExplicitHeight = 70
     end
     object UniLabel1: TUniLabel
       Left = 296
@@ -59,6 +55,7 @@ object citaPacienteF: TcitaPacienteF
     LoadMask.Message = 'Loading data...'
     Align = alClient
     TabOrder = 1
+    OnBodyDblClick = UniDBGrid1BodyDblClick
     Columns = <
       item
         FieldName = 'Nombre'

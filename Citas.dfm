@@ -2,7 +2,7 @@ object citasF: TcitasF
   Left = 0
   Top = 0
   ClientHeight = 852
-  ClientWidth = 1193
+  ClientWidth = 1202
   Caption = 'Modulo de Citas'
   OnShow = UniFormShow
   OldCreateOrder = False
@@ -12,15 +12,17 @@ object citasF: TcitasF
   object UniPageControl1: TUniPageControl
     Left = 0
     Top = 89
-    Width = 1193
+    Width = 1202
     Height = 763
     Hint = ''
     ActivePage = UniTabSheet1
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1193
     object UniTabSheet1: TUniTabSheet
       Hint = ''
       Caption = 'Citas medicas'
+      ExplicitWidth = 1185
       object educativo: TUniComboBox
         Left = 610
         Top = 125
@@ -326,6 +328,7 @@ object citasF: TcitasF
         Caption = ''
         TabOrder = 29
         IconCls = 'delete'
+        OnClick = ubQuitarClick
       end
       object ubValor: TUniButton
         Left = 1077
@@ -577,16 +580,53 @@ object citasF: TcitasF
         Width = 1111
         Height = 183
         Hint = ''
-        ActivePage = UniTabSheet2
+        ActivePage = UniTabSheet3
         TabOrder = 56
         object UniTabSheet2: TUniTabSheet
           Hint = ''
           Caption = 'Horas Disponibles'
-          object UniDBGrid3: TUniDBGrid
+          object UniDBGrid4: TUniDBGrid
             Left = 0
             Top = 0
-            Width = 1108
+            Width = 1103
             Height = 155
+            Hint = ''
+            DataSource = DataSource3
+            LoadMask.Message = 'Loading data...'
+            Align = alClient
+            TabOrder = 0
+            OnCellClick = UniDBGrid4CellClick
+            Columns = <
+              item
+                FieldName = 'hora'
+                Title.Caption = 'Hora Cita'
+                Width = 112
+              end
+              item
+                FieldName = 'Paciente'
+                Title.Caption = 'Paciente'
+                Width = 482
+              end
+              item
+                FieldName = 'Nombre'
+                Title.Caption = 'Nombre'
+                Width = 348
+              end
+              item
+                FieldName = 'Fecha'
+                Title.Caption = 'Fecha'
+                Width = 136
+              end>
+          end
+        end
+        object UniTabSheet3: TUniTabSheet
+          Hint = ''
+          Caption = 'Servicios del Paciente'
+          object UniDBGrid3: TUniDBGrid
+            Left = 3
+            Top = 3
+            Width = 1102
+            Height = 149
             Hint = ''
             DataSource = DataSource2
             LoadMask.Message = 'Loading data...'
@@ -623,10 +663,6 @@ object citasF: TcitasF
                 Width = 179
               end>
           end
-        end
-        object UniTabSheet3: TUniTabSheet
-          Hint = ''
-          Caption = 'Servicios del Paciente'
         end
       end
       object ValorModeradora: TUniEdit
@@ -1052,7 +1088,7 @@ object citasF: TcitasF
       end
       object ubCancelar: TUniSpeedButton
         Left = 1001
-        Top = 675
+        Top = 683
         Width = 123
         Height = 49
         Hint = ''
@@ -1197,14 +1233,41 @@ object citasF: TcitasF
         TabOrder = 69
         OnClick = ubCancelarClick
       end
+      object UniLabel54: TUniLabel
+        Left = 935
+        Top = 3
+        Width = 75
+        Height = 25
+        Hint = ''
+        Alignment = taCenter
+        Caption = 'N'#176' Cita'
+        ParentFont = False
+        Font.Color = clBlack
+        Font.Height = -21
+        Font.Style = [fsBold]
+        ParentColor = False
+        Color = clInfoText
+        TabOrder = 70
+      end
+      object NumeroCita: TUniEdit
+        Left = 1028
+        Top = 3
+        Width = 94
+        Hint = ''
+        Text = '0'
+        TabOrder = 71
+        OnKeyPress = NumeroCitaKeyPress
+      end
     end
     object UniTabSheet4: TUniTabSheet
       Hint = ''
       Caption = 'Reportes'
+      ExplicitWidth = 1185
     end
     object TabAgenda: TUniTabSheet
       Hint = ''
       Caption = 'Agenda y Medicos'
+      ExplicitWidth = 1185
       object UniLabel28: TUniLabel
         Left = 24
         Top = 24
@@ -2181,6 +2244,7 @@ object citasF: TcitasF
     object UniTabSheet5: TUniTabSheet
       Hint = ''
       Caption = 'Citas Web'
+      ExplicitWidth = 1185
       object UniLabel48: TUniLabel
         Left = 25
         Top = 43
@@ -2398,15 +2462,17 @@ object citasF: TcitasF
       end
     end
   end
-  object UniToolBar1: TUniToolBar
+  object UniPanel1: TUniPanel
     Left = 0
     Top = 0
-    Width = 1193
+    Width = 1202
     Height = 89
     Hint = ''
+    Align = alTop
     TabOrder = 1
-    ParentColor = False
+    Caption = ''
     Color = 11169097
+    ExplicitWidth = 1193
     object UniImage1: TUniImage
       Left = 3
       Top = 3
@@ -2682,34 +2748,10 @@ object citasF: TcitasF
       Font.Style = [fsBold]
       TabOrder = 2
     end
-    object UniLabel54: TUniLabel
-      Left = 1005
-      Top = 35
-      Width = 75
-      Height = 25
-      Hint = ''
-      Alignment = taCenter
-      Caption = 'N'#176' Cita'
-      Align = alCustom
-      ParentFont = False
-      Font.Color = clWhite
-      Font.Height = -21
-      Font.Style = [fsBold]
-      TabOrder = 3
-    end
-    object NumeroCita: TUniEdit
-      Left = 640
-      Top = -88
-      Width = 121
-      Hint = ''
-      Text = '0'
-      TabOrder = 4
-      Color = clHighlightText
-    end
   end
   object DataSource: TDataSource
     DataSet = UniMainModule.Query
-    Left = 1140
+    Left = 1148
     Top = 561
   end
   object RESTClient1: TRESTClient
@@ -2744,13 +2786,18 @@ object citasF: TcitasF
     Top = 112
   end
   object DataSource1: TDataSource
-    DataSet = UniMainModule.QueryGrid
+    DataSet = UniMainModule.Query
     Left = 524
     Top = 113
   end
   object DataSource2: TDataSource
     DataSet = UniMainModule.QueryGrid
-    Left = 1140
+    Left = 1148
     Top = 633
+  end
+  object DataSource3: TDataSource
+    DataSet = UniMainModule.QueryAgenda
+    Left = 1152
+    Top = 712
   end
 end

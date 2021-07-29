@@ -16,6 +16,7 @@ type
     DataSource1: TDataSource;
     UniLabel1: TUniLabel;
     procedure UniFormShow(Sender: TObject);
+    procedure UniDBGrid1BodyDblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,15 +30,25 @@ implementation
 {$R *.dfm}
 
 uses
-  MainModule, uniGUIApplication;
+  MainModule, uniGUIApplication, Citas;
 
 function citaPacienteF: TcitaPacienteF;
 begin
   Result := TcitaPacienteF(UniMainModule.GetFormInstance(TcitaPacienteF));
 end;
 
+procedure TcitaPacienteF.UniDBGrid1BodyDblClick(Sender: TObject);
+var
+key: Char;
+begin
+key:=#13;
+Citas.citasf.NumeroCita.Text:=UniMainModule.Query.FieldByName('rips').AsString;
+Citas.citasf.NumeroCitaKeyPress(Sender, key);
+end;
+
 procedure TcitaPacienteF.UniFormShow(Sender: TObject);
 begin
+
   UniMainModule.Query.SQL.Clear;
   UniMainModule.Query.SQL.Add('select m.Nombre, c.Rips, c.Servicio, c.Fecha, CONVERT(VARCHAR(5), c.hora, 108) as hora from CitasServicios as c, medicos as m where c.Medico=m.Codigo and c.paciente=:Paciente order by fecha desc');
   UniMainModule.Query.Params.ParamByName('Paciente').Value:=paciente;
