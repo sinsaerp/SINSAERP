@@ -136,7 +136,7 @@ begin
   if (UniMainModule.Query.IsEmpty) then
   begin
 
-    Consulta := 'insert into Usuarios(CODEPS, TIPIDECOTPP, TIPIDAFIL,AfCodigo,' +
+    Consulta := 'insert into Usuarios(CODEPS, TIPIDECOTPP, TIPIDEAFIL,AfCodigo,' +
       'afape1,afape2,afnom1,afnom2,FECHA_NACIMIENTO,SEXO,TIPAFILIADO,TELEFONO,DIRECCION,CODDPTO,CODMPIO,ZONA,FECAFILSGSSS,eVENTO,Nombre,FechaEvento,TIPIDEAPORTANTE,NombreCompleto,nivelescolar, correoe, etnia, poblacion)'
       + ' values(''' + EPS.Text + ''',''' + TDAfiliado.Text + ''',''' + TipoBeneficiario.Text+ ''','''+
       IdentificacionA.Text + ''',''' + UpperCase(PrimerApellidoA.Text) + ''',''' +
@@ -150,13 +150,13 @@ begin
       ''',''' + NivelA.Text + ''',''' + NombreCom + ''',''' + educativo.Text +
       ''',''' + correo_e.Text + ''', ''' + Etnia.Text + ''',''' +
       Poblacion.Text + ''' )';
-
     UniMainModule.Query.SQL.Clear;
     UniMainModule.Query.SQL.Add(Consulta);
     UniMainModule.Query.ExecSQL;
 
     ShowMessage('Registro guardado satisfactoriamente');
     LimpiarCampos;
+    Close;
   end
   else
   begin

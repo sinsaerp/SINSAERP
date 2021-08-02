@@ -26,7 +26,8 @@ uses
   HorasAsignadasWeb in 'HorasAsignadasWeb.pas' {HorasWebAsignadas: TUniForm},
   DetalleCita2 in 'DetalleCita2.pas' {DetalleCitaForm: TUniForm},
   HistorialCitas in 'HistorialCitas.pas' {HistorialCitasF: TUniForm},
-  AgendaMes in 'AgendaMes.pas' {FCalendarioAgenda: TUniForm};
+  AgendaMes in 'AgendaMes.pas' {FCalendarioAgenda: TUniForm},
+  ReprogramarCita in 'ReprogramarCita.pas' {FReprogramar: TUniForm};
 
 {$R *.res}
 

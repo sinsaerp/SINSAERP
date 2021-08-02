@@ -1,0 +1,227 @@
+unit ReprogramarCita;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniDateTimePicker, uniButton, uniBitBtn,
+  uniSpeedButton, uniEdit, uniLabel, uniPanel, Data.DB, uniGUIBaseClasses,
+  uniBasicGrid, uniDBGrid;
+
+type
+  TFReprogramar = class(TUniForm)
+    UniDBGrid1: TUniDBGrid;
+    DataSource1: TDataSource;
+    UniPanel1: TUniPanel;
+    UniLabel1: TUniLabel;
+    Medico: TUniEdit;
+    UniLabel2: TUniLabel;
+    UniSpeedButton1: TUniSpeedButton;
+    UniLabel3: TUniLabel;
+    Fecha: TUniDateTimePicker;
+    Hora: TUniDateTimePicker;
+    UniLabel4: TUniLabel;
+    UniSpeedButton2: TUniSpeedButton;
+    CodMedico: TUniEdit;
+    procedure UniFormShow(Sender: TObject);
+    procedure UniSpeedButton2Click(Sender: TObject);
+    procedure UniDBGrid1CellClick(Column: TUniDBGridColumn);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    intervalo, rips, paciente, horaix, horafx: string end;
+
+    function FReprogramar: TFReprogramar;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function FReprogramar: TFReprogramar;
+begin
+  Result := TFReprogramar(UniMainModule.GetFormInstance(TFReprogramar));
+end;
+
+procedure TFReprogramar.UniDBGrid1CellClick(Column: TUniDBGridColumn);
+begin
+paciente:=UniMainModule.QueryAgenda.FieldByName('paciente').AsString;
+Hora.DateTime:=UniMainModule.QueryAgenda.FieldByName('hora').AsDateTime;
+end;
+
+procedure TFReprogramar.UniFormShow(Sender: TObject);
+begin
+  UniMainModule.Query.Close;
+  UniMainModule.QueryAgenda.Close;
+  UniMainModule.QueryGrid.Close;
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from HorarioM where medico=''' +
+    CodMedico.Text + ''' and Fecha=''' + FormatDateTime('yyyymmdd',
+    Fecha.DateTime) + ''' ');
+  UniMainModule.Query.Open;
+
+  if (UniMainModule.Query.IsEmpty) then
+  begin
+    ShowMessage('Este Medico no Tiene Agenda Para  esta fecha.......');
+    exit;
+  end;
+
+  // PaginadeCitas.activepageindex := 1;
+  // cantidad_servicios.IntValue := 1;
+
+  horaix := FormatDateTime('hh:mm', UniMainModule.Query.FieldByName('horaI1')
+    .asdatetime);
+  horafx := FormatDateTime('hh:mm', UniMainModule.Query.FieldByName('horaF2')
+    .asdatetime);
+
+  if UniMainModule.Query.FieldByName('turnos1').AsInteger = 0 then
+  begin
+    horaix := FormatDateTime('hh:mm', UniMainModule.Query.FieldByName('horaI2')
+      .asdatetime);
+  end;
+
+  if UniMainModule.Query.FieldByName('turnos2').AsInteger = 0 then
+  begin
+    horafx := FormatDateTime('hh:mm', UniMainModule.Query.FieldByName('horaF1')
+      .asdatetime);
+  end;
+  if (CodMedico.Text = '') then
+  begin
+    ShowMessage('Falta  Medico.. Verifique.....');
+    exit
+  end;
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('Delete From agendatemp where medico =''' +
+    CodMedico.Text + '''');
+  UniMainModule.Query.ExecSQL;
+
+  UniMainModule.Query.SQL.Clear; // FormatDateTime('hh:mm',horaix)
+  UniMainModule.Query.SQL.Add
+    ('DECLARE @fIni time(0),@fFin time(0), @d tinyint SET @fIni = ''' + horaix +
+    ''' SET @fFin = ''' + horafx + ''' SET @d = 0 ' +
+    'WHILE @fIni <= @fFin BEGIN INSERT INTO agendatemp(Hora,Fecha,Citador,medico) VALUES(@fIni,'''
+    + FormatDateTime('yyyymmdd', Fecha.DateTime) + ''',''' +
+    UniMainModule.citador + ''',''' + CodMedico.Text +
+    ''') SET @fIni =   DATEADD(n,' + intervalo + ', @fIni)END');
+
+  UniMainModule.Query.ExecSQL;
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add
+    ('insert into AgendaTemp(Fecha, Hora, Paciente,Nombre,Medico,citador,EstadoT,TurnoT) select FechaCita, HoraCitaX, Paciente, '
+    + 'NombreCompleto, Medico,''' + UniMainModule.citador +
+    ''', Asistio, Turno from Citas,usuarios where  FechaCita= ''' +
+    FormatDateTime('yyyymmdd', Fecha.DateTime) + ''' and Medico =''' +
+    CodMedico.Text + ''' and afcodigo=paciente ');
+  UniMainModule.Query.ExecSQL;
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add
+    ('DELETE FROM AgendaTemp WHERE idx IN (SELECT idx FROM AgendaTemp main WHERE idx < (SELECT min(idx) FROM AgendaTemp WHERE idx <> main.idx '
+    + 'AND Hora = main.Hora))');
+  UniMainModule.Query.ExecSQL;
+
+  UniMainModule.QueryAgenda.SQL.Clear;
+  UniMainModule.QueryAgenda.SQL.Add
+    ('select CONVERT(VARCHAR(5), hora, 108) AS hora, Paciente,Nombre, web, case EstadoT when 1 then ''No Asistio'' when 2 then ''Cancelado'' when '
+    + '3 then ''Dilatando'' when 4 then ''En Espera'' when 5 then ''Atendido'' end EstadoT,TurnoT,idx,Fecha,medico from agendatemp where Fecha ='''
+    + FormatDateTime('yyyymmdd', Fecha.DateTime) + ''' and medico =''' +
+    CodMedico.Text + ''' order by CONVERT(VARCHAR(6), hora, 108)');
+  UniMainModule.QueryAgenda.Open;
+end;
+
+procedure TFReprogramar.UniSpeedButton2Click(Sender: TObject);
+
+begin
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Text :=
+    'select * from horariom where fecha=:Fecha and medico=:Medico ';
+  UniMainModule.Query.ParamByName('Fecha').Value := Fecha.DateTime;
+  UniMainModule.Query.ParamByName('Medico').Value := CodMedico.Text;
+  UniMainModule.Query.Open;
+  if UniMainModule.Query.IsEmpty then
+  begin
+    ShowMessage('El médico seleccionado no tiene agenda');
+    exit;
+  end
+  else
+  begin
+
+
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Text :=
+      'SELECT * FROM citas WHERE medico=:Med  and fechacita=:Fec and horacita=:Hor';
+    UniMainModule.Query.ParamByName('Med').Value := CodMedico.Text;
+    UniMainModule.Query.ParamByName('Fec').Value := Fecha.DateTime;
+    UniMainModule.Query.ParamByName('Hor').Value :=
+      FormatDateTime('hh:mm AM/PM', Hora.DateTime);
+    UniMainModule.Query.Open();
+    if not UniMainModule.Query.IsEmpty then
+    begin
+      ShowMessage('Ya existe un paciente para la fecha y hora seleccionada');
+      exit;
+    end
+    else
+    begin
+
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Text :=
+        'UPDATE citas set horacita=:Hor, horacitax=:Horx where consecutivo=:Con';
+      UniMainModule.Query.ParamByName('Horx').Value := Fecha.DateTime;
+      UniMainModule.Query.ParamByName('Hor').Value :=
+        FormatDateTime('hh:mm AM/PM', Hora.DateTime);
+      UniMainModule.Query.ParamByName('Con').Value :=rips;
+      UniMainModule.Query.ExecSQL();
+
+      ShowMessage('Cita reprogramada exitosamente');
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add('Delete From agendatemp where medico =''' +
+        CodMedico.Text + '''');
+      UniMainModule.Query.ExecSQL;
+
+      UniMainModule.Query.SQL.Clear; // FormatDateTime('hh:mm',horaix)
+      UniMainModule.Query.SQL.Add
+        ('DECLARE @fIni time(0),@fFin time(0), @d tinyint SET @fIni = ''' +
+        horaix + ''' SET @fFin = ''' + horafx + ''' SET @d = 0 ' +
+        'WHILE @fIni <= @fFin BEGIN INSERT INTO agendatemp(Hora,Fecha,Citador,medico) VALUES(@fIni,'''
+        + FormatDateTime('yyyymmdd', Fecha.DateTime) + ''',''' +
+        UniMainModule.citador + ''',''' + CodMedico.Text +
+        ''') SET @fIni =   DATEADD(n,' + intervalo + ', @fIni)END');
+
+      UniMainModule.Query.ExecSQL;
+
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add
+        ('insert into AgendaTemp(Fecha, Hora, Paciente,Nombre,Medico,citador,EstadoT,TurnoT) select FechaCita, HoraCitaX, Paciente, '
+        + 'NombreCompleto, Medico,''' + UniMainModule.citador +
+        ''', Asistio, Turno from Citas,usuarios where  FechaCita= ''' +
+        FormatDateTime('yyyymmdd', Fecha.DateTime) + ''' and Medico =''' +
+        CodMedico.Text + ''' and afcodigo=paciente ');
+      UniMainModule.Query.ExecSQL;
+
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add
+        ('DELETE FROM AgendaTemp WHERE idx IN (SELECT idx FROM AgendaTemp main WHERE idx < (SELECT min(idx) FROM AgendaTemp WHERE idx <> main.idx '
+        + 'AND Hora = main.Hora))');
+      UniMainModule.Query.ExecSQL;
+
+      UniMainModule.QueryAgenda.SQL.Clear;
+      UniMainModule.QueryAgenda.SQL.Add
+        ('select CONVERT(VARCHAR(5), hora, 108) AS hora, Paciente,Nombre, web, case EstadoT when 1 then ''No Asistio'' when 2 then ''Cancelado'' when '
+        + '3 then ''Dilatando'' when 4 then ''En Espera'' when 5 then ''Atendido'' end EstadoT,TurnoT,idx,Fecha,medico from agendatemp where Fecha ='''
+        + FormatDateTime('yyyymmdd', Fecha.DateTime) + ''' and medico =''' +
+        CodMedico.Text + ''' order by CONVERT(VARCHAR(6), hora, 108)');
+      UniMainModule.QueryAgenda.Open;
+    end;
+
+  end;
+
+end;
+
+end.

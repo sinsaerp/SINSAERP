@@ -16,6 +16,7 @@ type
     Query: TFDQuery;
     QueryAgenda: TFDQuery;
     QueryGrid: TFDQuery;
+    QueryWeb: TFDQuery;
   private
     { Private declarations }
   public
