@@ -186,12 +186,16 @@ begin
   if (opcion = 16) then
   begin
     /// ///
-    cadena := 'Select NumeroC as Descripcion, LPServicio as codigo,LPInsumo,Tipo,Manual,ObjetoContrato  from contratosin where Entidad='''
+
+
+
+       cadena := 'Select NumeroC as Descripcion, LPServicio as codigo,LPInsumo,Tipo,Manual,ObjetoContrato  from contratosin where Entidad='''
       + Busqueda.Text + ''' and citas=''1'' AND ESTADO=''ACTIVO''';
-    UniMainModule.Query.SQL.Clear;
-    UniMainModule.Query.SQL.Add(cadena);
-    UniMainModule.Query.Open;
-    UniDBMemo1.DataField := 'Descripcion'
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion';
+
 
   end;
 
@@ -242,8 +246,19 @@ begin
 end;
 
 procedure Tbusquedaf.UniFormShow(Sender: TObject);
+var
+cadena :string;
 begin
   UniMainModule.Query.Close;
+  if (Busqueda.Text<>'') and (UniMainModule.i=16)  then
+    begin
+       cadena := 'Select NumeroC as Descripcion, LPServicio as codigo,LPInsumo,Tipo,Manual,ObjetoContrato  from contratosin where Entidad='''
+      + Busqueda.Text + ''' and citas=''1'' AND ESTADO=''ACTIVO''';
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Add(cadena);
+      UniMainModule.Query.Open;
+      UniDBMemo1.DataField := 'Descripcion'
+    end
 end;
 
 end.

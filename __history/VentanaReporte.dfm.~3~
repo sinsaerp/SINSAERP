@@ -1,0 +1,1523 @@
+object FReporrte: TFReporrte
+  Left = 0
+  Top = 0
+  ClientHeight = 620
+  ClientWidth = 972
+  Caption = 'FReporte'
+  OldCreateOrder = False
+  MonitoredKeys.Keys = <>
+  PixelsPerInch = 96
+  TextHeight = 13
+  object UniPDFFrame1: TUniPDFFrame
+    AlignWithMargins = True
+    Left = 3
+    Top = 3
+    Width = 966
+    Height = 614
+    Hint = ''
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = -564
+    ExplicitTop = -302
+    ExplicitWidth = 1118
+    ExplicitHeight = 591
+  end
+  object frxADOComponents1: TfrxADOComponents
+    DefaultDatabase = ConexionS
+    Left = 184
+    Top = 80
+  end
+  object frxGradientObject1: TfrxGradientObject
+    Left = 328
+    Top = 64
+  end
+  object frxPDFExport1: TfrxPDFExport
+    UseFileCache = True
+    ShowProgress = True
+    OverwritePrompt = False
+    DataOnly = False
+    InteractiveFormsFontSubset = 'A-Z,a-z,0-9,#43-#47 '
+    OpenAfterExport = False
+    PrintOptimized = False
+    Outline = False
+    Background = False
+    HTMLTags = True
+    Quality = 95
+    Transparency = False
+    Author = 'FastReport'
+    Subject = 'FastReport PDF export'
+    ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
+    HideToolbar = False
+    HideMenubar = False
+    HideWindowUI = False
+    FitWindow = False
+    CenterWindow = False
+    PrintScaling = False
+    PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
+    Left = 408
+    Top = 80
+  end
+  object frxReport1: TfrxReport
+    Version = '6.9.3'
+    DataSet = UniMainModule.frxDBDataset1
+    DataSetName = 'frxDBDataset1'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Por defecto'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 41281.512266006900000000
+    ReportOptions.LastChange = 44328.840966180600000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 248
+    Top = 64
+    Datasets = <
+      item
+        DataSet = frxReport1.ADOQuery1
+        DataSetName = 'ADOQuery1'
+      end
+      item
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+      end>
+    Variables = <
+      item
+        Name = ' New Category1'
+        Value = Null
+      end
+      item
+        Name = 'rips'
+        Value = '39'
+      end>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+      object ADOQuery1: TfrxADOQuery
+        UserName = 'ADOQuery1'
+        CloseDataSource = True
+        BCDToCurrency = False
+        IgnoreDupParams = False
+        Params = <>
+        SQL.Strings = (
+          
+            'select * from entidad                                           ' +
+            '            ')
+        CommandTimeout = 30
+        LockType = ltReadOnly
+        pLeft = 80
+        pTop = 124
+        Parameters = <>
+      end
+      object ADOQuery2: TfrxADOQuery
+        UserName = 'ADOQuery2'
+        CloseDataSource = True
+        BCDToCurrency = False
+        IgnoreDupParams = False
+        Params = <
+          item
+            Name = 'rips'
+            DataType = ftInteger
+            Expression = '<rips>'
+          end>
+        SQL.Strings = (
+          'select  *'
+          'from '
+          
+            ' Usuarios u, DXRips d, RipsG r, EPSSI e, Departamentos t, Munici' +
+            'pios n,citador c                            '
+          'where '
+          
+            '  u.AfCodigo = r.Identificacion and r.Rips = d.Rips and u.CODEPS' +
+            ' = e.codigoEps '
+          
+            '  and r.Rips = :rips and t.Codigo = u.CODDPTO and n.codigo = u.C' +
+            'ODMPIO and t.Codigo = n.Departamento and c.codigo=SUBSTRING(r.Us' +
+            'uario,1,2)  order by d.auto  desc                               ' +
+            '                                                                ' +
+            '                                   ')
+        CommandTimeout = 30
+        LockType = ltReadOnly
+        pLeft = 148
+        pTop = 120
+        Parameters = <
+          item
+            Name = 'rips'
+            DataType = ftInteger
+            Expression = '<rips>'
+          end>
+      end
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 216.000000000000000000
+      PaperHeight = 139.000000000000000000
+      PaperSize = 256
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 8.000000000000000000
+      BottomMargin = 5.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object Memo3: TfrxMemoView
+        AllowVectorExport = True
+        Left = 634.961040000000000000
+        Top = 52.913420000000000000
+        Width = 94.488250000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Typ = []
+        HAlign = haRight
+        Memo.UTF8W = (
+          'P'#225'gina [Page#] de [TotalPages#]')
+        ParentFont = False
+      end
+      object Memo4: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 69.826840000000000000
+        Width = 737.008350000000000000
+        Height = 30.236240000000000000
+        DataSet = frxReport1.ADOQuery1
+        DataSetName = 'ADOQuery1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+        HAlign = haCenter
+        Memo.UTF8W = (
+          'ADMISIONES : [ADOQuery2."Servicio"]')
+        ParentFont = False
+        VAlign = vaCenter
+      end
+      object Memo5: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 142.401670000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."NombreCompleto"]')
+        ParentFont = False
+      end
+      object ADOQuery1Nombre: TfrxMemoView
+        AllowVectorExport = True
+        Left = 11.149613500000000000
+        Top = -2.661410000000000000
+        Width = 718.110700000000000000
+        Height = 22.677180000000000000
+        DataField = 'Nombre'
+        DataSet = frxReport1.ADOQuery1
+        DataSetName = 'ADOQuery1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Typ = []
+        HAlign = haCenter
+        Memo.UTF8W = (
+          '[ADOQuery1."Nombre"]')
+        ParentFont = False
+      end
+      object ADOQuery1tipoid: TfrxMemoView
+        AllowVectorExport = True
+        Left = 11.149613500000000000
+        Top = 19.905535000000000000
+        Width = 718.110700000000000000
+        Height = 18.897650000000000000
+        DataSet = frxReport1.ADOQuery1
+        DataSetName = 'ADOQuery1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Typ = []
+        HAlign = haCenter
+        Memo.UTF8W = (
+          
+            '[IIF(<ADOQuery1."tipoid"> = '#39'NI'#39','#39'Nit.'#39','#39'CC.'#39')] [ADOQuery1."iden' +
+            'tificacion"]')
+        ParentFont = False
+      end
+      object Memo2: TfrxMemoView
+        AllowVectorExport = True
+        Left = 11.149613500000000000
+        Top = 38.913420000000000000
+        Width = 718.110700000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -8
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Typ = []
+        HAlign = haCenter
+        Memo.UTF8W = (
+          'ENTIDAD VIGILADA POR LA SUPERINTENDENCIA NACIONAL DE SALUD')
+        ParentFont = False
+      end
+      object ADOQuery1Direccion: TfrxMemoView
+        AllowVectorExport = True
+        Left = 11.149613500000000000
+        Top = 54.031540000000000000
+        Width = 718.110700000000000000
+        Height = 11.338590000000000000
+        DataSet = frxReport1.ADOQuery1
+        DataSetName = 'ADOQuery1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -8
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Typ = []
+        HAlign = haCenter
+        Memo.UTF8W = (
+          '[ADOQuery1."Direccion"]; Tel'#233'fonos [ADOQuery1."Telefono"]')
+        ParentFont = False
+      end
+      object Memo1: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 142.401670000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Paciente')
+        ParentFont = False
+      end
+      object Gradient2: TfrxGradientView
+        AllowVectorExport = True
+        Left = 7.559060000000000000
+        Top = 119.724490000000000000
+        Width = 729.449290000000000000
+        Height = 1.511811020000000000
+        BeginColor = clNavy
+        EndColor = clWhite
+        Style = gsHorizontal
+        Frame.Typ = []
+        Color = 12550015
+      end
+      object Memo10: TfrxMemoView
+        AllowVectorExport = True
+        Left = 1.559060000000000000
+        Top = 103.047310000000000000
+        Width = 128.504020000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'DATOS DEL PACIENTE')
+        ParentFont = False
+      end
+      object Memo11: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 161.299320000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'F. Nacimiento')
+        ParentFont = False
+      end
+      object Memo6: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 161.299320000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."fecha_nacimiento"]')
+        ParentFont = False
+      end
+      object Memo7: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 183.976500000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Departamento')
+        ParentFont = False
+      end
+      object Memo9: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 123.504020000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ':  [ADOQuery2."TIPIDEAFIL"] - [ADOQuery2."AfCodigo"]')
+        ParentFont = False
+      end
+      object Memo12: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 123.504020000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Identificaci'#243'n')
+        ParentFont = False
+      end
+      object Memo13: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 225.551330000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."telefono"]')
+        ParentFont = False
+      end
+      object Memo14: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 225.551330000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Tel'#233'fonos')
+        ParentFont = False
+      end
+      object Memo15: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 244.448980000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Tipo Afiliado')
+        ParentFont = False
+      end
+      object Memo16: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 244.448980000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."tipafiliado"]')
+        ParentFont = False
+      end
+      object Memo17: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 206.653680000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Direccion"]')
+        ParentFont = False
+      end
+      object Memo18: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 206.653680000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Direcc'#243'n')
+        ParentFont = False
+      end
+      object Memo19: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 282.244280000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Ocupacion"]')
+        ParentFont = False
+      end
+      object Memo20: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 282.244280000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Ocupaci'#243'n')
+        ParentFont = False
+      end
+      object Memo21: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 301.141930000000000000
+        Width = 75.590600000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Grupo Sang'#252#237'neo')
+        ParentFont = False
+      end
+      object Memo22: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 301.141930000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."gruposangre"]')
+        ParentFont = False
+      end
+      object Memo23: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 263.346630000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Sexo"]')
+        ParentFont = False
+      end
+      object Memo24: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 263.346630000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Sexo')
+        ParentFont = False
+      end
+      object Memo25: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 338.937230000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."nivelescolar"]')
+        ParentFont = False
+      end
+      object Memo26: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 338.937230000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Nivel Escolar')
+        ParentFont = False
+      end
+      object Memo29: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 320.039580000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."estadocivil"]')
+        ParentFont = False
+      end
+      object Memo30: TfrxMemoView
+        AllowVectorExport = True
+        Left = 0.559060000000000000
+        Top = 320.039580000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Estado Civil')
+        ParentFont = False
+      end
+      object Memo28: TfrxMemoView
+        AllowVectorExport = True
+        Left = 70.842610000000000000
+        Top = 183.976500000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          
+            ': [ADOQuery2."Codigo"] - [ADOQuery2."departamento"] Municipiio :' +
+            ' [ADOQuery2."codigo_1"] - [ADOQuery2."municipio"]')
+        ParentFont = False
+      end
+      object Memo31: TfrxMemoView
+        AllowVectorExport = True
+        Left = 453.543600000000000000
+        Top = 143.622140000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."contratoe"]')
+        ParentFont = False
+      end
+      object Memo32: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 143.622140000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Contrato')
+        ParentFont = False
+      end
+      object Gradient1: TfrxGradientView
+        AllowVectorExport = True
+        Left = 7.559060000000000000
+        Top = 454.661720000000000000
+        Width = 729.449290000000000000
+        Height = 1.511811020000000000
+        BeginColor = clNavy
+        EndColor = clWhite
+        Style = gsHorizontal
+        Frame.Typ = []
+        Color = 12550015
+      end
+      object Memo33: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.173470000000000000
+        Top = 105.826840000000000000
+        Width = 238.110390000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'DATOS ENTIDAD E INGRESO')
+        ParentFont = False
+      end
+      object Memo34: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 162.519790000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Autorizaci'#243'n')
+        ParentFont = False
+      end
+      object Memo35: TfrxMemoView
+        AllowVectorExport = True
+        Left = 453.543600000000000000
+        Top = 162.519790000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."autorizacion"]')
+        ParentFont = False
+      end
+      object Memo36: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 185.196970000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Fecha y Hora')
+        ParentFont = False
+      end
+      object Memo37: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 204.094620000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Servicio')
+        ParentFont = False
+      end
+      object Memo38: TfrxMemoView
+        AllowVectorExport = True
+        Left = 453.543600000000000000
+        Top = 124.724490000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."CODEPS"] - [ADOQuery2."nombre_1"]')
+        ParentFont = False
+      end
+      object Memo39: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 124.724490000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Responsable')
+        ParentFont = False
+      end
+      object Memo40: TfrxMemoView
+        AllowVectorExport = True
+        Left = 453.543600000000000000
+        Top = 204.094620000000000000
+        Width = 283.464750000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Servicio"]')
+        ParentFont = False
+      end
+      object Memo41: TfrxMemoView
+        AllowVectorExport = True
+        Left = 453.543600000000000000
+        Top = 185.196970000000000000
+        Width = 283.464371650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          
+            ': [ADOQuery2."fechai"] - [FormatDateTime('#39'hh:mm:ss AM/PM'#39',<ADOQu' +
+            'ery2."HoraI">)]')
+        ParentFont = False
+      end
+      object Memo42: TfrxMemoView
+        AllowVectorExport = True
+        Left = 468.661720000000000000
+        Top = 287.212740000000000000
+        Width = 294.802961650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."edireccion"]')
+        ParentFont = False
+      end
+      object Memo43: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 287.212740000000000000
+        Width = 79.370130000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Direcci'#243'n')
+        ParentFont = False
+      end
+      object Memo44: TfrxMemoView
+        AllowVectorExport = True
+        Left = 381.732530000000000000
+        Top = 251.196970000000000000
+        Width = 170.078850000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'ACOMPA'#209'ANTES - TRABAJO')
+        ParentFont = False
+      end
+      object Memo45: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 306.110390000000000000
+        Width = 79.370130000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Tel'#233'fonos')
+        ParentFont = False
+      end
+      object Memo46: TfrxMemoView
+        AllowVectorExport = True
+        Left = 468.661720000000000000
+        Top = 306.110390000000000000
+        Width = 294.802961650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."etelefono"]')
+        ParentFont = False
+      end
+      object Memo47: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 328.787570000000000000
+        Width = 79.370130000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Acompa'#241'ante')
+        ParentFont = False
+      end
+      object Memo48: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 347.685220000000000000
+        Width = 79.370130000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Direcci'#243'n')
+        ParentFont = False
+      end
+      object Memo49: TfrxMemoView
+        AllowVectorExport = True
+        Left = 468.661720000000000000
+        Top = 268.315090000000000000
+        Width = 294.802961650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."empresa"]')
+        ParentFont = False
+      end
+      object Memo50: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 268.315090000000000000
+        Width = 79.370130000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Empresa')
+        ParentFont = False
+      end
+      object Memo51: TfrxMemoView
+        AllowVectorExport = True
+        Left = 468.661720000000000000
+        Top = 347.685220000000000000
+        Width = 294.802961650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."direcciona"]')
+        ParentFont = False
+      end
+      object Memo52: TfrxMemoView
+        AllowVectorExport = True
+        Left = 468.661720000000000000
+        Top = 328.787570000000000000
+        Width = 294.802961650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Nombrea"] - [ADOQuery2."ParentescoA"]')
+        ParentFont = False
+      end
+      object Memo53: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 366.582870000000000000
+        Width = 79.370130000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Tel'#233'fonos')
+        ParentFont = False
+      end
+      object Memo54: TfrxMemoView
+        AllowVectorExport = True
+        Left = 468.661720000000000000
+        Top = 366.582870000000000000
+        Width = 294.802961650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."telefonoa"]')
+        ParentFont = False
+      end
+      object Memo55: TfrxMemoView
+        AllowVectorExport = True
+        Left = 255.224335000000000000
+        Top = 457.220780000000000000
+        Width = 170.078850000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haCenter
+        Memo.UTF8W = (
+          'Sincelejo - Sucre')
+        ParentFont = False
+      end
+      object Memo56: TfrxMemoView
+        AllowVectorExport = True
+        Left = 615.063390000000000000
+        Top = 75.606370000000000000
+        Width = 585.826771650000000000
+        Height = 24.566934020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = []
+        Memo.UTF8W = (
+          ': [ADOQuery2."Rips"]')
+        ParentFont = False
+      end
+      object Memo57: TfrxMemoView
+        AllowVectorExport = True
+        Left = 570.709030000000000000
+        Top = 75.606370000000000000
+        Width = 41.574830000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Rips')
+        ParentFont = False
+      end
+      object Memo58: TfrxMemoView
+        AllowVectorExport = True
+        Left = 7.559060000000000000
+        Top = 435.307360000000000000
+        Width = 128.504020000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Firma de Paciente')
+        ParentFont = False
+      end
+      object Gradient5: TfrxGradientView
+        AllowVectorExport = True
+        Left = 7.559060000000000000
+        Top = 427.748300000000000000
+        Width = 192.756030000000000000
+        Height = 1.511811020000000000
+        BeginColor = clNavy
+        EndColor = clWhite
+        Style = gsHorizontal
+        Frame.Typ = []
+        Color = 12550015
+      end
+      object Memo59: TfrxMemoView
+        AllowVectorExport = True
+        Left = 377.953000000000000000
+        Top = 226.771800000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Cama')
+        ParentFont = False
+      end
+      object Memo60: TfrxMemoView
+        AllowVectorExport = True
+        Left = 453.543600000000000000
+        Top = 226.771800000000000000
+        Width = 283.464750000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Cama"]')
+        ParentFont = False
+      end
+      object Memo61: TfrxMemoView
+        AllowVectorExport = True
+        Left = 1.338590000000000000
+        Top = 359.732530000000000000
+        Width = 71.811070000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Observaciones')
+        ParentFont = False
+      end
+      object Memo62: TfrxMemoView
+        AllowVectorExport = True
+        Left = 78.708720000000000000
+        Top = 359.732530000000000000
+        Width = 275.905690000000000000
+        Height = 47.244114020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          ': [ADOQuery2."Condicionentrada"]')
+        ParentFont = False
+      end
+      object Memo63: TfrxMemoView
+        AllowVectorExport = True
+        Left = 529.134200000000000000
+        Top = 435.764070000000000000
+        Width = 52.913420000000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          'Admision.')
+        ParentFont = False
+      end
+      object Memo64: TfrxMemoView
+        AllowVectorExport = True
+        Left = 585.827150000000000000
+        Top = 435.764070000000000000
+        Width = 612.283481650000000000
+        Height = 17.007874020000000000
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Frame.Color = clGray
+        Frame.Typ = []
+        HAlign = haBlock
+        Memo.UTF8W = (
+          '[ADOQuery2."NombreC"]')
+        ParentFont = False
+      end
+    end
+  end
+  object ConexionS: TADOConnection
+    CommandTimeout = 5000
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLNCLI11.1;Persist Security Info=False;User ID=sa;Init' +
+      'ial Catalog=PRUEBA;Data Source=192.168.1.4\sqlexpress;Use Proced' +
+      'ure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstati' +
+      'on ID=DESARROLLO;Initial File Name="";Use Encryption for Data=Fa' +
+      'lse;Tag with column collation when possible=False;MARS Connectio' +
+      'n=False;DataTypeCompatibility=0;Trust Server Certificate=False;S' +
+      'erver SPN="";Application Intent=READWRITE'
+    ConnectionTimeout = 500
+    IsolationLevel = ilReadCommitted
+    Mode = cmShareDenyNone
+    Provider = 'SQLNCLI11.1'
+    Left = 83
+    Top = 79
+  end
+end

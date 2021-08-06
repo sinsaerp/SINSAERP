@@ -10,6 +10,7 @@ object UniMainModule: TUniMainModule
       'Password=12345'
       'Server=192.168.1.4\SQLEXPRESS'
       'DriverID=MSSQL')
+    Connected = True
     LoginPrompt = False
     Left = 312
     Top = 56
@@ -33,5 +34,21 @@ object UniMainModule: TUniMainModule
     Connection = FDConnection
     Left = 432
     Top = 120
+  end
+  object QueryReporte: TFDQuery
+    Connection = FDConnection
+    Left = 312
+    Top = 120
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=MSOLEDBSQL.1;Password=12345;Persist Security Info=True;' +
+      'User ID=sa;Initial Catalog=PRUEBA;Data Source=192.168.1.4\sqlexp' +
+      'ress;Initial File Name="";Server SPN="";Authentication="";Access' +
+      ' Token=""'
+    LoginPrompt = False
+    Provider = 'MSOLEDBSQL.1'
+    Left = 80
+    Top = 48
   end
 end

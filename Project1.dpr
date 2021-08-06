@@ -27,7 +27,9 @@ uses
   DetalleCita2 in 'DetalleCita2.pas' {DetalleCitaForm: TUniForm},
   HistorialCitas in 'HistorialCitas.pas' {HistorialCitasF: TUniForm},
   AgendaMes in 'AgendaMes.pas' {FCalendarioAgenda: TUniForm},
-  ReprogramarCita in 'ReprogramarCita.pas' {FReprogramar: TUniForm};
+  ReprogramarCita in 'ReprogramarCita.pas' {FReprogramar: TUniForm},
+  VentanaReporte in 'VentanaReporte.pas' {UniForm1: TUniForm},
+  ReporteCitas in 'ReporteCitas.pas' {fmedicocistas: TUniForm};
 
 {$R *.res}
 

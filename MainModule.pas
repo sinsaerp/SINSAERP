@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
   FireDAC.Phys.MSSQLDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
   FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Data.Win.ADODB;
+  FireDAC.Comp.Client, Data.Win.ADODB, frxClass, frxExportBaseDialog,
+  frxExportPDF, frxDBSet;
 
 type
   TUniMainModule = class(TUniGUIMainModule)
@@ -17,6 +18,8 @@ type
     QueryAgenda: TFDQuery;
     QueryGrid: TFDQuery;
     QueryWeb: TFDQuery;
+    QueryReporte: TFDQuery;
+    ADOConnection1: TADOConnection;
   private
     { Private declarations }
   public

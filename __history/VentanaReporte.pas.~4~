@@ -1,0 +1,40 @@
+unit VentanaReporte;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniGUIBaseClasses, uniURLFrame, Data.DB,
+  Data.Win.ADODB, frxClass, frxExportBaseDialog, frxExportPDF, frxGradient,
+  frxADOComponents;
+
+type
+  TUniForm1 = class(TUniForm)
+    frxADOComponents1: TfrxADOComponents;
+    frxGradientObject1: TfrxGradientObject;
+    frxPDFExport1: TfrxPDFExport;
+    frxReport1: TfrxReport;
+    ConexionS: TADOConnection;
+    UniPDFFrame1: TUniPDFFrame;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+function UniForm1: TUniForm1;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function UniForm1: TUniForm1;
+begin
+  Result := TUniForm1(UniMainModule.GetFormInstance(TUniForm1));
+end;
+
+end.

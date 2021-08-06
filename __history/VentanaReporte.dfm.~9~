@@ -1,0 +1,562 @@
+object UniForm1: TUniForm1
+  Left = 0
+  Top = 0
+  ClientHeight = 620
+  ClientWidth = 972
+  Caption = 'UniForm1'
+  OldCreateOrder = False
+  MonitoredKeys.Keys = <>
+  OnBeforeShow = UniFormBeforeShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object UniPDFFrame1: TUniPDFFrame
+    AlignWithMargins = True
+    Left = 3
+    Top = 3
+    Width = 966
+    Height = 614
+    Hint = ''
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = -2
+    ExplicitTop = -2
+  end
+  object frxADOComponents1: TfrxADOComponents
+    DefaultDatabase = ConexionS
+    Left = 176
+    Top = 64
+  end
+  object frxGradientObject1: TfrxGradientObject
+    Left = 344
+    Top = 64
+  end
+  object frxPDFExport1: TfrxPDFExport
+    UseFileCache = True
+    ShowProgress = True
+    OverwritePrompt = False
+    DataOnly = False
+    InteractiveFormsFontSubset = 'A-Z,a-z,0-9,#43-#47 '
+    OpenAfterExport = False
+    PrintOptimized = False
+    Outline = False
+    Background = False
+    HTMLTags = True
+    Quality = 95
+    Transparency = False
+    Author = 'FastReport'
+    Subject = 'FastReport PDF export'
+    ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
+    HideToolbar = False
+    HideMenubar = False
+    HideWindowUI = False
+    FitWindow = False
+    CenterWindow = False
+    PrintScaling = False
+    PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
+    Left = 440
+    Top = 64
+  end
+  object ConexionS: TADOConnection
+    CommandTimeout = 5000
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLNCLI11.1;Persist Security Info=False;User ID=sa;Init' +
+      'ial Catalog=PRUEBA;Data Source=192.168.1.4\sqlexpress;Use Proced' +
+      'ure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstati' +
+      'on ID=DESARROLLO;Initial File Name="";Use Encryption for Data=Fa' +
+      'lse;Tag with column collation when possible=False;MARS Connectio' +
+      'n=False;DataTypeCompatibility=0;Trust Server Certificate=False;S' +
+      'erver SPN="";Application Intent=READWRITE'
+    ConnectionTimeout = 500
+    IsolationLevel = ilReadCommitted
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'SQLNCLI11.1'
+    Left = 83
+    Top = 63
+  end
+  object frxReport1: TfrxReport
+    Version = '6.9.3'
+    DataSet = frxDBDataset1
+    DataSetName = 'frxDBDataset1'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Por defecto'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 41305.843081967600000000
+    ReportOptions.LastChange = 41603.641095474500000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 256
+    Top = 64
+    Datasets = <
+      item
+        DataSet = frxReport1.ADOQuery1
+        DataSetName = 'ADOQuery1'
+      end
+      item
+        DataSet = frxReport1.ADOQuery2
+        DataSetName = 'ADOQuery2'
+      end>
+    Variables = <
+      item
+        Name = ' New Category1'
+        Value = Null
+      end
+      item
+        Name = 'rips_no'
+        Value = '2537'
+      end
+      item
+        Name = 'fecha'
+        Value = '20130131'
+      end
+      item
+        Name = 'edad'
+        Value = #39'ff'#39
+      end
+      item
+        Name = 'servicio'
+        Value = #39'UCI NEONATAL'#39
+      end
+      item
+        Name = 'rips'
+        Value = '1735'
+      end>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+      object ADOQuery2: TfrxADOQuery
+        UserName = 'ADOQuery2'
+        CloseDataSource = True
+        BCDToCurrency = False
+        IgnoreDupParams = False
+        Params = <>
+        SQL.Strings = (
+          
+            'select * from entidad                                           ' +
+            '            ')
+        CommandTimeout = 30
+        LockType = ltReadOnly
+        pLeft = 204
+        pTop = 16
+        Parameters = <>
+      end
+      object ADOQuery1: TfrxADOQuery
+        UserName = 'ADOQuery1'
+        CloseDataSource = True
+        BCDToCurrency = False
+        IgnoreDupParams = False
+        Params = <
+          item
+            Name = 'ripsx'
+            DataType = ftInteger
+            Expression = '<rips>'
+          end>
+        SQL.Strings = (
+          
+            'select c.Consecutivo, u.TIPIDEAFIL+'#39' '#39'+u.AfCodigo ide_paciente, ' +
+            'u.NombreCompleto, e.Nombre nombre_eps, c.FechaCita, c.HoraCita,'
+          'm.Nombre pro_nombre, m.Direccion, c.ValorModeradora  '
+          ''
+          
+            'from Citas c, Medicos m, Usuarios u, EPSSI e where c.Medico = m.' +
+            'Codigo and c.Paciente = u.AfCodigo and e.codigoEps = u.CODEPS'
+          
+            'and c.Consecutivo = :ripsx                                      ' +
+            '                      ')
+        CommandTimeout = 30
+        LockType = ltReadOnly
+        pLeft = 132
+        pTop = 16
+        Parameters = <
+          item
+            Name = 'ripsx'
+            DataType = ftInteger
+            Expression = '<rips>'
+          end>
+      end
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 70.000000000000000000
+      PaperHeight = 279.400000000000000000
+      PaperSize = 256
+      LeftMargin = 4.000000000000000000
+      RightMargin = 2.000000000000000000
+      TopMargin = 2.000000000000000000
+      BottomMargin = 2.000000000000000000
+      Columns = 1
+      ColumnWidth = 195.900000000000000000
+      ColumnPositions.Strings = (
+        '0')
+      Frame.Typ = []
+      MirrorMode = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 317.480520000000000000
+        Top = 16.000000000000000000
+        Width = 241.889920000000000000
+        object ADOQuery1Nombre: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Width = 234.330860000000000000
+          Height = 45.354360000000000000
+          DataField = 'Nombre'
+          DataSet = frxReport1.ADOQuery2
+          DataSetName = 'ADOQuery2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[ADOQuery2."Nombre"]')
+          ParentFont = False
+        end
+        object ADOQuery1tipoid: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.590553500000000000
+          Top = 45.244125000000000000
+          Width = 234.330860000000000000
+          Height = 15.118120000000000000
+          DataSet = frxReport1.ADOQuery2
+          DataSetName = 'ADOQuery2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            
+              '[IIF(<ADOQuery2."tipoid"> = '#39'NI'#39','#39'Nit.'#39','#39'CC.'#39')] [ADOQuery2."iden' +
+              'tificacion"]')
+          ParentFont = False
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 62.052629820000000000
+          Width = 234.330860000000000000
+          Height = 26.456710000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'ENTIDAD VIGILADA POR LA SUPERINTENDENCIA NACIONAL DE SALUD')
+          ParentFont = False
+        end
+        object ADOQuery1Direccion: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.590553500000000000
+          Top = 89.766128490000000000
+          Width = 234.330860000000000000
+          Height = 15.118120000000000000
+          DataSet = frxReport1.ADOQuery2
+          DataSetName = 'ADOQuery2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[ADOQuery2."Direccion"]')
+          ParentFont = False
+        end
+        object ADOQuery1AfCodigo: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 160.899991430000000000
+          Width = 234.330860000000000000
+          Height = 15.118120000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Identificaci'#243'n: [ADOQuery1."ide_paciente"]')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 178.177842860000000000
+          Width = 234.330860000000000000
+          Height = 49.133890000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Paciente: [ADOQuery1."NombreCompleto"]')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 246.749315710000000000
+          Width = 90.708720000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Fecha y Hora Cita')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 264.027167140000000000
+          Width = 90.708720000000000000
+          Height = 15.118120000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Profesional')
+          ParentFont = False
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 229.471464290000000000
+          Width = 234.330860000000000000
+          Height = 15.118120000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[ADOQuery1."nombre_eps"]')
+          ParentFont = False
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 298.582870000000000000
+          Width = 90.708720000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Valor Cancela')
+          ParentFont = False
+        end
+        object Memo21: TfrxMemoView
+          AllowVectorExport = True
+          Left = 98.267780000000000000
+          Top = 281.305018570000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[ADOQuery1."direccion"]')
+          ParentFont = False
+        end
+        object Memo22: TfrxMemoView
+          AllowVectorExport = True
+          Left = 98.267780000000000000
+          Top = 298.582870000000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[ADOQuery1."ValorModeradora"]')
+          ParentFont = False
+        end
+        object ADOQuery3rips: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 143.622140000000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          DataSetName = 'ADOQuery3'
+          DisplayFormat.FormatStr = '000000'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Rips: [ADOQuery1."Consecutivo"]')
+          ParentFont = False
+        end
+        object Memo18: TfrxMemoView
+          AllowVectorExport = True
+          Left = 98.267780000000000000
+          Top = 264.027167140000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[ADOQuery1."pro_nombre"]')
+          ParentFont = False
+        end
+        object Memo17: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 281.305018570000000000
+          Width = 90.708720000000000000
+          Height = 15.118120000000000000
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Direcci'#243'n')
+          ParentFont = False
+        end
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 105.826840000000000000
+          Width = 234.330860000000000000
+          Height = 15.118120000000000000
+          DataSet = frxReport1.ADOQuery2
+          DataSetName = 'ADOQuery2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Tel'#233'fonos [ADOQuery2."Telefono"]')
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 120.944960000000000000
+          Width = 234.330860000000000000
+          Height = 15.118120000000000000
+          DataSet = frxReport1.ADOQuery2
+          DataSetName = 'ADOQuery2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Brush Script MT'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[ADOQuery2."Lema"]')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 139.842610000000000000
+          Width = 234.330860000000000000
+          Color = clBlack
+          Frame.Color = 15132390
+          Frame.Style = fsDot
+          Frame.Typ = [ftTop]
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 98.267780000000000000
+          Top = 246.749315720000000000
+          Width = 139.842610000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[ADOQuery1."FechaCita"] - [ADOQuery1."HoraCita"]')
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSet = UniMainModule.QueryAgenda
+    BCDToCurrency = False
+    Left = 88
+    Top = 144
+  end
+end

@@ -163,6 +163,20 @@ type
     UniDBGrid4: TUniDBGrid;
     DataSource3: TDataSource;
     ubReprogramar: TUniSpeedButton;
+    ubImprimir: TUniSpeedButton;
+    UniLabel57: TUniLabel;
+    UniLabel58: TUniLabel;
+    UniLabel59: TUniLabel;
+    Fecha1: TUniDateTimePicker;
+    Fecha2: TUniDateTimePicker;
+    UniLabel60: TUniLabel;
+    PMedico: TUniRadioGroup;
+    CMedico: TUniEdit;
+    NMedico: TUniEdit;
+    UniSpeedButton3: TUniSpeedButton;
+    UniSpeedButton4: TUniSpeedButton;
+    lblUsuario: TUniLabel;
+    ubVerCitas: TUniSpeedButton;
 
     procedure uiCrearPClick(Sender: TObject);
     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
@@ -190,6 +204,7 @@ type
 
     function verificarHora(med: string; fec: string; hor: string): boolean;
     function contadorCitas(med: string; fec: string): boolean;
+    function rutaReporte(): string;
 
     procedure HoraAsignacionChange(Sender: TObject);
     procedure ubGuardarObsClick(Sender: TObject);
@@ -203,6 +218,9 @@ type
     procedure ubReprogramarClick(Sender: TObject);
     procedure cerrarConsultas();
     procedure UniSpeedButton2Click(Sender: TObject);
+    procedure ubImprimirClick(Sender: TObject);
+    procedure UniSpeedButton4Click(Sender: TObject);
+    procedure ubVerCitasClick(Sender: TObject);
 
   private
     CodigoMedico, Departamento, Municipio, NombreCom, EPSU, Intervalo: string;
@@ -221,7 +239,8 @@ implementation
 
 uses
   MainModule, uniGUIApplication, Busqueda, Pacientes, MostrarCitas, HoraDia,
-  HorasAsignadasWeb, DetalleCita, DetalleCita2, AgendaMes, ReprogramarCita;
+  HorasAsignadasWeb, DetalleCita, DetalleCita2, AgendaMes, ReprogramarCita,
+  VentanaReporte, ReporteCitas;
 
 function citasf: TcitasF;
 begin
@@ -397,6 +416,17 @@ begin
   end;
 end;
 
+function TcitasF.rutaReporte: string;
+begin
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from entidades where codigoe=''1'' ');
+  UniMainModule.Query.Open();
+  if not UniMainModule.Query.IsEmpty then
+  begin
+    Result := UniMainModule.Query.FieldByName('reporte').AsString;
+  end;
+end;
+
 procedure TcitasF.cerrarConsultas;
 begin
   UniMainModule.Query.Close;
@@ -407,22 +437,23 @@ end;
 function TcitasF.contadorCitas(med, fec: string): boolean;
 var
   conm, citasm, citast, cont: Integer;
+  Hora1, Hora2: TTime;
 begin
   UniMainModule.Query.SQL.Clear;
   UniMainModule.Query.SQL.Text :=
-    'select * from horariom where fecha=:Fecha and medico=:Medico ';
+    'select CONVERT(VARCHAR(5), HoraI1, 108) AS horai1, CONVERT(VARCHAR(5), Horaf1, 108) AS horaf1, turnos1, turnos2 from horariom where fecha=:Fecha and medico=:Medico ';
   UniMainModule.Query.ParamByName('Fecha').Value := fec;
   UniMainModule.Query.ParamByName('Medico').Value := med;
   UniMainModule.Query.Open;
   if not UniMainModule.Query.IsEmpty then
   begin
-    if (UniMainModule.Query.FieldByName('horai1').asdatetime >=
-      StrToTime('06:00:00')) and (UniMainModule.Query.FieldByName('horaf1')
-      .asdatetime <= StrToTime('12:00:00')) then
+    Hora1 := UniMainModule.Query.FieldByName('horaI1').asdatetime;
+    Hora2 := UniMainModule.Query.FieldByName('horaF1').asdatetime;
+    if (Hora1 >= StrToTime('06:00')) and (Hora2 <= StrToTime('12:00')) then
     begin
       conm := UniMainModule.Query.FieldByName('turnos1').AsInteger;
       UniMainModule.Query.SQL.Text :=
-        'SELECT * FROM citas WHERE CONVERT(varchar(10), HoraCitaX, 108) >=''6:00'' and  CONVERT(varchar(10), HoraCitaX, 108)<=''12:00'' and medico=:Medico and fechacita=:Fecha';
+        'SELECT * FROM citas WHERE DATEPART(HOUR, HoraCitaX) BETWEEN ''6'' and ''12'' and medico=:Medico and fechacita=:Fecha';
       UniMainModule.Query.ParamByName('Fecha').Value := fec;
       UniMainModule.Query.ParamByName('Medico').Value := med;
       UniMainModule.Query.Open;
@@ -434,7 +465,7 @@ begin
     begin
       cont := UniMainModule.Query.FieldByName('turnos2').AsInteger;
       UniMainModule.Query.SQL.Text :=
-        'SELECT * FROM citas WHERE CONVERT(varchar(10), HoraCitaX, 108) >=''14:00'' and  CONVERT(varchar(10), HoraCitaX, 108)<=''18:00'' and medico=:Medico and fechacita=:Fecha';
+        'SELECT * FROM citas where DATEPART(HOUR, HoraCitaX) BETWEEN ''12'' and ''18'' and medico=:Medico and fechacita=:Fecha';
       UniMainModule.Query.ParamByName('Fecha').Value := fec;
       UniMainModule.Query.ParamByName('Medico').Value := med;
       UniMainModule.Query.Open;
@@ -521,8 +552,8 @@ begin
     begin
       NombreC.Text := UniMainModule.Query.FieldByName('nombrecompleto')
         .AsString;
-      ATAfiliado.Text := UniMainModule.Query.FieldByName
-        ('TipCotizante').AsString;
+      ATAfiliado.Text := UniMainModule.Query.FieldByName('Tipafiliado')
+        .AsString;
       FechaN.Text := UniMainModule.Query.FieldByName
         ('fecha_nacimiento').AsString;
       Telefono.Text := UniMainModule.Query.FieldByName('telefono').AsString;
@@ -546,7 +577,7 @@ begin
     IdentificacionA.Text := (UniMainModule.Query.FieldByName('Codigo')
       .AsString);
     NombreC.Text := UniMainModule.Query.FieldByName('descripcion').AsString;
-    ATAfiliado.Text := UniMainModule.Query.FieldByName('TipCotizante').AsString;
+    ATAfiliado.Text := UniMainModule.Query.FieldByName('Tipafiliado').AsString;
     FechaN.Text := UniMainModule.Query.FieldByName('fecha_nacimiento').AsString;
     Telefono.Text := UniMainModule.Query.FieldByName('telefono').AsString;
     DireccionU.Text := UniMainModule.Query.FieldByName('direccion').AsString;
@@ -583,6 +614,9 @@ begin
   if not(UniMainModule.Query.IsEmpty) and (UniMainModule.i = 2) then
   begin
     codigoM.Text := (UniMainModule.Query.FieldByName('Codigo').AsString);
+    CMedico.Text := (UniMainModule.Query.FieldByName('Codigo').AsString);
+    NMedico.Text := (UniMainModule.Query.FieldByName('Descripcion').AsString);
+
     IDMedico.Text := (UniMainModule.Query.FieldByName('IDentificacion')
       .AsString);
     NombreM.Text := (UniMainModule.Query.FieldByName('Descripcion').AsString);
@@ -841,6 +875,18 @@ begin
   if (DXP.Text = '') then
   begin
     ShowMessage('Debe seleccionar un Diagnostico');
+    exit;
+  end;
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from HorarioM where medico=''' +
+    CodigoMedico + ''' and Fecha=''' + FormatDateTime('yyyymmdd',
+    fechaAsignacion.DateTime) + ''' ');
+  UniMainModule.Query.Open;
+
+  if (UniMainModule.Query.IsEmpty) then
+  begin
+    ShowMessage('Este Medico no Tiene Agenda Para  esta fecha.......');
     exit;
   end;
 
@@ -1156,11 +1202,14 @@ end;
 
 procedure TcitasF.UniFormShow(Sender: TObject);
 begin
+  lblUsuario.Text := UniMainModule.usuario;
   UniMainModule.Query.SQL.Clear;
   Calendar1.Date := Now();
   fecha_deseada.DateTime := Now();
   fechaAsignacion.DateTime := Now();
   fechaFinal.DateTime := Now();
+  Fecha1.DateTime := Now();
+  Fecha2.DateTime := Now();
   FechaIncial.DateTime := Now();
 
   UniMainModule.Query.Close;
@@ -1218,6 +1267,45 @@ begin
 
 end;
 
+procedure TcitasF.UniSpeedButton4Click(Sender: TObject);
+var
+  form1: TUniForm1;
+  ruta: string;
+begin
+  if PMedico.Text = '' then
+  begin
+    ShowMessage('Debe seleccionar una opción');
+    exit;
+  end;
+  if (PMedico.Text = 'Prestador') then
+    if CMedico.Text = '' then
+    begin
+      ShowMessage('Debe seleccionar un prestador');
+      exit;
+    end;
+  ruta := rutaReporte() + '\CitasMedico.fr3';
+  if (PMedico.Text = 'Todos') then
+    ruta := rutaReporte() + '\CitasTodas.fr3';
+  if (PMedico.Text = 'Asistió') then
+    ruta := rutaReporte() + '\CitasMedicoA.fr3';
+  if (PMedico.Text = 'No Asistió') then
+    ruta := rutaReporte() + '\CitasMedicoN.fr3';
+
+  form1 := TUniForm1.Create(UniApplication);
+  form1.frxReport1.LoadFromFile(ruta);
+
+  form1.frxReport1.Variables.Variables['Medico'] := '''' + CMedico.Text + '''';
+  form1.frxReport1.Variables.Variables['Fecha1'] :=
+    '''' + FormatDateTime('yyyy-mm-dd', Fecha1.DateTime) + '''';
+  form1.frxReport1.Variables.Variables['Fecha2'] :=
+    '''' + FormatDateTime('yyyy-mm-dd', Fecha2.DateTime) + '''';
+
+  form1.frxReport1.Variables.Variables['UsuarioI'] :=
+    '''' + lblUsuario.Text + '''';
+
+  exit;
+end;
+
 function TcitasF.verificarHora(med, fec, hor: string): boolean;
 begin
   UniMainModule.Query.SQL.Clear;
@@ -1225,7 +1313,8 @@ begin
     'select * from citas where fechacita=:Fecha and medico=:Medico and horacita=:Hora';
   UniMainModule.Query.ParamByName('Fecha').Value := fec;
   UniMainModule.Query.ParamByName('Medico').Value := med;
-  UniMainModule.Query.ParamByName('Hora').Value := hor;
+  UniMainModule.Query.ParamByName('Hora').Value := FormatDateTime('hh:mm AM/PM',
+    HoraAsignacion.DateTime);
   UniMainModule.Query.Open;
   Result := UniMainModule.Query.IsEmpty;
 end;
@@ -1528,6 +1617,20 @@ begin
   end;
 end;
 
+procedure TcitasF.ubImprimirClick(Sender: TObject);
+var
+  form1: TUniForm1;
+begin
+  if NumeroCita.Text <> '0' then
+  begin
+    form1 := TUniForm1.Create(UniApplication);
+    form1.frxReport1.LoadFromFile('D:\Reportes\Cita.fr3');
+    form1.frxReport1.Variables.Variables['rips'] :=
+      '''' + NumeroCita.Text + '''';
+  end;
+
+end;
+
 procedure TcitasF.ubQuitarClick(Sender: TObject);
 var
   consulta: string;
@@ -1640,6 +1743,19 @@ begin
     end);
   Abort;
 
+end;
+
+procedure TcitasF.ubVerCitasClick(Sender: TObject);
+begin
+if CodigoMedico='' then
+begin
+ ShowMessage('Debe Seleccionador un prestador');
+ exit;
+end;
+fmedicocistas.CodigoMedico.Text:=CodigoMedico;
+fmedicocistas.Medico.Text:=Medico.Text;
+fmedicocistas.fechaAsignacion.DateTime:=fechaAsignacion.DateTime;
+fmedicocistas.ShowModal();
 end;
 
 procedure TcitasF.ubVerHorasClick(Sender: TObject);

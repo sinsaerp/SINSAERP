@@ -1540,9 +1540,9 @@ object UniLoginForm1: TUniLoginForm1
       TabOrder = 8
       Caption = ''
       object ubIngresar: TUniSpeedButton
-        Left = 176
-        Top = 4
-        Width = 228
+        Left = 215
+        Top = -4
+        Width = 233
         Height = 54
         Hint = ''
         Glyph.Data = {

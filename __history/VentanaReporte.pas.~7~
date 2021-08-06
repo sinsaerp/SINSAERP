@@ -1,0 +1,69 @@
+unit VentanaReporte;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniGUIBaseClasses, uniURLFrame, Data.DB,
+  Data.Win.ADODB, frxClass, frxExportBaseDialog, frxExportPDF, frxGradient,
+  frxADOComponents, frxDBSet;
+
+type
+  TUniForm1 = class(TUniForm)
+    frxADOComponents1: TfrxADOComponents;
+    frxGradientObject1: TfrxGradientObject;
+    frxPDFExport1: TfrxPDFExport;
+    ConexionS: TADOConnection;
+    UniPDFFrame1: TUniPDFFrame;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    procedure UniFormBeforeShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+function UniForm1: TUniForm1;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function UniForm1: TUniForm1;
+begin
+  Result := TUniForm1(UniMainModule.GetFormInstance(TUniForm1));
+end;
+
+procedure TUniForm1.UniFormBeforeShow(Sender: TObject);
+var
+rptFileName,url:string;
+begin
+frxReport1.PrintOptions.ShowDialog:=false;
+frxReport1.ShowProgress:=true;
+frxReport1.EngineOptions.SilentMode:=true;
+frxReport1.EngineOptions.EnableThreadSafe:=true;
+frxReport1.EngineOptions.DestroyForms:=false;
+frxReport1.EngineOptions.UseGlobalDataSetList:=false;
+
+frxPDFExport1.Background:=true;
+frxPDFExport1.ShowProgress:=true;
+frxPDFExport1.ShowDialog:=false;
+frxPDFExport1.FileName:=UniServerModule.NewCacheFileUrl(false,'pdf','','',url,true);
+frxPDFExport1.DefaultPath:='';
+
+
+frxReport1.PreviewOptions.AllowEdit:=false;
+frxReport1.PrepareReport();
+frxReport1.Export(frxPDFExport1);
+
+
+UniPDFFrame1.PdfURL:=url;
+
+end;
+
+end.
