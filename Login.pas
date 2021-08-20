@@ -21,7 +21,10 @@ type
     ueClave: TUniEdit;
     UniPanel3: TUniPanel;
     ubIngresar: TUniSpeedButton;
+    UniSpeedButton1: TUniSpeedButton;
     procedure ubIngresarClick(Sender: TObject);
+    procedure UniSpeedButton1Click(Sender: TObject);
+    procedure rutaReporte();
   private
     { Private declarations }
   public
@@ -40,6 +43,17 @@ uses
 function UniLoginForm1: TUniLoginForm1;
 begin
   Result := TUniLoginForm1(UniMainModule.GetFormInstance(TUniLoginForm1));
+end;
+
+procedure TUniLoginForm1.rutaReporte;
+begin
+UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from entidades where codigoe=''1'' ');
+  UniMainModule.Query.Open();
+  if not UniMainModule.Query.IsEmpty then
+  begin
+    UniMainModule.ruta:= UniMainModule.Query.FieldByName('reporte').AsString;
+  end;
 end;
 
 procedure TUniLoginForm1.ubIngresarClick(Sender: TObject);
@@ -72,6 +86,7 @@ begin
       UniMainModule.usuario:=UniMainModule.Query.FieldByName('usuario').AsString;
       UniMainModule.NombreCompleto:=UniMainModule.Query.FieldByName('nombrec').AsString;
       ModalResult:=mrOk;
+      rutaReporte();
       Close;
     end
     else
@@ -79,13 +94,16 @@ begin
       ShowMessage('No Existe usuario registrado en el sistema');
       exit;
     end;
-
-
-
-
-
-
 end;
+
+procedure TUniLoginForm1.UniSpeedButton1Click(Sender: TObject);
+begin
+Close;
+end;
+
+
+
+
 
 initialization
   RegisterAppFormClass(TUniLoginForm1);

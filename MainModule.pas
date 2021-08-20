@@ -24,11 +24,13 @@ type
     { Private declarations }
   public
    i: Integer;
-   usuario, NombreCompleto, TipoC, citador: string;
+   usuario, NombreCompleto, TipoC, citador, ruta: string;
+   function rutaReporte(): string;
 
   end;
 
 function UniMainModule: TUniMainModule;
+
 
 implementation
 
@@ -40,6 +42,18 @@ uses
 function UniMainModule: TUniMainModule;
 begin
   Result := TUniMainModule(UniApplication.UniMainModule)
+end;
+
+{ TUniMainModule }
+function TUniMainModule.rutaReporte: string;
+begin
+  Query.SQL.Clear;
+  Query.SQL.Add('select * from entidades where codigoe=''1'' ');
+  Query.Open();
+  if not Query.IsEmpty then
+  begin
+    Result := Query.FieldByName('reporte').AsString;
+  end;
 end;
 
 initialization

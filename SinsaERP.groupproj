@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D09E699B-BFA2-4B60-B08C-1C2B72A60674}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Sinsa.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Sinsa">
+        <MSBuild Projects="Sinsa.dproj"/>
+    </Target>
+    <Target Name="Sinsa:Clean">
+        <MSBuild Projects="Sinsa.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Sinsa:Make">
+        <MSBuild Projects="Sinsa.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Consulta_Externa">
+        <MSBuild Projects="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj"/>
+    </Target>
+    <Target Name="Consulta_Externa:Clean">
+        <MSBuild Projects="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Consulta_Externa:Make">
+        <MSBuild Projects="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Sinsa;Consulta_Externa"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Sinsa:Clean;Consulta_Externa:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Sinsa:Make;Consulta_Externa:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

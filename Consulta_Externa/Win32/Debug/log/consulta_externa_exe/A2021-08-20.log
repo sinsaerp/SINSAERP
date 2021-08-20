@@ -1,0 +1,55 @@
+Consulta_Externa.exe: 00001A84: 15:48:22 []:>--------------------------------------------------------------<
+Consulta_Externa.exe: 00001A84: 15:48:23 [TUniServerModule]:Server First Init.
+Consulta_Externa.exe: 00001A84: 15:48:23 [TUniServerModule]:Starting HTTP Server on Port: 8076...
+Consulta_Externa.exe: 00001A84: 15:48:23 [TUniServerModule]:HTTP Server Started on Port: 8076
+Consulta_Externa.exe: 00001A84: 15:48:52 [TUniServerModule]:Shutting Down Server.
+Consulta_Externa.exe: 00001A84: 15:48:52 [TUniServerModule]:Stopping HTTP Server.
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniServerModule]:HTTP Server Stopped.
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniGUISessionManager]:Terminating Session manager.
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniGUISessionManager]:Stopping Cache Eraser...
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniGUISessionManager]:Cache Eraser Stopped.
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniGUISessionManager]:Destroying Worker Threads.
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniGUISessionManager]:Session manager terminated.
+Consulta_Externa.exe: 00001A84: 15:48:53 [TUniServerModule]:Server Shutdown Completed.
+Consulta_Externa.exe: 00001A84: 15:48:53 []:<-------------------------------------------------------------->
+Consulta_Externa.exe: 00001A84: 15:48:53 [Terminated]:Exit Code: 0
+Consulta_Externa.exe: 00003898: 15:49:05 []:>--------------------------------------------------------------<
+Consulta_Externa.exe: 00003898: 15:49:05 [TUniServerModule]:Server First Init.
+Consulta_Externa.exe: 00003898: 15:49:05 [TUniServerModule]:Starting HTTP Server on Port: 8076...
+Consulta_Externa.exe: 00003898: 15:49:05 [TUniServerModule]:HTTP Server Started on Port: 8076
+Consulta_Externa.exe: 00003754: 15:49:28 [127.0.0.1]:EOleSysError : No se ha llamado a CoInitialize : Addr: $00559C81
+Consulta_Externa.exe: 00003C60: 15:49:28 [HandleFileRequest[127.0.0.1]]:File not found: C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Win32\Debug\favicon.ico
+Consulta_Externa.exe: 000023F4: 15:49:30 [127.0.0.1]:EOleSysError : No se ha llamado a CoInitialize : Addr: $00559C81
+Consulta_Externa.exe: 0000468C: 15:49:32 [127.0.0.1]:EOleSysError : No se ha llamado a CoInitialize : Addr: $00559C81
+Consulta_Externa.exe: 00003898: 15:49:43 [TUniServerModule]:Shutting Down Server.
+Consulta_Externa.exe: 00003898: 15:49:43 [TUniServerModule]:Stopping HTTP Server.
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniServerModule]:HTTP Server Stopped.
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniGUISessionManager]:Terminating Session manager.
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniGUISessionManager]:Stopping Cache Eraser...
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniGUISessionManager]:Cache Eraser Stopped.
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniGUISessionManager]:Destroying Worker Threads.
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniGUISessionManager]:Session manager terminated.
+Consulta_Externa.exe: 00003898: 15:49:44 [TUniServerModule]:Server Shutdown Completed.
+Consulta_Externa.exe: 00003898: 15:49:44 []:<-------------------------------------------------------------->
+Consulta_Externa.exe: 00003898: 15:49:44 [Terminated]:Exit Code: 0
+Consulta_Externa.exe: 0000117C: 15:51:25 []:>--------------------------------------------------------------<
+Consulta_Externa.exe: 0000117C: 15:51:25 [TUniServerModule]:Server First Init.
+Consulta_Externa.exe: 0000117C: 15:51:25 [TUniServerModule]:Starting HTTP Server on Port: 8076...
+Consulta_Externa.exe: 0000117C: 15:51:25 [TUniServerModule]:HTTP Server Started on Port: 8076
+Consulta_Externa.exe: 00002B24: 15:51:29 [127.0.0.1]:EOleSysError : No se ha llamado a CoInitialize : Addr: $00559C81
+Consulta_Externa.exe: 00003D74: 15:51:41 [127.0.0.1]:EOleSysError : No se ha llamado a CoInitialize : Addr: $00559C81
+Consulta_Externa.exe: 0000117C: 15:54:12 [TUniServerModule]:Shutting Down Server.
+Consulta_Externa.exe: 0000117C: 15:54:12 [TUniServerModule]:Stopping HTTP Server.
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniServerModule]:HTTP Server Stopped.
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniGUISessionManager]:Terminating Session manager.
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniGUISessionManager]:Stopping Cache Eraser...
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniGUISessionManager]:Cache Eraser Stopped.
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniGUISessionManager]:Destroying Worker Threads.
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniGUISessionManager]:Session manager terminated.
+Consulta_Externa.exe: 0000117C: 15:54:13 [TUniServerModule]:Server Shutdown Completed.
+Consulta_Externa.exe: 0000117C: 15:54:13 []:<-------------------------------------------------------------->
+Consulta_Externa.exe: 0000117C: 15:54:13 [Terminated]:Exit Code: 0
+Consulta_Externa.exe: 000035F4: 15:54:14 []:>--------------------------------------------------------------<
+Consulta_Externa.exe: 000035F4: 15:54:14 [TUniServerModule]:Server First Init.
+Consulta_Externa.exe: 000035F4: 15:54:14 [TUniServerModule]:Starting HTTP Server on Port: 8076...
+Consulta_Externa.exe: 000035F4: 15:54:14 [TUniServerModule]:HTTP Server Started on Port: 8076

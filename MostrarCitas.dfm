@@ -1,60 +1,25 @@
 object citaPacienteF: TcitaPacienteF
   Left = 0
   Top = 0
-  ClientHeight = 597
-  ClientWidth = 930
+  ClientHeight = 607
+  ClientWidth = 961
   Caption = 'Cita Paciente'
   OnShow = UniFormShow
+  BorderStyle = bsDialog
   OldCreateOrder = False
   MonitoredKeys.Keys = <>
   PixelsPerInch = 96
   TextHeight = 13
-  object UniToolBar1: TUniToolBar
-    Left = 0
-    Top = 0
-    Width = 930
-    Height = 73
-    Hint = ''
-    TabOrder = 0
-    ParentColor = False
-    Color = 11169097
-    object ubVerCita: TUniSpeedButton
-      Left = 792
-      Top = 0
-      Width = 138
-      Height = 73
-      Hint = ''
-      Caption = 'Ver Cita'
-      Align = alRight
-      ParentColor = False
-      Color = clMenuHighlight
-      TabOrder = 1
-    end
-    object UniLabel1: TUniLabel
-      Left = 296
-      Top = 11
-      Width = 258
-      Height = 29
-      Hint = ''
-      Alignment = taCenter
-      Caption = 'HISTORIAL DE CITAS'
-      ParentFont = False
-      Font.Color = clWhite
-      Font.Height = -24
-      Font.Style = [fsBold]
-      TabOrder = 2
-    end
-  end
   object UniDBGrid1: TUniDBGrid
     Left = 0
-    Top = 73
-    Width = 930
-    Height = 524
+    Top = 61
+    Width = 961
+    Height = 546
     Hint = ''
     DataSource = DataSource1
     LoadMask.Message = 'Loading data...'
     Align = alClient
-    TabOrder = 1
+    TabOrder = 0
     OnBodyDblClick = UniDBGrid1BodyDblClick
     Columns = <
       item
@@ -86,9 +51,50 @@ object citaPacienteF: TcitaPacienteF
         FieldName = 'hora'
         Title.Alignment = taCenter
         Title.Caption = 'Hora'
-        Width = 70
+        Width = 98
         Sortable = True
       end>
+  end
+  object UniPanel1: TUniPanel
+    Left = 0
+    Top = 0
+    Width = 961
+    Height = 61
+    Hint = ''
+    Align = alTop
+    TabOrder = 1
+    Caption = ''
+    Color = 11169097
+    object UniLabel1: TUniLabel
+      Left = 336
+      Top = 19
+      Width = 258
+      Height = 29
+      Hint = ''
+      Alignment = taCenter
+      Caption = 'HISTORIAL DE CITAS'
+      ParentFont = False
+      Font.Color = clWhite
+      Font.Height = -24
+      Font.Style = [fsBold]
+      TabOrder = 1
+    end
+    object ubVerCita: TUniSpeedButton
+      Left = 844
+      Top = 19
+      Width = 106
+      Height = 29
+      Hint = ''
+      Caption = 'Ver Cita'
+      Align = alCustom
+      ParentFont = False
+      Font.Height = -12
+      Font.Style = [fsBold]
+      ParentColor = False
+      Color = clWindow
+      TabOrder = 2
+      OnClick = ubVerCitaClick
+    end
   end
   object DataSource1: TDataSource
     DataSet = UniMainModule.Query

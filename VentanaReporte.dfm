@@ -20,8 +20,6 @@ object UniForm1: TUniForm1
     Hint = ''
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 966
-    ExplicitHeight = 614
   end
   object frxADOComponents1: TfrxADOComponents
     DefaultDatabase = UniMainModule.ADOConnection1

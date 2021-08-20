@@ -22,7 +22,6 @@ object MainForm: TMainForm
     TabOrder = 0
     ParentColor = False
     Color = clSkyBlue
-    ExplicitWidth = 984
     object UniImage2: TUniImage
       Left = 897
       Top = 0
@@ -1477,7 +1476,6 @@ object MainForm: TMainForm
         4747773A1F665FEFFE3F24DE6155505F23390000000049454E44AE426082}
       Proportional = True
       Align = alRight
-      ExplicitLeft = 895
     end
   end
   object UniImage1: TUniImage

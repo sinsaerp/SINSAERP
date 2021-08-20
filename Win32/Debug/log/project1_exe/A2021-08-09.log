@@ -1,0 +1,19 @@
+Project1.exe: 00002EB4: 07:05:32 [HandleFileRequest[192.168.1.205]]:Access denied: D:\sinsaerp\Win32\Debug\nice ports,\Trinity.txt.bak.
+Project1.exe: 00002EE0: 07:05:42 [Indy]:EIdHTTPErrorParsingCommand : Error in parsing command. : Addr: $007885B7
+Project1.exe: 00003880: 07:05:42 [Indy]:EIdHTTPErrorParsingCommand : Error in parsing command. : Addr: $007885B7
+Project1.exe: 000038B4: 17:10:24 [TUniServerModule]:Shutting Down Server.
+Project1.exe: 000038B4: 17:10:24 [TUniServerModule]:Stopping HTTP Server.
+Project1.exe: 000038B4: 17:10:24 [TUniServerModule]:HTTP Server Stopped.
+Project1.exe: 000038B4: 17:10:24 [TUniGUISessionManager]:Terminating Session manager.
+Project1.exe: 000038B4: 17:10:24 [TUniGUISessionManager]:Stopping Cache Eraser...
+Project1.exe: 000038B4: 17:10:24 [TUniGUISessionManager]:Cache Eraser Stopped.
+Project1.exe: 000038B4: 17:10:24 [TUniGUISessionManager]:Destroying Worker Threads.
+Project1.exe: 000038B4: 17:10:24 [TUniGUISessionManager]:Session manager terminated.
+Project1.exe: 000038B4: 17:10:25 [TUniServerModule]:Server Shutdown Completed.
+Project1.exe: 000038B4: 17:10:25 []:<-------------------------------------------------------------->
+Project1.exe: 000038B4: 17:10:25 [Terminated]:Exit Code: 0
+Project1.exe: 000021D0: 17:10:32 []:>--------------------------------------------------------------<
+Project1.exe: 000021D0: 17:10:32 [TUniServerModule]:Server First Init.
+Project1.exe: 000021D0: 17:10:32 [TUniServerModule]:Starting HTTP Server on Port: 8080...
+Project1.exe: 000021D0: 17:10:32 [TUniServerModule]:HTTP Server Started on Port: 8080
+Project1.exe: 00002EC8: 17:12:15 [127.0.0.1]:EDatabaseError : Query: Field 'Nombre' not found : Addr: $006C7C86

@@ -5,7 +5,7 @@ library
 {$else}
 program
 {$endif}
-  Project1;
+  Sinsa;
 
 uses
   uniGUIISAPI,
@@ -29,7 +29,8 @@ uses
   AgendaMes in 'AgendaMes.pas' {FCalendarioAgenda: TUniForm},
   ReprogramarCita in 'ReprogramarCita.pas' {FReprogramar: TUniForm},
   VentanaReporte in 'VentanaReporte.pas' {UniForm1: TUniForm},
-  ReporteCitas in 'ReporteCitas.pas' {fmedicocistas: TUniForm};
+  OpcionesCita in 'OpcionesCita.pas' {FOpcionesCita: TUniForm},
+  CitaReporte in 'CitaReporte.pas' {FCitaReporte: TUniForm};
 
 {$R *.res}
 

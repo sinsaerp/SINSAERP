@@ -1,0 +1,11 @@
+object UniLoginForm2: TUniLoginForm2
+  Left = 0
+  Top = 0
+  ClientHeight = 289
+  ClientWidth = 554
+  Caption = 'UniLoginForm2'
+  OldCreateOrder = False
+  MonitoredKeys.Keys = <>
+  PixelsPerInch = 96
+  TextHeight = 13
+end

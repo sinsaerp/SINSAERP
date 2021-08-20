@@ -1,12 +1,13 @@
 object citasF: TcitasF
   Left = 0
   Top = 0
-  ClientHeight = 857
+  ClientHeight = 846
   ClientWidth = 1212
   Caption = 'Modulo de Citas'
   OnShow = UniFormShow
   BorderStyle = bsDialog
   OldCreateOrder = False
+  OnClose = UniFormClose
   MonitoredKeys.Keys = <>
   PixelsPerInch = 96
   TextHeight = 13
@@ -14,7 +15,7 @@ object citasF: TcitasF
     Left = 0
     Top = 89
     Width = 1212
-    Height = 768
+    Height = 757
     Hint = ''
     ActivePage = UniTabSheet1
     Align = alClient
@@ -23,32 +24,20 @@ object citasF: TcitasF
       Hint = ''
       Caption = 'Citas medicas'
       object educativo: TUniComboBox
-        Left = 524
+        Left = 539
         Top = 125
-        Width = 234
+        Width = 237
         Height = 24
         Hint = ''
+        Style = csOwnerDrawVariable
         Text = ''
-        Items.Strings = (
-          'B'#225'sica Primaria '#9
-          'B'#225'sica Secundaria'#9
-          'Media Acad'#233'mica o Cl'#225'sica'#9
-          'Media T'#233'cnica (Bachillerato T'#233'cnico) '#9
-          'Normalista '#9
-          'T'#233'cnica Profesional '#9
-          'Tecnol'#243'gica '#9
-          'Profesional '#9
-          'Especializaci'#243'n '#9
-          'Maestr'#237'a '#9
-          'Doctorado '#9
-          'Ninguno')
         TabOrder = 0
         CharCase = ecUpperCase
         IconItems = <>
       end
       object UniLabel24: TUniLabel
-        Left = 199
-        Top = 344
+        Left = 222
+        Top = 341
         Width = 92
         Height = 13
         Hint = ''
@@ -56,8 +45,8 @@ object citasF: TcitasF
         TabOrder = 1
       end
       object UniLabel25: TUniLabel
-        Left = 467
-        Top = 344
+        Left = 501
+        Top = 341
         Width = 43
         Height = 13
         Hint = ''
@@ -65,8 +54,8 @@ object citasF: TcitasF
         TabOrder = 2
       end
       object UniLabel26: TUniLabel
-        Left = 524
-        Top = 344
+        Left = 562
+        Top = 341
         Width = 124
         Height = 13
         Hint = ''
@@ -74,8 +63,8 @@ object citasF: TcitasF
         TabOrder = 3
       end
       object dcprincipal: TUniEdit
-        Left = 524
-        Top = 363
+        Left = 562
+        Top = 360
         Width = 364
         Hint = ''
         Text = ''
@@ -84,9 +73,9 @@ object citasF: TcitasF
         ReadOnly = True
       end
       object uiGuardar: TUniButton
-        Left = 1007
+        Left = 1043
         Top = 360
-        Width = 71
+        Width = 75
         Height = 25
         Hint = ''
         Caption = 'Guardar'
@@ -95,7 +84,7 @@ object citasF: TcitasF
         OnClick = uiGuardarClick
       end
       object ATAfiliado: TUniEdit
-        Left = 467
+        Left = 482
         Top = 62
         Width = 51
         Hint = ''
@@ -103,98 +92,91 @@ object citasF: TcitasF
         TabOrder = 6
         ReadOnly = True
       end
-      object Autorizacion: TUniEdit
-        Left = 524
-        Top = 276
-        Width = 189
-        Hint = ''
-        Text = ''
-        TabOrder = 7
-      end
       object btnBuscarP: TUniButton
-        Left = 156
+        Left = 171
         Top = 59
         Width = 42
         Height = 25
         Hint = ''
         Caption = ''
-        TabOrder = 8
+        TabOrder = 7
         IconCls = 'search'
         OnClick = btnBuscarPClick
       end
       object cantidad_servicios: TUniEdit
-        Left = 467
-        Top = 363
+        Left = 501
+        Top = 360
         Width = 51
         Hint = ''
         Text = '1'
-        TabOrder = 9
+        TabOrder = 8
       end
       object CEPS: TUniEdit
-        Left = 660
+        Left = 666
         Top = 62
-        Width = 98
+        Width = 110
         Hint = ''
         Text = ''
-        TabOrder = 10
+        TabOrder = 9
         ReadOnly = True
       end
       object codigoConsulta: TUniEdit
-        Left = 17
-        Top = 363
-        Width = 133
+        Left = 33
+        Top = 360
+        Width = 132
+        Hint = ''
+        Text = ''
+        TabOrder = 10
+        Color = clYellow
+        ReadOnly = True
+      end
+      object Contrato: TUniEdit
+        Left = 983
+        Top = 59
+        Width = 136
         Hint = ''
         Text = ''
         TabOrder = 11
         Color = clYellow
         ReadOnly = True
       end
-      object Contrato: TUniEdit
-        Left = 935
-        Top = 62
-        Width = 136
+      object DatosIngreso: TUniEdit
+        Left = 72
+        Top = 593
+        Width = 945
+        Height = 41
         Hint = ''
         Text = ''
         TabOrder = 12
-        ReadOnly = True
       end
-      object DatosIngreso: TUniEdit
-        Left = 62
-        Top = 593
-        Width = 939
-        Height = 41
+      object DireccionU: TUniEdit
+        Left = 33
+        Top = 125
+        Width = 228
         Hint = ''
         Text = ''
         TabOrder = 13
       end
-      object DireccionU: TUniEdit
-        Left = 17
-        Top = 125
-        Width = 229
-        Hint = ''
-        Text = ''
-        TabOrder = 14
-      end
       object DXP: TUniEdit
-        Left = 894
-        Top = 363
+        Left = 932
+        Top = 360
         Width = 63
         Hint = ''
         Text = ''
-        TabOrder = 15
+        TabOrder = 14
         Color = clYellow
         ReadOnly = True
       end
       object email: TUniEdit
-        Left = 252
+        Left = 267
         Top = 125
         Width = 266
         Hint = ''
         Text = ''
-        TabOrder = 16
+        TabOrder = 15
       end
       object fecha_deseada: TUniDateTimePicker
-        Left = 199
+        Left = 259
         Top = 274
         Width = 84
         Hint = ''
@@ -204,67 +186,68 @@ object citasF: TcitasF
         DateFormat = 'dd/MM/yyyy'
         TimeFormat = 'HH:mm:ss'
         ReadOnly = True
-        TabOrder = 17
+        TabOrder = 16
       end
       object fechaAsignacion: TUniDateTimePicker
-        Left = 289
+        Left = 349
         Top = 274
         Width = 85
         Hint = ''
         DateTime = 44334.000000000000000000
         DateFormat = 'dd/MM/yyyy'
         TimeFormat = 'HH:mm:ss'
-        TabOrder = 18
+        TabOrder = 17
       end
       object FechaN: TUniEdit
-        Left = 524
+        Left = 539
         Top = 62
         Width = 118
         Hint = ''
         Text = ''
-        TabOrder = 19
+        TabOrder = 18
         ReadOnly = True
       end
       object IdentificacionA: TUniEdit
-        Left = 17
+        Left = 33
         Top = 62
-        Width = 133
+        Width = 132
         Hint = ''
         Text = ''
-        TabOrder = 20
+        TabOrder = 19
         Color = clYellow
         OnKeyPress = IdentificacionAKeyPress
       end
       object Medico: TUniEdit
-        Left = 17
+        Left = 33
         Top = 274
-        Width = 132
+        Width = 174
+        Height = 19
         Hint = ''
         Text = ''
-        TabOrder = 21
+        TabOrder = 20
         Color = clYellow
       end
       object NombreC: TUniEdit
-        Left = 252
+        Left = 267
         Top = 62
         Width = 209
         Hint = ''
         Text = ''
-        TabOrder = 22
+        TabOrder = 21
         ReadOnly = True
       end
       object Telefono: TUniEdit
-        Left = 770
+        Left = 785
         Top = 62
-        Width = 153
+        Width = 192
         Hint = ''
         Text = ''
-        TabOrder = 23
+        TabOrder = 22
       end
       object tipoCita: TUniRadioGroup
-        Left = 121
+        Left = 136
         Top = 174
-        Width = 998
+        Width = 1028
         Height = 50
         Hint = ''
         Items.Strings = (
@@ -273,322 +256,328 @@ object citasF: TcitasF
           'Paquetes Integrales')
         ItemIndex = 0
         Caption = 'Opciones'
-        TabOrder = 24
+        TabOrder = 23
         Columns = 3
       end
       object TipoConsulta: TUniEdit
-        Left = 196
-        Top = 363
-        Width = 265
+        Left = 219
+        Top = 360
+        Width = 276
         Hint = ''
         Text = ''
-        TabOrder = 25
+        TabOrder = 24
         Color = clCream
         ReadOnly = True
         OnDblClick = TipoConsultaDblClick
       end
       object ubBuscarCodigo: TUniButton
-        Left = 151
-        Top = 363
+        Left = 171
+        Top = 357
+        Width = 42
+        Height = 25
+        Hint = ''
+        Caption = ''
+        TabOrder = 25
+        IconCls = 'search'
+        OnClick = ubBuscarCodigoClick
+      end
+      object ubBuscarDiagnostico: TUniButton
+        Left = 1001
+        Top = 360
         Width = 42
         Height = 25
         Hint = ''
         Caption = ''
         TabOrder = 26
         IconCls = 'search'
-        OnClick = ubBuscarCodigoClick
+        OnClick = ubBuscarDiagnosticoClick
       end
-      object ubBuscarDiagnostico: TUniButton
-        Left = 959
+      object ubGuardarObs: TUniButton
+        Left = 1023
+        Top = 593
+        Width = 139
+        Height = 40
+        Hint = ''
+        Caption = 'Guardar Observaci'#243'n'
+        ParentFont = False
+        Font.Style = [fsBold]
+        TabOrder = 27
+        OnClick = ubGuardarObsClick
+      end
+      object ubQuitar: TUniButton
+        Left = 1120
         Top = 360
         Width = 42
         Height = 25
         Hint = ''
         Caption = ''
-        TabOrder = 27
-        IconCls = 'search'
-        OnClick = ubBuscarDiagnosticoClick
-      end
-      object ubGuardarObs: TUniButton
-        Left = 1007
-        Top = 593
-        Width = 119
-        Height = 41
-        Hint = ''
-        Caption = 'Guardar Observaci'#243'n'
         TabOrder = 28
-        OnClick = ubGuardarObsClick
+        IconCls = 'delete'
+        OnClick = ubQuitarClick
       end
-      object ubQuitar: TUniButton
-        Left = 1077
-        Top = 360
+      object ubValor: TUniButton
+        Left = 1122
+        Top = 271
         Width = 42
         Height = 25
         Hint = ''
         Caption = ''
         TabOrder = 29
-        IconCls = 'delete'
-        OnClick = ubQuitarClick
-      end
-      object ubValor: TUniButton
-        Left = 1077
-        Top = 273
-        Width = 42
-        Height = 25
-        Hint = ''
-        Caption = ''
-        TabOrder = 30
         OnClick = ubValorClick
       end
       object uiBuscarContrato: TUniButton
-        Left = 1077
-        Top = 62
+        Left = 1125
+        Top = 59
         Width = 42
         Height = 22
         Hint = ''
         Caption = ''
-        TabOrder = 31
+        TabOrder = 30
         IconCls = 'search'
         OnClick = uiBuscarContratoClick
       end
       object uiBuscarMedico: TUniButton
-        Left = 151
-        Top = 273
+        Left = 211
+        Top = 274
         Width = 42
-        Height = 25
+        Height = 21
         Hint = ''
         Caption = ''
-        TabOrder = 32
+        TabOrder = 31
         IconCls = 'search'
         OnClick = uiBuscarMedicoClick
       end
       object uiCrearP: TUniButton
-        Left = 204
+        Left = 219
         Top = 59
         Width = 42
         Height = 25
         Hint = ''
         Caption = ''
-        TabOrder = 33
+        TabOrder = 32
         IconCls = 'add'
         OnClick = uiCrearPClick
       end
       object uiHoras: TUniSpeedButton
-        Left = 462
-        Top = 274
+        Left = 522
+        Top = 273
         Width = 51
         Height = 22
         Hint = ''
         Caption = 'Horas'
         ParentColor = False
         Color = clWindow
-        TabOrder = 34
+        TabOrder = 33
         OnClick = uiHorasClick
       end
       object UniLabel10: TUniLabel
-        Left = 770
+        Left = 785
         Top = 43
         Width = 42
         Height = 13
         Hint = ''
         Caption = 'Tel'#233'fono'
-        TabOrder = 35
+        TabOrder = 34
       end
       object UniLabel11: TUniLabel
-        Left = 17
+        Left = 32
         Top = 106
         Width = 43
         Height = 13
         Hint = ''
         Caption = 'Direcci'#243'n'
-        TabOrder = 36
+        TabOrder = 35
       end
       object UniLabel12: TUniLabel
-        Left = 935
-        Top = 43
+        Left = 983
+        Top = 40
         Width = 43
         Height = 13
         Hint = ''
         Caption = 'Contrato'
-        TabOrder = 37
+        TabOrder = 36
       end
       object UniLabel13: TUniLabel
-        Left = 252
+        Left = 267
         Top = 106
         Width = 88
         Height = 13
         Hint = ''
         Caption = 'Correo Electr'#243'nico'
-        TabOrder = 38
+        TabOrder = 37
       end
       object UniLabel14: TUniLabel
-        Left = 524
+        Left = 539
         Top = 106
         Width = 73
         Height = 13
         Hint = ''
         Caption = 'Nivel Educativo'
-        TabOrder = 39
+        TabOrder = 38
       end
       object UniLabel15: TUniLabel
-        Left = 18
+        Left = 33
         Top = 174
         Width = 76
         Height = 13
         Hint = ''
         Caption = 'Datos de la Cita'
-        TabOrder = 40
+        TabOrder = 39
       end
       object UniLabel16: TUniLabel
-        Left = 17
+        Left = 33
         Top = 255
         Width = 90
         Height = 13
         Hint = ''
         Caption = 'Prestador / Medico'
-        TabOrder = 41
+        TabOrder = 40
       end
       object UniLabel17: TUniLabel
-        Left = 199
+        Left = 259
         Top = 255
         Width = 74
         Height = 13
         Hint = ''
         Caption = 'Fecha Deseada'
-        TabOrder = 42
+        TabOrder = 41
       end
       object UniLabel18: TUniLabel
-        Left = 287
+        Left = 349
         Top = 255
         Width = 76
         Height = 13
         Hint = ''
         Caption = 'Fecha Asignada'
-        TabOrder = 43
+        TabOrder = 42
       end
       object UniLabel19: TUniLabel
-        Left = 380
+        Left = 440
         Top = 255
         Width = 45
         Height = 13
         Hint = ''
         Caption = 'Hora Cita'
-        TabOrder = 44
+        TabOrder = 43
       end
       object UniLabel2: TUniLabel
-        Left = 17
+        Left = 32
         Top = 12
-        Width = 118
-        Height = 13
+        Width = 187
+        Height = 18
         Hint = ''
         Caption = 'Informaci'#243'n del Paciente'
-        TabOrder = 45
+        ParentFont = False
+        Font.Color = clMaroon
+        Font.Height = -15
+        Font.Style = [fsBold]
+        TabOrder = 44
       end
       object UniLabel20: TUniLabel
-        Left = 519
+        Left = 579
         Top = 257
         Width = 59
         Height = 13
         Hint = ''
         Caption = 'Autorizaci'#243'n'
-        TabOrder = 46
+        TabOrder = 45
       end
       object UniLabel21: TUniLabel
-        Left = 719
-        Top = 257
+        Left = 793
+        Top = 255
         Width = 83
         Height = 13
         Hint = ''
         Caption = 'Fecha Expedici'#243'n'
-        TabOrder = 47
+        TabOrder = 46
       end
       object UniLabel22: TUniLabel
-        Left = 935
-        Top = 257
+        Left = 980
+        Top = 255
         Width = 65
         Height = 13
         Hint = ''
         Caption = 'Valor Cancela'
-        TabOrder = 48
+        TabOrder = 47
       end
       object UniLabel23: TUniLabel
-        Left = 18
-        Top = 344
+        Left = 33
+        Top = 341
         Width = 33
         Height = 13
         Hint = ''
-        Caption = 'Codigo'
-        TabOrder = 49
+        Caption = 'C'#243'digo'
+        TabOrder = 48
       end
       object UniLabel27: TUniLabel
-        Left = 19
+        Left = 29
         Top = 602
         Width = 37
         Height = 13
         Hint = ''
         Caption = 'Ingreso'
-        TabOrder = 50
+        TabOrder = 49
       end
       object UniLabel3: TUniLabel
-        Left = 17
+        Left = 32
         Top = 43
         Width = 64
         Height = 13
         Hint = ''
         Caption = 'Identificaci'#243'n'
-        TabOrder = 51
+        TabOrder = 50
       end
       object UniLabel4: TUniLabel
-        Left = 252
+        Left = 267
         Top = 43
         Width = 42
         Height = 13
         Hint = ''
         Caption = 'Nombres'
-        TabOrder = 52
+        TabOrder = 51
       end
       object UniLabel5: TUniLabel
-        Left = 467
+        Left = 482
         Top = 43
         Width = 17
         Height = 13
         Hint = ''
         Caption = 'T.C'
-        TabOrder = 53
+        TabOrder = 52
       end
       object UniLabel6: TUniLabel
-        Left = 524
+        Left = 539
         Top = 43
-        Width = 42
+        Width = 84
         Height = 13
         Hint = ''
-        Caption = 'F de Nac'
-        TabOrder = 54
+        Caption = 'Fecha Nacimiento'
+        TabOrder = 53
       end
       object UniLabel7: TUniLabel
-        Left = 660
+        Left = 668
         Top = 43
         Width = 18
         Height = 13
         Hint = ''
         Caption = 'EPS'
-        TabOrder = 55
+        TabOrder = 54
       end
       object UniPageControl2: TUniPageControl
-        Left = 13
+        Left = 33
         Top = 394
-        Width = 1111
+        Width = 1129
         Height = 183
         Hint = ''
         ActivePage = UniTabSheet3
-        TabOrder = 56
+        TabOrder = 55
         object UniTabSheet2: TUniTabSheet
           Hint = ''
           Caption = 'Horas Disponibles'
           object UniDBGrid4: TUniDBGrid
             Left = 0
             Top = 0
-            Width = 1103
+            Width = 1121
             Height = 155
             Hint = ''
             DataSource = DataSource3
@@ -623,12 +612,13 @@ object citasF: TcitasF
           Hint = ''
           Caption = 'Servicios del Paciente'
           object UniDBGrid3: TUniDBGrid
-            Left = 2
+            Left = 1
             Top = 0
-            Width = 1102
-            Height = 149
+            Width = 1144
+            Height = 178
             Hint = ''
             DataSource = DataSource2
+            ReadOnly = True
             LoadMask.Message = 'Loading data...'
             TabOrder = 0
             Columns = <
@@ -640,22 +630,22 @@ object citasF: TcitasF
               item
                 FieldName = 'servicio'
                 Title.Caption = ' Descripci'#243'n'
-                Width = 516
+                Width = 547
               end
               item
                 FieldName = 'fecha'
                 Title.Caption = 'Fecha'
-                Width = 110
+                Width = 125
               end
               item
                 FieldName = 'hora'
                 Title.Caption = ' Hora'
-                Width = 79
+                Width = 87
               end
               item
                 FieldName = 'cantidad'
                 Title.Caption = 'Cantidad'
-                Width = 69
+                Width = 58
               end
               item
                 FieldName = 'especialidad'
@@ -666,15 +656,15 @@ object citasF: TcitasF
         end
       end
       object ValorModeradora: TUniEdit
-        Left = 935
-        Top = 276
+        Left = 980
+        Top = 274
         Width = 136
         Hint = ''
         Text = ''
-        TabOrder = 57
+        TabOrder = 56
       end
       object HoraAsignacion: TUniDateTimePicker
-        Left = 380
+        Left = 440
         Top = 274
         Width = 76
         Hint = ''
@@ -683,7 +673,7 @@ object citasF: TcitasF
         TimeFormat = 'HH:mm:ss'
         Kind = tUniTime
         FirstDayOfWeek = dowLocaleDefault
-        TabOrder = 58
+        TabOrder = 57
         Color = clWhite
         OnChange = HoraAsignacionChange
       end
@@ -694,7 +684,7 @@ object citasF: TcitasF
         Height = 13
         Hint = ''
         Caption = 'UniLabel51'
-        TabOrder = 59
+        TabOrder = 58
       end
       object UniLabel52: TUniLabel
         Left = 1128
@@ -703,7 +693,7 @@ object citasF: TcitasF
         Height = 13
         Hint = ''
         Caption = 'UniLabel52'
-        TabOrder = 60
+        TabOrder = 59
       end
       object UniLabel53: TUniLabel
         Left = 1096
@@ -716,13 +706,14 @@ object citasF: TcitasF
         Font.Color = clWhite
         Font.Height = -16
         Font.Style = [fsBold]
-        TabOrder = 61
+        TabOrder = 60
       end
       object etnia: TUniComboBox
-        Left = 771
+        Left = 786
         Top = 125
-        Width = 152
+        Width = 191
         Hint = ''
+        Style = csOwnerDrawVariable
         Text = ''
         Items.Strings = (
           'B'#225'sica Primaria '#9
@@ -737,24 +728,25 @@ object citasF: TcitasF
           'Maestr'#237'a '#9
           'Doctorado '#9
           'Ninguno')
-        TabOrder = 62
+        TabOrder = 61
         CharCase = ecUpperCase
         IconItems = <>
       end
       object UniLabel55: TUniLabel
-        Left = 771
+        Left = 786
         Top = 106
         Width = 24
         Height = 13
         Hint = ''
         Caption = 'Etnia'
-        TabOrder = 63
+        TabOrder = 62
       end
       object poblacion: TUniComboBox
-        Left = 935
+        Left = 980
         Top = 125
         Width = 184
         Hint = ''
+        Style = csOwnerDrawVariable
         Text = ''
         Items.Strings = (
           'B'#225'sica Primaria '#9
@@ -769,21 +761,21 @@ object citasF: TcitasF
           'Maestr'#237'a '#9
           'Doctorado '#9
           'Ninguno')
-        TabOrder = 64
+        TabOrder = 63
         CharCase = ecUpperCase
         IconItems = <>
       end
       object UniLabel56: TUniLabel
-        Left = 935
+        Left = 983
         Top = 106
         Width = 45
         Height = 13
         Hint = ''
         Caption = 'Poblaci'#243'n'
-        TabOrder = 65
+        TabOrder = 64
       end
       object btnAgendaMes: TUniSpeedButton
-        Left = 156
+        Left = 201
         Top = 664
         Width = 163
         Height = 49
@@ -926,13 +918,13 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         ParentColor = False
         Color = clWindow
-        TabOrder = 66
+        TabOrder = 65
         OnClick = btnAgendaMesClick
       end
       object UniSpeedButton2: TUniSpeedButton
-        Left = 19
+        Left = 32
         Top = 664
-        Width = 118
+        Width = 133
         Height = 49
         Hint = ''
         Glyph.Data = {
@@ -1073,24 +1065,25 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         ParentColor = False
         Color = clWindow
-        TabOrder = 67
+        TabOrder = 66
         OnClick = UniSpeedButton2Click
       end
       object autorizada: TUniDateTimePicker
-        Left = 719
-        Top = 276
-        Width = 210
+        Left = 793
+        Top = 274
+        Width = 181
+        Height = 24
         Hint = ''
         DateTime = 44405.000000000000000000
         DateFormat = 'dd/MM/yyyy'
         TimeFormat = 'HH:mm:ss'
-        TabOrder = 68
+        TabOrder = 67
       end
       object ubCancelar: TUniSpeedButton
-        Left = 1009
-        Top = 659
+        Left = 1045
+        Top = 664
         Width = 123
-        Height = 49
+        Height = 52
         Hint = ''
         Glyph.Data = {
           42100000424D4210000000000000420000002800000020000000200000000100
@@ -1230,11 +1223,11 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         ParentColor = False
         Color = clWindow
-        TabOrder = 69
+        TabOrder = 68
         OnClick = ubCancelarClick
       end
       object UniLabel54: TUniLabel
-        Left = 935
+        Left = 963
         Top = 3
         Width = 75
         Height = 25
@@ -1247,19 +1240,23 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         ParentColor = False
         Color = clInfoText
-        TabOrder = 70
+        TabOrder = 69
       end
       object NumeroCita: TUniEdit
-        Left = 1028
+        Left = 1056
         Top = 3
-        Width = 94
+        Width = 111
         Hint = ''
         Text = '0'
-        TabOrder = 71
+        ParentFont = False
+        Font.Color = clMaroon
+        Font.Height = -15
+        Font.Style = [fsBold]
+        TabOrder = 70
         OnKeyPress = NumeroCitaKeyPress
       end
       object ubReprogramar: TUniSpeedButton
-        Left = 353
+        Left = 416
         Top = 664
         Width = 157
         Height = 49
@@ -1402,11 +1399,11 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         ParentColor = False
         Color = clWindow
-        TabOrder = 72
+        TabOrder = 71
         OnClick = ubReprogramarClick
       end
       object ubImprimir: TUniSpeedButton
-        Left = 551
+        Left = 629
         Top = 664
         Width = 162
         Height = 49
@@ -1549,23 +1546,189 @@ object citasF: TcitasF
         Font.Style = [fsBold]
         ParentColor = False
         Color = clWindow
-        TabOrder = 73
+        TabOrder = 72
         OnClick = ubImprimirClick
       end
       object ubVerCitas: TUniSpeedButton
-        Left = 753
+        Left = 851
         Top = 664
-        Width = 123
+        Width = 144
         Height = 49
         Hint = ''
+        Glyph.Data = {
+          42100000424D4210000000000000420000002800000020000000200000000100
+          20000300000000100000EC000000EC00000000000000000000000000FF0000FF
+          0000FF0000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000000000007838402078353C22783C3C118037370E78353C227835
+          3C2278353C2278353C2278353C2278353C2278353C2278353C2278353C227835
+          3C2278353C2278353C2278353C2278353C2278353C2278353C2278353C227835
+          3C2278353C2278353C2278353C2278353C228037370E783C3C1178353C227838
+          402000000000000000007A354030783741337B39421B743A3A16783741337837
+          4133783741337837413378374133783741337837413378374133783741337837
+          4133783741337837413378374133783741337837413378374133783741337837
+          413378374133783741337837413378374133743A3A167B39421B783741337A35
+          403000000000000000007F40488799777BE49C7E82E0A17F83C3A07E82C2A07E
+          82C2A07E82C2A07E82C2A07E82C2A07E82C2A07E82C2986868D7B18265E6B385
+          64E6B38564E6B38564E6B38564E6B38564E6B5886AF1B78B6DF4B07C58CEAC76
+          4FC2AC764FC2AC764FC2AC764FC2AC764FC2AE7750C3B48C52E0B18551E48042
+          4087000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFCECECEFFCECECEFFCECECEFFCECECEFFB39080FFE7BC63FFE7BC
+          63FFE3B761FFE0B360FFE3B762FFE4B962FFE0B360FFE1B561FFE7BC63FFE0B3
+          60FFE0B360FFE6BB62FFE2B662FFE0B360FFE4B862FFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFCECECEFFCECECEFFCECECEFFCECECEFFB39080FFE7BC63FFE7BC
+          63FFA27761FF998481FFA67B61FFB4865DFF998481FF966C63FFDCAF5FFF9370
+          6CFF957A78FFCA9C5DFF9D7263FF998481FFAC7E5FFFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFF98919BFF6986A5FF6B7C99FFBBB3
+          B5FFA09AA5FF6986A5FF6986A5FF6986A5FF6986A5FF827175FFE7BC63FFE7BC
+          63FFA37B65FF999091FFA77E65FFB3865DFF999091FF98736BFFDBAF5FFF9579
+          78FF948486FFCA9B5DFF9E7768FF999091FFAC8061FFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFF8E8795FF29A7EBFF3497D3FFB5AA
+          AFFF93909EFF29A7EBFF29A7EBFF29A7EBFF29A7EBFF70818DFFE7BC63FFE7BC
+          63FFCFA05CFFC1915AFFD4A55EFFDAAF5FFFC1915AFFC8975BFFE5BB63FFC390
+          5BFFC1915AFFE1B562FFCC9C5EFFC1915AFFD6A85FFFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFFAFABAEFFA199A2FFA199A2FFC8C5
+          C6FFBEBABEFFA199A2FFA199A2FFA199A2FFA199A2FF9E7972FFE7BC63FFE7BC
+          63FFA17560FF977D7AFFA5795FFFB4865CFF977D7AFF946860FFDCAF60FF926C
+          67FF937472FFCB9C5DFF9C7060FF977D7AFFAB7E5EFFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFFA8A4AAFF8F8C9BFF8F8B9AFFC5C0
+          C2FFB5B1B6FF8F8C9BFF8F8C9BFF8F8C9BFF8F8C9BFF957471FFE7BC63FFE7BC
+          63FFA37B65FF999091FFA77E65FFB3865DFF999091FF98736BFFDBAF5FFF9579
+          78FF948486FFCA9B5DFF9E7768FF999091FFAC8061FFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFF8E8795FF23AFF8FF309EDDFFB5AA
+          AFFF948F9FFF23AFF8FF23AFF8FF23AFF8FF23AFF8FF6F8491FFE7BC63FFE7BC
+          63FFCEA05DFFC0915BFFD2A360FFDAAD5FFFC0915BFFC5965CFFE5BB63FFC290
+          5BFFC0915BFFE1B562FFCA9C5CFFC0915BFFD6A85FFFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFF9D969FFF7688A1FF77819AFFC0B7
+          BAFFA7A1AAFF7688A1FF7688A1FF7688A1FF7688A1FF897273FFE7BC63FFE7BC
+          63FF857975FF5188ADFF8C7C72FFB6865DFF987E79FF956960FFDCAF60FF926C
+          67FF947471FFCC9C5DFF9C7061FF987E79FFAC7F5EFFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFFB9B8B8FFC8C4C4FFC8C4C4FFCDCC
+          CCFFCCCBCBFFC8C4C4FFC8C4C4FFC8C4C4FFC8C4C4FFB18D7DFFE7BC63FFE7BC
+          63FF7E8283FF29A7EBFF87847EFFB4855EFF9B9797FF9A776EFFDBAF5FFF967E
+          7CFF978A8BFFCA9B5DFFA07B69FF9B9797FFAC8362FFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFF8F8793FF4691C4FF4E84B0FFB7AA
+          AFFF968F9CFF4691C4FF4691C4FF4691C4FF4691C4FF76767FFFE7BC63FFE7BC
+          63FFCBA463FFBB9765FFCFA763FFDAAE61FFC4965EFFC99B5FFFE5BA62FFC596
+          5EFFC4965EFFE1B562FFCDA05FFFC4965EFFD7AA61FFE7D463FFE7E263FFA26D
+          4D96000000000000000094686F96AFAFAFFF918794FF4791C4FF4E84B0FFB6AB
+          B0FF95909CFF4791C4FF4791C4FF4791C4FF4791C4FF76767FFFE7BC63FFC597
+          65FF8F638DFFCEA162FFE7BC63FFE7BC63FFE7BC63FFE7BC63FFE7BC63FFE7BC
+          63FFE7BC63FFE7BC63FFE7BC63FFBE8F69FF8E6188FFD7BF61FFE7E263FFA06F
+          4B96000000000000000094686F96AFAFAFFFBAB9B9FFC8C4C4FFC8C4C4FFCDCD
+          CDFFCCCBCBFFC8C4C4FFC8C4C4FFC8C4C4FFC8C4C4FFBAA6A1FFBA9374FF9969
+          6DFF7561F1FF9C6B68FFBB9473FFBB9473FFBE9776FFC19978FFB08060E6B57F
+          52BBB57F52BBB57F52BBB57F52BB905A67DF765DE2FFA47656E8B99254DE9C68
+          4431000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFCECECEFFCDCDCDFFB8A8B0FFA68DA0FFB4A2ADFFCCCACAFFAD98
+          A9FF825EA8FFB7A5AFFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          000000000000000000000000000078437673774D9DDF773C5C2F000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFB9ACB6FF8A669FFF775DD5FF7561F0FF765DDBFF8664A4FFB19F
+          AEFFCCCBCBFFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000006633330500000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFC2B9BEFF8261AEFF7562F4FF715CCEFF5A6EB8FF6D5FC6FF7562F4FF7E60
+          BEFFB7A9B3FFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFF97789DFF7562F3FF7562F4FF6C5BB1FF23AFF8FF6561B1FF7562F4FF7562
+          F4FF8F6EA0FFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFF8A68A8FF755CD9FF5A6AA3FF5076B0FF23AFF8FF4A7DBBFF556FADFF705B
+          C5FF825FACFFCDCCCCFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFF8867A8FF745BD0FF4F74A7FF3D8BC8FF23AFF8FF3992D0FF4780BAFF6F5A
+          B6FF805EAEFFCCCBCBFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFF92739FFF7562F4FF755FEAFF6C59A9FF23AFF8FF6561ACFF755FE8FF7562
+          F3FF8B6BA2FFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFB8A9B3FF7C60C4FF7562F4FF705CBFFF5272ADFF6A5DB5FF7562F4FF795F
+          D5FFAC96A8FFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFAA94A8FF805FB4FF7561F1FF7562F4FF7562F3FF7E5EBFFFA285
+          A0FFCECECEFFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFCECECEFFC5BEC1FFA1849EFF997DA3FF9E829EFFC0B6BCFFCECE
+          CEFFCECECEFFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFCECECEFFCECECEFFCECECEFFCECECEFFCECECEFFCECECEFFCECE
+          CEFFCECECEFFCECECEFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000094686F96AFAFAFFFBBBBBBFFCECECEFFCECECEFFCECE
+          CEFFB37A6EFFBF6C5AFFBF8260FFBF9165FFBF9165FFBF9165FFBF9762FFC0A2
+          5AFFB38F65FFCCCACAFFCECECEFFCECECEFFD8D8D8FFE2E2E2FFA78388B90000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000000000008C5F64339C7D81E29C7E82E0A17F83C3A07E82C29E77
+          7CC7C86859FEE77C63FFE7BC63FFE7BC63FFE7BC63FFE7BC63FFE7BC63FFE7DA
+          63FFD7C95EFF9A6D6DD4A07E82C2A28083C2AC8E92DBB09397E4A2797E5D0000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000008000
+          0002AB5F4FE1CF6A5BFFD1905CFFD1A15CFFD1A15CFFD1A15CFFD1A95CFFCFBC
+          5BFFB28950EE7733440F00000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000555555037C363E2178353C2278353C2278353C2278353C2278353C227835
+          3C226D2449070000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000}
         Caption = 'Ver Citas'
         ParentFont = False
         Font.Height = -13
         Font.Style = [fsBold]
         ParentColor = False
         Color = clWindow
-        TabOrder = 74
+        TabOrder = 73
         OnClick = ubVerCitasClick
+      end
+      object UniLabel61: TUniLabel
+        Left = 32
+        Top = 230
+        Width = 196
+        Height = 18
+        Hint = ''
+        Caption = 'Informaci'#243'n del Prestador'
+        ParentFont = False
+        Font.Color = clMaroon
+        Font.Height = -15
+        Font.Style = [fsBold]
+        TabOrder = 74
+      end
+      object UniLabel62: TUniLabel
+        Left = 29
+        Top = 317
+        Width = 118
+        Height = 18
+        Hint = ''
+        Caption = 'Detalles de Cita'
+        ParentFont = False
+        Font.Color = clMaroon
+        Font.Height = -15
+        Font.Style = [fsBold]
+        TabOrder = 75
+      end
+      object Autorizacion: TUniEdit
+        Left = 579
+        Top = 276
+        Width = 197
+        Hint = ''
+        Text = ''
+        TabOrder = 76
       end
     end
     object UniTabSheet4: TUniTabSheet
@@ -1865,7 +2028,7 @@ object citasF: TcitasF
       Caption = 'Agenda y Medicos'
       object UniLabel28: TUniLabel
         Left = 24
-        Top = 24
+        Top = 26
         Width = 134
         Height = 19
         Hint = ''
@@ -2513,9 +2676,9 @@ object citasF: TcitasF
         Color = clWhite
       end
       object Calendar1: TUniCalendar
-        Left = -1
+        Left = 19
         Top = 153
-        Width = 262
+        Width = 246
         Height = 259
         Hint = ''
         ShowHint = True
@@ -2859,7 +3022,7 @@ object citasF: TcitasF
         TabOrder = 1
       end
       object UniLabel49: TUniLabel
-        Left = 196
+        Left = 211
         Top = 43
         Width = 54
         Height = 13
@@ -2868,7 +3031,7 @@ object citasF: TcitasF
         TabOrder = 2
       end
       object fechaFinal: TUniDateTimePicker
-        Left = 196
+        Left = 211
         Top = 62
         Width = 153
         Hint = ''
@@ -2878,8 +3041,8 @@ object citasF: TcitasF
         TabOrder = 3
       end
       object ubConsultar: TUniSpeedButton
-        Left = 355
-        Top = 52
+        Left = 389
+        Top = 51
         Width = 106
         Height = 32
         Hint = ''
@@ -2969,14 +3132,15 @@ object citasF: TcitasF
       end
       object UniDBGrid2: TUniDBGrid
         Left = 24
-        Top = 106
+        Top = 98
         Width = 1161
-        Height = 430
+        Height = 438
         Hint = ''
         DataSource = DataSource1
         LoadMask.Message = 'Loading data...'
         TabOrder = 5
         OnDblClick = UniDBGrid2DblClick
+        OnDrawColumnCell = UniDBGrid2DrawColumnCell
         Columns = <
           item
             FieldName = 'nombrec'

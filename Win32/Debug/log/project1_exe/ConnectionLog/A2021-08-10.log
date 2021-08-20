@@ -1,0 +1,10 @@
+Project1.exe: 0000242C: 15:23:22 [127.0.0.1]:Failed Sequence Recovery: SeqId: 56, Event: click
+Project1.exe: 00002E04: 20:13:44 [127.0.0.1]:Failed Sequence Recovery: SeqId: 58, Event: move
+Project1.exe: 00002E04: 20:13:44 [127.0.0.1]:Sequence sent from cache:  SeqId: 58
+Project1.exe: 00002E04: 20:13:44 [127.0.0.1]:Processed: Id: 58, Evt: move, [iTL3daGsdi108C1C630]
+Project1.exe: 00002E04: 20:13:44 [127.0.0.1]:Failed Sequence Recovery: SeqId: 59, Event: resize
+Project1.exe: 00002E04: 20:13:44 [127.0.0.1]:Sequence sent from cache:  SeqId: 59
+Project1.exe: 00002E04: 20:13:44 [127.0.0.1]:Processed: Id: 59, Evt: resize, [iTL3daGsdi108C1C630]
+Project1.exe: 00001574: 20:13:44 [127.0.0.1]:Failed Sequence Recovery: SeqId: 60, Event: deactivate
+Project1.exe: 00001574: 20:13:44 [127.0.0.1]:Sequence sent from cache:  SeqId: 60
+Project1.exe: 00001574: 20:13:44 [127.0.0.1]:Processed: Id: 60, Evt: deactivate, [iTL3daGsdi108C1C630]
