@@ -6,7 +6,7 @@
         <Projects Include="Sinsa.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj">
+        <Projects Include="Consulta_Externa\Consulta_Externa.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -27,13 +27,13 @@
         <MSBuild Projects="Sinsa.dproj" Targets="Make"/>
     </Target>
     <Target Name="Consulta_Externa">
-        <MSBuild Projects="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj"/>
+        <MSBuild Projects="Consulta_Externa\Consulta_Externa.dproj"/>
     </Target>
     <Target Name="Consulta_Externa:Clean">
-        <MSBuild Projects="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj" Targets="Clean"/>
+        <MSBuild Projects="Consulta_Externa\Consulta_Externa.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Consulta_Externa:Make">
-        <MSBuild Projects="C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Consulta_Externa.dproj" Targets="Make"/>
+        <MSBuild Projects="Consulta_Externa\Consulta_Externa.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="Sinsa;Consulta_Externa"/>

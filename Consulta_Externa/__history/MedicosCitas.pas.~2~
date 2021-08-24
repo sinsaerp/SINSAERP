@@ -1,0 +1,57 @@
+unit MedicosCitas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniSpinEdit, uniCheckBox, uniButton, uniBitBtn,
+  uniSpeedButton, uniDateTimePicker, uniEdit, uniLabel, uniBasicGrid, uniDBGrid,
+  uniPanel, uniPageControl, uniGUIBaseClasses, Data.DB;
+
+type
+  TFMedicosCitas = class(TUniForm)
+    DataSource: TDataSource;
+    UniPageControl1: TUniPageControl;
+    UniTabSheet1: TUniTabSheet;
+    UniDBGrid1: TUniDBGrid;
+    UniLabel1: TUniLabel;
+    Medico: TUniEdit;
+    UniLabel2: TUniLabel;
+    fechaAsignacion: TUniDateTimePicker;
+    UniLabel3: TUniLabel;
+    TotalAgenda: TUniEdit;
+    CodigoMedico: TUniEdit;
+    UniSpeedButton2: TUniSpeedButton;
+    UniEdit1: TUniEdit;
+    UniEdit2: TUniEdit;
+    UniEdit3: TUniEdit;
+    UniEdit4: TUniEdit;
+    UniEdit5: TUniEdit;
+    ubVerCitas: TUniSpeedButton;
+    UniCheckBox1: TUniCheckBox;
+    UniCheckBox2: TUniCheckBox;
+    UniCheckBox3: TUniCheckBox;
+    UniCheckBox4: TUniCheckBox;
+    UniSpinEdit1: TUniSpinEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+function FMedicosCitas: TFMedicosCitas;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function FMedicosCitas: TFMedicosCitas;
+begin
+  Result := TFMedicosCitas(UniMainModule.GetFormInstance(TFMedicosCitas));
+end;
+
+end.

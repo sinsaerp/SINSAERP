@@ -37,7 +37,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uniGUIVars, MainModule, uniGUIApplication;
+  uniGUIVars, MainModule, uniGUIApplication, Main;
 
 function FLogin: TFLogin;
 begin
@@ -47,11 +47,11 @@ end;
 procedure TFLogin.rutaReporte;
 begin
 UniMainModule.Query.SQL.Clear;
-  UniMainModule.Query.SQL.Add('select * from entidades where codigoe=''1'' ');
-  UniMainModule.Query.Open();
-  if not UniMainModule.Query.IsEmpty then
+  UniMainModule.QueryReporte.SQL.Add('select * from entidades where codigoe=''1'' ');
+  UniMainModule.QueryReporte.Open();
+  if not UniMainModule.QueryReporte.IsEmpty then
   begin
-    UniMainModule.ruta:= UniMainModule.Query.FieldByName('reporte').AsString;
+    UniMainModule.ruta:= UniMainModule.QueryReporte.FieldByName('reporte').AsString;
   end;
 end;
 
@@ -81,16 +81,18 @@ begin
     if UniMainModule.Query.RecordCount >0 then
     begin
       usuario:=UniMainModule.Query.ParamByName('usuario').AsString;
-      UniMainModule.citador:=UniMainModule.Query.FieldByName('codigo').AsString;
+      UniMainModule.codigoM:=UniMainModule.Query.FieldByName('codigo').AsString;
       UniMainModule.usuario:=UniMainModule.Query.FieldByName('usuario').AsString;
       UniMainModule.NombreCompleto:=UniMainModule.Query.FieldByName('nombre').AsString;
+      UniMainModule.identificacion:=UniMainModule.Query.FieldByName('identificacion').AsString;
       ModalResult:=mrOk;
-      rutaReporte();
+      //rutaReporte();
       Close;
     end
     else
     begin
       ShowMessage('No Existe usuario registrado en el sistema');
+      UniMainModule.Query.Close;
       exit;
     end;
 end;

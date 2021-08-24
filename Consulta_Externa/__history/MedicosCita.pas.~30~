@@ -1,0 +1,213 @@
+unit MedicosCita;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIForm, uniCheckBox, uniButton, uniBitBtn, uniSpeedButton,
+  uniDateTimePicker, uniEdit, uniLabel, uniBasicGrid, uniDBGrid, uniPanel,
+  uniPageControl, uniGUIBaseClasses, Data.DB, uniRadioButton;
+
+type
+  TFMedicosCita = class(TUniForm)
+    DataSource: TDataSource;
+    UniPageControl1: TUniPageControl;
+    UniTabSheet1: TUniTabSheet;
+    UniDBGrid1: TUniDBGrid;
+    UniLabel1: TUniLabel;
+    Medico: TUniEdit;
+    UniLabel2: TUniLabel;
+    fechaAsignacion: TUniDateTimePicker;
+    UniLabel3: TUniLabel;
+    TotalAgenda: TUniEdit;
+    CodigoMedico: TUniEdit;
+    UniSpeedButton2: TUniSpeedButton;
+    UniEdit1: TUniEdit;
+    UniEdit2: TUniEdit;
+    UniEdit3: TUniEdit;
+    UniEdit4: TUniEdit;
+    UniEdit5: TUniEdit;
+    ubVerCitas: TUniSpeedButton;
+    oturno: TUniRadioButton;
+    ohora: TUniRadioButton;
+    onombre: TUniRadioButton;
+    oedad: TUniRadioButton;
+    procedure coloresEstado();
+    procedure mostrar();
+    procedure UniFormShow(Sender: TObject);
+    procedure fechaAsignacionChange(Sender: TObject);
+    procedure oturnoClick(Sender: TObject);
+    procedure UniDBGrid1DrawColumnCell(Sender: TObject; ACol, ARow: Integer;
+      Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+    procedure UniDBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    color1, color2, color3, color4, color5: TColor;
+    listado: Integer;
+  end;
+
+function FMedicosCita: TFMedicosCita;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  MainModule, uniGUIApplication;
+
+function FMedicosCita: TFMedicosCita;
+begin
+  Result := TFMedicosCita(UniMainModule.GetFormInstance(TFMedicosCita));
+end;
+
+{ TFMedicosCita }
+
+procedure TFMedicosCita.coloresEstado;
+begin
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Text := 'select * from coloresestado';
+  UniMainModule.Query.Open();
+
+  UniMainModule.Query.First;
+  UniEdit1.Text := (UniMainModule.Query.FieldByName('estado').AsString);
+  color1 := StringToColor(UniMainModule.Query.FieldByName('color').AsString);
+  UniEdit1.Color := color1;
+
+  UniMainModule.Query.Next;
+  UniEdit2.Text := (UniMainModule.Query.FieldByName('estado').AsString);
+  color2 := StringToColor(UniMainModule.Query.FieldByName('color').AsString);
+  UniEdit2.Color := color2;
+
+  UniMainModule.Query.Next;
+  UniEdit3.Text := (UniMainModule.Query.FieldByName('estado').AsString);
+  color3 := StringToColor(UniMainModule.Query.FieldByName('color').AsString);
+  UniEdit3.Color := color3;
+
+  UniMainModule.Query.Next;
+  UniEdit4.Text := (UniMainModule.Query.FieldByName('estado').AsString);
+  color4 := StringToColor(UniMainModule.Query.FieldByName('color').AsString);
+  UniEdit4.Color := color4;
+
+  UniMainModule.Query.Next;
+  UniEdit5.Text := (UniMainModule.Query.FieldByName('estado').AsString);
+  color5 := StringToColor(UniMainModule.Query.FieldByName('color').AsString);
+  UniEdit5.Color := color5;
+end;
+
+procedure TFMedicosCita.fechaAsignacionChange(Sender: TObject);
+begin
+ mostrar;
+end;
+
+procedure TFMedicosCita.mostrar;
+var
+  ordenado, consulta, servicio1: string;
+
+begin
+  servicio1 := 'Consulta Externa';
+  ordenado := ' horacitax asc';
+  if oturno.Checked then
+    ordenado := ' case c.turno when 0 then 1000 else c.turno end asc';
+  if onombre.Checked then
+    ordenado := ' nombrecompleto asc';
+  if oedad.Checked then
+    ordenado := ' e1 asc';
+
+  case listado of
+    0:
+      begin
+        UniMainModule.QueryGrid.SQL.Clear;
+        consulta :=
+          'select  c.turno, c.horacita as horas, c.consecutivo, u.nombrecompleto, u.codeps, c.asistio, '
+          + 'c.codigoconsulta, tc.descripcion, u.afcodigo, u.telefono, e.nombre nombre_eps, u.fecha_nacimiento, tc.plantilla, u.sexo, c.autonumerico, '
+          + 'c.tcontrato, m.municipio, c.programa, u.direccion, cast(datediff(year, u.fecha_nacimiento, getdate())as varchar(3))+'' años '' edad, '
+          + 'datediff(year, u.fecha_nacimiento, getdate()) e1, isnull(cs.cantidad, 1)total, isnull(eje.hechos, 1)ej_ta, cs.tipoitem from citas c left join '
+          + 'citasservicios cs on (cs.medico = c.medico and cs.rips = c.consecutivo) left join (select count(*) hechos, c.paciente, c.medico, '
+          + 'c.consecutivo from citas c where c.asistio = 5 group by c.paciente, c.medico, c.consecutivo )eje on (c.paciente = eje.paciente and '
+          + 'c.medico = eje.medico and c.consecutivo = eje.consecutivo), usuarios u, tipoconsulta tc, epssi e, municipios m where c.medico = '''
+          + CodigoMedico.Text + ''' and c.fechacita = ''' +
+          FormatDateTime('yyyymmdd', fechaAsignacion.DateTime) +
+          ''' and u.afcodigo = c.paciente and c.codigoconsulta = ' +
+          'tc.codigo and e.codigoeps = u.codeps and m.departamento = u.coddpto and m.codigo = u.codmpio and u.afcodigo = c.paciente order by '
+          + ordenado;
+        UniMainModule.QueryGrid.SQL.Add(consulta);
+        ShowMessage(consulta);
+        UniMainModule.QueryGrid.Open();
+        if  UniMainModule.QueryGrid.IsEmpty then
+        begin
+          ShowMessage('No tiene citas para esta fecha');
+        end
+        else
+          TotalAgenda.Text := IntToStr(UniMainModule.QueryGrid.RecordCount);
+      end;
+    1:
+      begin
+        UniMainModule.QueryGrid.SQL.Clear;
+        consulta :=
+          ('select u.afcodigo, u.nombrecompleto, d.rips, d.fechai, d.fechas, r.ripsestado asistio, u.sexo, ''evento'' '
+          + 'tcontrato, m.municipio, cast(datediff(year, u.fecha_nacimiento, getdate())as varchar(3))+'' años '' edad, 1 total, 1 ej_ta, '
+          + 'datediff(year, u.fecha_nacimiento, getdate()) e1  from usuarios u, dxrips d, ripsg r, municipios m where u.afcodigo = r.identificacion '
+          + 'and d.rips = r.rips  and d.servicio = ''' + servicio1 +
+          ''' and m.departamento = u.coddpto and m.codigo = u.codmpio and u.afcodigo = '
+          + 'r.identificacion order by horas');
+        UniMainModule.QueryGrid.SQL.Add(consulta);
+        UniMainModule.QueryGrid.Open();
+        TotalAgenda.Text := IntToStr(UniMainModule.QueryGrid.RecordCount);
+      end;
+  end;
+end;
+
+procedure TFMedicosCita.oturnoClick(Sender: TObject);
+begin
+mostrar;
+end;
+
+procedure TFMedicosCita.UniDBGrid1DblClick(Sender: TObject);
+begin
+if not UniMainModule.QueryGrid.IsEmpty then
+begin
+   ModalResult:=mrOk;
+end;
+end;
+
+procedure TFMedicosCita.UniDBGrid1DrawColumnCell(Sender: TObject; ACol,
+  ARow: Integer; Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+begin
+if UniMainModule.QueryGrid.FieldByName('asistio').AsInteger = 1 then
+  begin
+    Attribs.Color := color1;
+  end;
+
+  if UniMainModule.QueryGrid.FieldByName('asistio').AsInteger = 2 then
+  begin
+    Attribs.Color := color2;
+  end;
+
+  if UniMainModule.QueryGrid.FieldByName('asistio').AsInteger = 3 then
+  begin
+    Attribs.Color := color3;
+  end;
+
+  if UniMainModule.QueryGrid.FieldByName('asistio').AsInteger = 4 then
+  begin
+    Attribs.Color := color4;
+  end;
+
+  if UniMainModule.QueryGrid.FieldByName('asistio').AsInteger = 5 then
+  begin
+    Attribs.Color := color5;
+  end;
+end;
+
+procedure TFMedicosCita.UniFormShow(Sender: TObject);
+begin
+  CodigoMedico.Text:=UniMainModule.codigoM;
+  Medico.Text:=UniMainModule.NombreCompleto;
+  coloresEstado;
+  mostrar;
+end;
+
+end.

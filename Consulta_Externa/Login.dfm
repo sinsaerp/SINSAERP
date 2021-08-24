@@ -1488,7 +1488,7 @@ object FLogin: TFLogin
       Width = 233
       Height = 33
       Hint = ''
-      Text = 'ANDERSON'
+      Text = 'ABDON'
       TabOrder = 3
     end
     object UniPanel2: TUniPanel

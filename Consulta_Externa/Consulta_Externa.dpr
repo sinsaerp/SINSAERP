@@ -13,7 +13,8 @@ uses
   ServerModule in 'ServerModule.pas' {UniServerModule: TUniGUIServerModule},
   MainModule in 'MainModule.pas' {UniMainModule: TUniGUIMainModule},
   Main in 'Main.pas' {MainForm: TUniForm},
-  Login in 'Login.pas' {FLogin: TUniLoginForm};
+  Login in 'Login.pas' {FLogin: TUniLoginForm},
+  MedicosCita in 'MedicosCita.pas' {FMedicosCita: TUniForm};
 
 {$R *.res}
 
