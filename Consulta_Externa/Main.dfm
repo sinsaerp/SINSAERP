@@ -1,74 +1,75 @@
 object MainForm: TMainForm
+  AlignWithMargins = True
   Left = 0
   Top = 0
-  ClientHeight = 915
-  ClientWidth = 1441
+  Width = 1400
+  Height = 1165
   Caption = 'CONSULTA EXTERNA'
   OnShow = UniFormShow
   BorderStyle = bsDialog
   OldCreateOrder = False
+  AutoScroll = True
   MonitoredKeys.Keys = <>
   PixelsPerInch = 96
   TextHeight = 13
   object UniPageControl1: TUniPageControl
     Left = 0
     Top = 108
-    Width = 1441
-    Height = 807
+    Width = 1394
+    Height = 1028
     Hint = ''
     ActivePage = UniTabSheet1
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = -309
-    ExplicitTop = -176
-    ExplicitWidth = 1432
-    ExplicitHeight = 840
+    ExplicitLeft = 8
+    ExplicitTop = 111
+    ExplicitWidth = 1441
+    ExplicitHeight = 807
     object UniTabSheet1: TUniTabSheet
       Hint = ''
       Caption = 'Historia de Paciente'
       ExplicitWidth = 1424
       ExplicitHeight = 812
       object UniPanel1: TUniPanel
-        Left = 0
-        Top = -4
-        Width = 686
-        Height = 798
+        Left = 3
+        Top = 0
+        Width = 777
+        Height = 985
         Hint = ''
+        AutoScroll = True
         TabOrder = 0
         TitleAlign = taCenter
         Caption = ''
-        object UniMemo1: TUniMemo
-          Left = 20
-          Top = 86
-          Width = 641
+        ScrollHeight = 985
+        ScrollWidth = 777
+        object motivo: TUniMemo
+          Left = 27
+          Top = 117
+          Width = 703
           Height = 46
           Hint = ''
-          Lines.Strings = (
-            'UniMemo1')
           TabOrder = 1
         end
         object UniLabel5: TUniLabel
-          Left = 20
-          Top = 138
+          Left = 27
+          Top = 167
           Width = 91
           Height = 13
           Hint = ''
           Caption = 'Enfermedad Actual'
           TabOrder = 2
         end
-        object UniMemo2: TUniMemo
-          Left = 20
-          Top = 157
-          Width = 641
+        object enfermedadActual: TUniMemo
+          Left = 27
+          Top = 186
+          Width = 703
           Height = 47
           Hint = ''
-          Lines.Strings = (
-            'UniMemo2')
           TabOrder = 3
         end
         object UniLabel6: TUniLabel
-          Left = 20
-          Top = 208
+          Left = 27
+          Top = 239
           Width = 67
           Height = 13
           Hint = ''
@@ -76,224 +77,220 @@ object MainForm: TMainForm
           TabOrder = 4
         end
         object UniMemo3: TUniMemo
-          Left = 20
-          Top = 227
-          Width = 586
-          Height = 65
+          Left = 27
+          Top = 258
+          Width = 703
+          Height = 30
           Hint = ''
-          Lines.Strings = (
-            'UniMemo3')
           TabOrder = 5
         end
         object UniLabel7: TUniLabel
-          Left = 20
-          Top = 298
+          Left = 28
+          Top = 485
           Width = 38
           Height = 13
           Hint = ''
           Caption = 'Sist'#243'lica'
           TabOrder = 6
         end
-        object UniEdit3: TUniEdit
-          Left = 20
-          Top = 317
+        object sistolica: TUniEdit
+          Left = 28
+          Top = 504
           Width = 49
           Hint = ''
           Text = '0'
           TabOrder = 7
         end
         object UniLabel8: TUniLabel
-          Left = 75
-          Top = 298
+          Left = 83
+          Top = 485
           Width = 45
           Height = 13
           Hint = ''
           Caption = 'Diast'#243'lica'
           TabOrder = 8
         end
-        object UniEdit4: TUniEdit
-          Left = 75
-          Top = 317
+        object diastolica: TUniEdit
+          Left = 83
+          Top = 504
           Width = 45
           Hint = ''
           Text = '0'
           TabOrder = 9
         end
         object UniLabel9: TUniLabel
-          Left = 134
-          Top = 298
+          Left = 145
+          Top = 485
           Width = 13
           Height = 13
           Hint = ''
           Caption = 'FR'
           TabOrder = 10
         end
-        object UniEdit5: TUniEdit
-          Left = 137
-          Top = 317
+        object fr: TUniEdit
+          Left = 145
+          Top = 504
           Width = 44
           Hint = ''
           Text = '0'
           TabOrder = 11
         end
         object UniLabel10: TUniLabel
-          Left = 187
-          Top = 298
+          Left = 200
+          Top = 485
           Width = 13
           Height = 13
           Hint = ''
           Caption = 'FC'
           TabOrder = 12
         end
-        object UniEdit6: TUniEdit
-          Left = 187
-          Top = 317
+        object fc: TUniEdit
+          Left = 200
+          Top = 504
           Width = 50
           Hint = ''
           Text = '0'
           TabOrder = 13
         end
         object UniLabel11: TUniLabel
-          Left = 243
-          Top = 298
+          Left = 271
+          Top = 485
           Width = 45
           Height = 13
           Hint = ''
           Caption = 'Temp. '#176'C'
           TabOrder = 14
         end
-        object UniEdit7: TUniEdit
-          Left = 243
-          Top = 317
+        object temp: TUniEdit
+          Left = 271
+          Top = 504
           Width = 45
           Hint = ''
           Text = ''
           TabOrder = 15
         end
         object UniLabel12: TUniLabel
-          Left = 304
-          Top = 298
+          Left = 408
+          Top = 485
           Width = 38
           Height = 13
           Hint = ''
           Caption = 'Peso Kg'
           TabOrder = 16
         end
-        object UniEdit8: TUniEdit
-          Left = 304
-          Top = 317
+        object peso: TUniEdit
+          Left = 332
+          Top = 504
           Width = 52
           Hint = ''
           Text = ''
           TabOrder = 17
         end
         object UniLabel13: TUniLabel
-          Left = 362
-          Top = 298
+          Left = 332
+          Top = 485
           Width = 35
           Height = 13
           Hint = ''
           Caption = 'Cintura'
           TabOrder = 18
         end
-        object UniEdit9: TUniEdit
-          Left = 362
-          Top = 317
+        object cintura: TUniEdit
+          Left = 408
+          Top = 504
           Width = 52
           Hint = ''
           Text = ''
           TabOrder = 19
         end
         object UniLabel14: TUniLabel
-          Left = 420
-          Top = 298
+          Left = 476
+          Top = 485
           Width = 22
           Height = 13
           Hint = ''
           Caption = 'Talla'
           TabOrder = 20
         end
-        object UniEdit10: TUniEdit
-          Left = 420
-          Top = 317
+        object talla: TUniEdit
+          Left = 476
+          Top = 504
           Width = 50
           Hint = ''
           Text = '0'
           TabOrder = 21
         end
         object UniLabel15: TUniLabel
-          Left = 476
-          Top = 298
+          Left = 532
+          Top = 485
           Width = 19
           Height = 13
           Hint = ''
           Caption = 'IMC'
           TabOrder = 22
         end
-        object UniEdit11: TUniEdit
-          Left = 476
-          Top = 317
+        object imc: TUniEdit
+          Left = 532
+          Top = 504
           Width = 58
           Hint = ''
           Text = '0,00'
           TabOrder = 23
         end
         object UniLabel16: TUniLabel
-          Left = 540
-          Top = 298
+          Left = 609
+          Top = 485
           Width = 66
           Height = 13
           Hint = ''
           Caption = 'Dx Nutricional'
           TabOrder = 24
         end
-        object UniEdit12: TUniEdit
-          Left = 540
-          Top = 317
+        object dxNutricional: TUniEdit
+          Left = 609
+          Top = 504
           Width = 121
           Hint = ''
           Text = ''
           TabOrder = 25
         end
         object UniLabel17: TUniLabel
-          Left = 20
-          Top = 347
+          Left = 28
+          Top = 534
           Width = 143
           Height = 13
           Hint = ''
           Caption = 'Detalle Examen F'#237'sico General'
           TabOrder = 26
         end
-        object UniMemo4: TUniMemo
-          Left = 20
-          Top = 366
-          Width = 641
+        object detalleExamen: TUniMemo
+          Left = 28
+          Top = 553
+          Width = 700
           Height = 40
           Hint = ''
-          Lines.Strings = (
-            'UniMemo4')
           TabOrder = 27
         end
         object UniLabel18: TUniLabel
-          Left = 20
-          Top = 412
+          Left = 24
+          Top = 595
           Width = 97
           Height = 13
           Hint = ''
           Caption = 'Diagn'#243'stico Principal'
           TabOrder = 28
         end
-        object UniEdit14: TUniEdit
-          Left = 133
-          Top = 431
+        object descipciondxp: TUniEdit
+          Left = 137
+          Top = 614
           Width = 401
           Hint = ''
-          Text = 'UniEdit14'
+          Text = ''
           TabOrder = 29
         end
         object UniSpeedButton1: TUniSpeedButton
-          Left = 540
-          Top = 431
+          Left = 544
+          Top = 614
           Width = 121
           Height = 22
           Hint = ''
@@ -303,27 +300,25 @@ object MainForm: TMainForm
           TabOrder = 30
         end
         object UniLabel19: TUniLabel
-          Left = 20
-          Top = 572
+          Left = 24
+          Top = 759
           Width = 104
           Height = 13
           Hint = ''
           Caption = 'Revisi'#243'n por Sistemas'
           TabOrder = 31
         end
-        object UniMemo6: TUniMemo
-          Left = 20
-          Top = 591
-          Width = 641
+        object revisionSistemas: TUniMemo
+          Left = 24
+          Top = 778
+          Width = 704
           Height = 54
           Hint = ''
-          Lines.Strings = (
-            'UniMemo6')
           TabOrder = 32
         end
         object Btnguardar: TUniSpeedButton
-          Left = 20
-          Top = 744
+          Left = 24
+          Top = 931
           Width = 100
           Height = 25
           Hint = ''
@@ -332,9 +327,9 @@ object MainForm: TMainForm
           Color = clWindow
           TabOrder = 33
         end
-        object UniSpeedButton2: TUniSpeedButton
-          Left = 126
-          Top = 744
+        object BtnOrdenesMedicas: TUniSpeedButton
+          Left = 130
+          Top = 931
           Width = 93
           Height = 25
           Hint = ''
@@ -344,8 +339,8 @@ object MainForm: TMainForm
           TabOrder = 34
         end
         object UniLabel42: TUniLabel
-          Left = 20
-          Top = 67
+          Left = 27
+          Top = 98
           Width = 92
           Height = 13
           Hint = ''
@@ -353,165 +348,313 @@ object MainForm: TMainForm
           TabOrder = 35
         end
         object UniLabel43: TUniLabel
-          Left = 20
-          Top = 20
+          Left = 27
+          Top = 51
           Width = 66
           Height = 13
           Hint = ''
           Caption = 'Acompa'#241'ante'
           TabOrder = 36
         end
-        object UniEdit1: TUniEdit
-          Left = 20
-          Top = 39
-          Width = 264
+        object nombreaom: TUniEdit
+          Left = 28
+          Top = 70
+          Width = 289
           Hint = ''
-          Text = 'UniEdit1'
+          Text = ''
           TabOrder = 37
         end
         object UniLabel44: TUniLabel
-          Left = 300
-          Top = 20
+          Left = 342
+          Top = 51
           Width = 42
           Height = 13
           Hint = ''
           Caption = 'Tel'#233'fono'
           TabOrder = 38
         end
-        object UniEdit2: TUniEdit
-          Left = 300
-          Top = 39
-          Width = 191
-          Hint = ''
-          Text = 'UniEdit2'
-          TabOrder = 39
-        end
         object UniLabel45: TUniLabel
-          Left = 497
-          Top = 20
+          Left = 566
+          Top = 51
           Width = 54
           Height = 13
           Hint = ''
           Caption = 'Parentesco'
-          TabOrder = 40
+          TabOrder = 39
         end
         object UniComboBox2: TUniComboBox
-          Left = 497
-          Top = 39
-          Width = 160
+          Left = 566
+          Top = 70
+          Width = 164
           Hint = ''
           Text = 'UniComboBox2'
-          TabOrder = 41
+          TabOrder = 40
           IconItems = <>
         end
-        object UniSpeedButton7: TUniSpeedButton
-          Left = 612
-          Top = 227
-          Width = 49
-          Height = 22
-          Hint = ''
-          Caption = 'Mostrar'
-          ParentColor = False
-          Color = clWindow
-          TabOrder = 42
-        end
         object UniLabel46: TUniLabel
-          Left = 20
-          Top = 651
+          Left = 24
+          Top = 838
           Width = 78
           Height = 13
           Hint = ''
           Caption = 'Plan y Conducta'
-          TabOrder = 43
+          TabOrder = 41
         end
-        object UniMemo9: TUniMemo
-          Left = 20
-          Top = 670
-          Width = 641
+        object planConducta: TUniMemo
+          Left = 24
+          Top = 857
+          Width = 706
           Height = 54
           Hint = ''
-          Lines.Strings = (
-            'UniMemo6')
-          TabOrder = 44
+          TabOrder = 42
         end
         object UniLabel47: TUniLabel
-          Left = 22
-          Top = 523
+          Left = 26
+          Top = 710
           Width = 113
           Height = 13
           Hint = ''
           Caption = 'Finalidad de la Consulta'
+          TabOrder = 43
+        end
+        object finalidad: TUniComboBox
+          Left = 26
+          Top = 729
+          Width = 239
+          Hint = ''
+          Text = 'UniComboBox2'
+          TabOrder = 44
+          IconItems = <>
+        end
+        object UniLabel48: TUniLabel
+          Left = 301
+          Top = 710
+          Width = 71
+          Height = 13
+          Hint = ''
+          Caption = 'Causa Externa'
           TabOrder = 45
         end
-        object UniComboBox3: TUniComboBox
-          Left = 22
-          Top = 542
-          Width = 239
+        object causaExterna: TUniComboBox
+          Left = 301
+          Top = 729
+          Width = 237
           Hint = ''
           Text = 'UniComboBox2'
           TabOrder = 46
           IconItems = <>
         end
-        object UniLabel48: TUniLabel
-          Left = 271
-          Top = 523
-          Width = 71
+        object UniLabel49: TUniLabel
+          Left = 557
+          Top = 710
+          Width = 105
           Height = 13
           Hint = ''
-          Caption = 'Causa Externa'
+          Caption = 'Impresi'#243'n Diagn'#243'stica'
           TabOrder = 47
         end
-        object UniComboBox4: TUniComboBox
-          Left = 271
-          Top = 542
-          Width = 213
+        object impresionDiagnostica: TUniComboBox
+          Left = 557
+          Top = 729
+          Width = 171
           Hint = ''
           Text = 'UniComboBox2'
           TabOrder = 48
           IconItems = <>
         end
-        object UniLabel49: TUniLabel
-          Left = 490
-          Top = 523
-          Width = 105
-          Height = 13
-          Hint = ''
-          Caption = 'Impresi'#243'n Diagn'#243'stica'
-          TabOrder = 49
-        end
-        object UniComboBox5: TUniComboBox
-          Left = 490
-          Top = 542
-          Width = 177
-          Hint = ''
-          Text = 'UniComboBox2'
-          TabOrder = 50
-          IconItems = <>
-        end
-        object UniEdit13: TUniEdit
-          Left = 20
-          Top = 431
+        object dxp: TUniEdit
+          Left = 24
+          Top = 614
           Width = 107
           Hint = ''
-          Text = 'UniEdit13'
-          TabOrder = 51
+          Text = ''
+          TabOrder = 49
         end
-        object UniMemo7: TUniMemo
-          Left = 75
-          Top = 455
+        object masdx: TUniMemo
+          Left = 24
+          Top = 642
           Width = 641
           Height = 62
           Hint = ''
-          Lines.Strings = (
-            'UniMemo4')
+          TabOrder = 50
+        end
+        object UniNumberEdit1: TUniNumberEdit
+          Left = 342
+          Top = 70
+          Width = 184
+          Hint = ''
+          TabOrder = 51
+          DecimalSeparator = ','
+        end
+        object UniDateTimePicker1: TUniDateTimePicker
+          Left = 27
+          Top = 23
+          Width = 136
+          Hint = ''
+          DateTime = 44433.000000000000000000
+          DateFormat = 'dd/MM/yyyy'
+          TimeFormat = 'HH:mm:ss'
           TabOrder = 52
+          ParentFont = False
+          Font.Height = -15
+          Font.Style = [fsBold]
+        end
+        object HoraAsignacion: TUniDateTimePicker
+          Left = 187
+          Top = 23
+          Width = 130
+          Hint = ''
+          DateTime = 0.500000000000000000
+          DateFormat = 'dd/MM/yyyy'
+          TimeFormat = 'HH:mm:ss'
+          Kind = tUniTime
+          FirstDayOfWeek = dowLocaleDefault
+          TabOrder = 53
+          ParentFont = False
+          Font.Height = -15
+          Font.Style = [fsBold]
+          Color = clWhite
+        end
+        object UniLabel2: TUniLabel
+          Left = 413
+          Top = 294
+          Width = 60
+          Height = 13
+          Hint = ''
+          Caption = 'Quiru'#250'rgicos'
+          TabOrder = 54
+        end
+        object UniMemo1: TUniMemo
+          Left = 413
+          Top = 313
+          Width = 317
+          Height = 49
+          Hint = ''
+          TabOrder = 55
+        end
+        object UniLabel3: TUniLabel
+          Left = 27
+          Top = 294
+          Width = 68
+          Height = 13
+          Hint = ''
+          Caption = 'Medicamentos'
+          TabOrder = 56
+        end
+        object UniMemo2: TUniMemo
+          Left = 28
+          Top = 313
+          Width = 359
+          Height = 49
+          Hint = ''
+          TabOrder = 57
+        end
+        object UniLabel4: TUniLabel
+          Left = 411
+          Top = 368
+          Width = 152
+          Height = 13
+          Hint = ''
+          Caption = 'Otros Antecedentes Personales'
+          TabOrder = 58
+        end
+        object UniMemo4: TUniMemo
+          Left = 411
+          Top = 387
+          Width = 317
+          Height = 45
+          Hint = ''
+          TabOrder = 59
+        end
+        object UniLabel26: TUniLabel
+          Left = 25
+          Top = 368
+          Width = 98
+          Height = 13
+          Hint = ''
+          Caption = 'Familiares Generales'
+          TabOrder = 60
+        end
+        object UniMemo6: TUniMemo
+          Left = 26
+          Top = 387
+          Width = 358
+          Height = 45
+          Hint = ''
+          TabOrder = 61
+        end
+        object UniLabel28: TUniLabel
+          Left = 28
+          Top = 438
+          Width = 184
+          Height = 18
+          Hint = ''
+          Caption = 'Antecedentes Familiares'
+          ParentFont = False
+          Font.Height = -15
+          Font.Style = [fsBold]
+          TabOrder = 62
+        end
+        object UniCheckBox2: TUniCheckBox
+          Left = 28
+          Top = 462
+          Width = 65
+          Height = 17
+          Hint = ''
+          Caption = 'Diabetes'
+          TabOrder = 63
+        end
+        object UniCheckBox3: TUniCheckBox
+          Left = 99
+          Top = 462
+          Width = 151
+          Height = 17
+          Hint = ''
+          Caption = 'Tratamiento para Diabetes'
+          TabOrder = 64
+        end
+        object UniCheckBox4: TUniCheckBox
+          Left = 252
+          Top = 462
+          Width = 138
+          Height = 17
+          Hint = ''
+          Caption = 'Alteraciones Cardicas'
+          TabOrder = 65
+        end
+        object UniCheckBox5: TUniCheckBox
+          Left = 396
+          Top = 462
+          Width = 82
+          Height = 17
+          Hint = ''
+          Caption = 'Hipertensi'#243'n'
+          TabOrder = 66
+        end
+        object UniCheckBox6: TUniCheckBox
+          Left = 484
+          Top = 462
+          Width = 173
+          Height = 17
+          Hint = ''
+          Caption = 'Tratamiento para Hipertensi'#243'n'
+          TabOrder = 67
+        end
+        object UniCheckBox7: TUniCheckBox
+          Left = 672
+          Top = 462
+          Width = 47
+          Height = 17
+          Hint = ''
+          Caption = 'ECV'
+          TabOrder = 68
         end
       end
       object UniPanel2: TUniPanel
-        Left = 700
-        Top = 0
-        Width = 730
-        Height = 785
+        Left = 781
+        Top = -18
+        Width = 602
+        Height = 998
         Hint = ''
         TabOrder = 1
         BorderStyle = ubsFrameRaised
@@ -519,7 +662,7 @@ object MainForm: TMainForm
         object UniDBGrid1: TUniDBGrid
           Left = 16
           Top = 38
-          Width = 665
+          Width = 583
           Height = 208
           Hint = ''
           LoadMask.Message = 'Loading data...'
@@ -544,13 +687,11 @@ object MainForm: TMainForm
           TabOrder = 3
         end
         object UniMemo8: TUniMemo
-          Left = 15
+          Left = 16
           Top = 280
-          Width = 665
+          Width = 583
           Height = 337
           Hint = ''
-          Lines.Strings = (
-            'UniMemo8')
           TabOrder = 4
         end
         object UniLabel22: TUniLabel
@@ -563,7 +704,7 @@ object MainForm: TMainForm
           TabOrder = 5
         end
         object UniCheckBox1: TUniCheckBox
-          Left = 118
+          Left = 110
           Top = 19
           Width = 97
           Height = 13
@@ -572,7 +713,7 @@ object MainForm: TMainForm
           TabOrder = 6
         end
         object UniSpeedButton3: TUniSpeedButton
-          Left = 160
+          Left = 126
           Top = 252
           Width = 195
           Height = 22
@@ -583,9 +724,9 @@ object MainForm: TMainForm
           TabOrder = 7
         end
         object UniSpeedButton4: TUniSpeedButton
-          Left = 361
+          Left = 343
           Top = 252
-          Width = 161
+          Width = 122
           Height = 22
           Hint = ''
           Caption = 'Imprimir Todo'
@@ -594,9 +735,9 @@ object MainForm: TMainForm
           TabOrder = 8
         end
         object UniSpeedButton5: TUniSpeedButton
-          Left = 528
+          Left = 487
           Top = 252
-          Width = 153
+          Width = 112
           Height = 22
           Hint = ''
           Caption = 'Editar Evoluci'#243'n'
@@ -605,13 +746,11 @@ object MainForm: TMainForm
           TabOrder = 9
         end
         object UniMemo5: TUniMemo
-          Left = 15
+          Left = 16
           Top = 642
-          Width = 665
+          Width = 583
           Height = 129
           Hint = ''
-          Lines.Strings = (
-            'UniMemo8')
           TabOrder = 10
         end
       end
@@ -620,13 +759,14 @@ object MainForm: TMainForm
   object UniPanel3: TUniPanel
     Left = 0
     Top = 0
-    Width = 1441
+    Width = 1394
     Height = 108
     Hint = ''
     Align = alTop
     TabOrder = 1
     Caption = ''
     Color = 11169097
+    ExplicitWidth = 1441
     object UniLabel23: TUniLabel
       Left = 169
       Top = 3
@@ -692,10 +832,10 @@ object MainForm: TMainForm
     object lblfechanacpac: TUniLabel
       Left = 656
       Top = 27
-      Width = 98
+      Width = 106
       Height = 18
       Hint = ''
-      Caption = '05/01/1987'
+      Caption = 'DD/MM/AAAA'
       ParentFont = False
       Font.Color = clInfoBk
       Font.Height = -15
@@ -717,10 +857,10 @@ object MainForm: TMainForm
     object lblidenpac: TUniLabel
       Left = 169
       Top = 65
-      Width = 90
+      Width = 30
       Height = 18
       Hint = ''
-      Caption = '110235566'
+      Caption = '000'
       ParentFont = False
       Font.Color = clInfoBk
       Font.Height = -15
@@ -742,10 +882,10 @@ object MainForm: TMainForm
     object lblnombrepac: TUniLabel
       Left = 346
       Top = 65
-      Width = 152
+      Width = 76
       Height = 18
       Hint = ''
-      Caption = 'EDUARDO ALMANZA'
+      Caption = 'PACIENTE'
       ParentFont = False
       Font.Color = clInfoBk
       Font.Height = -15
@@ -817,10 +957,10 @@ object MainForm: TMainForm
     object lblmuncipiopac: TUniLabel
       Left = 1065
       Top = 23
-      Width = 86
+      Width = 43
       Height = 18
       Hint = ''
-      Caption = 'SINCELEJO'
+      Caption = 'MUNI'
       ParentFont = False
       Font.Color = clInfoBk
       Font.Height = -15
@@ -842,10 +982,10 @@ object MainForm: TMainForm
     object lblepspac: TUniLabel
       Left = 1065
       Top = 66
-      Width = 176
+      Width = 29
       Height = 18
       Hint = ''
-      Caption = 'SALUD TOTAL S.A E.P.S'
+      Caption = 'EPS'
       ParentFont = False
       Font.Color = clInfoBk
       Font.Height = -15
@@ -853,7 +993,7 @@ object MainForm: TMainForm
       TabOrder = 18
     end
     object UniLabel41: TUniLabel
-      Left = 1246
+      Left = 1190
       Top = 3
       Width = 49
       Height = 16
@@ -865,7 +1005,7 @@ object MainForm: TMainForm
       TabOrder = 19
     end
     object fechaAsignacion: TUniDateTimePicker
-      Left = 1301
+      Left = 1245
       Top = 3
       Width = 120
       Hint = ''
@@ -875,10 +1015,10 @@ object MainForm: TMainForm
       TabOrder = 20
     end
     object UniSpeedButton6: TUniSpeedButton
-      Left = 1260
-      Top = 41
-      Width = 161
-      Height = 43
+      Left = 1246
+      Top = 47
+      Width = 120
+      Height = 36
       Hint = ''
       Caption = 'Listado de Pacientes'
       ParentColor = False

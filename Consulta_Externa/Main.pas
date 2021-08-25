@@ -15,57 +15,55 @@ type
     UniPageControl1: TUniPageControl;
     UniTabSheet1: TUniTabSheet;
     UniPanel1: TUniPanel;
-    UniMemo1: TUniMemo;
+    motivo: TUniMemo;
     UniLabel5: TUniLabel;
-    UniMemo2: TUniMemo;
+    enfermedadActual: TUniMemo;
     UniLabel6: TUniLabel;
     UniMemo3: TUniMemo;
     UniLabel7: TUniLabel;
-    UniEdit3: TUniEdit;
+    sistolica: TUniEdit;
     UniLabel8: TUniLabel;
-    UniEdit4: TUniEdit;
+    diastolica: TUniEdit;
     UniLabel9: TUniLabel;
-    UniEdit5: TUniEdit;
+    fr: TUniEdit;
     UniLabel10: TUniLabel;
-    UniEdit6: TUniEdit;
+    fc: TUniEdit;
     UniLabel11: TUniLabel;
-    UniEdit7: TUniEdit;
+    temp: TUniEdit;
     UniLabel12: TUniLabel;
-    UniEdit8: TUniEdit;
+    peso: TUniEdit;
     UniLabel13: TUniLabel;
-    UniEdit9: TUniEdit;
+    cintura: TUniEdit;
     UniLabel14: TUniLabel;
-    UniEdit10: TUniEdit;
+    talla: TUniEdit;
     UniLabel15: TUniLabel;
-    UniEdit11: TUniEdit;
+    imc: TUniEdit;
     UniLabel16: TUniLabel;
-    UniEdit12: TUniEdit;
+    dxNutricional: TUniEdit;
     UniLabel17: TUniLabel;
-    UniMemo4: TUniMemo;
+    detalleExamen: TUniMemo;
     UniLabel18: TUniLabel;
-    UniEdit14: TUniEdit;
+    descipciondxp: TUniEdit;
     UniSpeedButton1: TUniSpeedButton;
     UniLabel19: TUniLabel;
-    UniMemo6: TUniMemo;
+    revisionSistemas: TUniMemo;
     Btnguardar: TUniSpeedButton;
-    UniSpeedButton2: TUniSpeedButton;
+    BtnOrdenesMedicas: TUniSpeedButton;
     UniLabel42: TUniLabel;
     UniLabel43: TUniLabel;
-    UniEdit1: TUniEdit;
+    nombreaom: TUniEdit;
     UniLabel44: TUniLabel;
-    UniEdit2: TUniEdit;
     UniLabel45: TUniLabel;
     UniComboBox2: TUniComboBox;
-    UniSpeedButton7: TUniSpeedButton;
     UniLabel46: TUniLabel;
-    UniMemo9: TUniMemo;
+    planConducta: TUniMemo;
     UniLabel47: TUniLabel;
-    UniComboBox3: TUniComboBox;
+    finalidad: TUniComboBox;
     UniLabel48: TUniLabel;
-    UniComboBox4: TUniComboBox;
+    causaExterna: TUniComboBox;
     UniLabel49: TUniLabel;
-    UniComboBox5: TUniComboBox;
-    UniEdit13: TUniEdit;
+    impresionDiagnostica: TUniComboBox;
+    dxp: TUniEdit;
     UniPanel2: TUniPanel;
     UniDBGrid1: TUniDBGrid;
     UniLabel20: TUniLabel;
@@ -102,11 +100,30 @@ type
     UniMemo5: TUniMemo;
     UniLabel24: TUniLabel;
     lblContrato: TUniLabel;
-    UniMemo7: TUniMemo;
+    masdx: TUniMemo;
     UniLabel1: TUniLabel;
     lblRips: TUniLabel;
+    UniNumberEdit1: TUniNumberEdit;
+    UniDateTimePicker1: TUniDateTimePicker;
+    HoraAsignacion: TUniDateTimePicker;
+    UniLabel2: TUniLabel;
+    UniMemo1: TUniMemo;
+    UniLabel3: TUniLabel;
+    UniMemo2: TUniMemo;
+    UniLabel4: TUniLabel;
+    UniMemo4: TUniMemo;
+    UniLabel26: TUniLabel;
+    UniMemo6: TUniMemo;
+    UniLabel28: TUniLabel;
+    UniCheckBox2: TUniCheckBox;
+    UniCheckBox3: TUniCheckBox;
+    UniCheckBox4: TUniCheckBox;
+    UniCheckBox5: TUniCheckBox;
+    UniCheckBox6: TUniCheckBox;
+    UniCheckBox7: TUniCheckBox;
     procedure UniSpeedButton6Click(Sender: TObject);
     procedure UniFormShow(Sender: TObject);
+     procedure ShowCallback(Sender: TComponent; Asresult: Integer);
   private
     { Private declarations }
   public
@@ -127,6 +144,28 @@ begin
   Result := TMainForm(UniMainModule.GetFormInstance(TMainForm));
 end;
 
+procedure TMainForm.ShowCallback(Sender: TComponent; Asresult: Integer);
+begin
+if not UniMainModule.QueryGrid.IsEmpty then
+begin
+  lblnombrepac.Text:=UniMainModule.QueryGrid.FieldByName('nombrecompleto').AsString;
+  lblidenpac.Text:=UniMainModule.QueryGrid.FieldByName('afcodigo').AsString;
+  lblfechanacpac.Text:=UniMainModule.QueryGrid.FieldByName('fecha_nacimiento').AsString;
+  lbledadpac.Text:=UniMainModule.QueryGrid.FieldByName('e1').AsString;
+  lblsexopac.Text:=UniMainModule.QueryGrid.FieldByName('sexo').AsString;
+  lblmuncipiopac.Text:=UniMainModule.QueryGrid.FieldByName('municipio').AsString;
+  lblepspac.Text:=UniMainModule.QueryGrid.FieldByName('nombre_eps').AsString;
+  lblRips.Text:=UniMainModule.QueryGrid.FieldByName('consecutivo').AsString;
+  lblContrato.Text:=UniMainModule.QueryGrid.FieldByName('tcontrato').AsString;
+  UniPanel1.Visible:=true;
+  UniPanel2.Visible:=true;
+end
+else
+begin
+  ShowMessage('Sin resultado');
+end;
+end;
+
 procedure TMainForm.UniFormShow(Sender: TObject);
 begin
 identificacionMedico.Text:=UniMainModule.identificacion;
@@ -145,22 +184,8 @@ end;
 procedure TMainForm.UniSpeedButton6Click(Sender: TObject);
 begin
 FMedicosCita.fechaAsignacion.DateTime:=fechaAsignacion.DateTime;
-FMedicosCita.ShowModal();
-if not UniMainModule.QueryGrid.IsEmpty then
-begin
-  lblnombrepac.Text:=UniMainModule.QueryGrid.FieldByName('nombrecompleto').AsString;
-  lblidenpac.Text:=UniMainModule.QueryGrid.FieldByName('afcodigo').AsString;
-  lblfechanacpac.Text:=UniMainModule.QueryGrid.FieldByName('fecha_nacimiento').AsString;
-  lbledadpac.Text:=UniMainModule.QueryGrid.FieldByName('e1').AsString;
-  lblsexopac.Text:=UniMainModule.QueryGrid.FieldByName('sexo').AsString;
-  lblmuncipiopac.Text:=UniMainModule.QueryGrid.FieldByName('municipio').AsString;
-  lblepspac.Text:=UniMainModule.QueryGrid.FieldByName('nombre_eps').AsString;
-  lblRips.Text:=UniMainModule.QueryGrid.FieldByName('consecutivo').AsString;
-end
-else
-begin
-  ShowMessage('Sin resultado');
-end;
+FMedicosCita.ShowModal(ShowCallback);
+
 end;
 
 initialization

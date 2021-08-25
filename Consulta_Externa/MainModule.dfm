@@ -1,5 +1,6 @@
 object UniMainModule: TUniMainModule
   OldCreateOrder = False
+  OnCreate = UniGUIMainModuleCreate
   MonitoredKeys.Keys = <>
   Height = 208
   Width = 366

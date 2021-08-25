@@ -17,6 +17,7 @@ type
     Query: TFDQuery;
     QueryGrid: TFDQuery;
     QueryReporte: TFDQuery;
+    procedure UniGUIMainModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,6 +71,11 @@ begin
       Stream.Free;
     end;
   end;
+end;
+
+procedure TUniMainModule.UniGUIMainModuleCreate(Sender: TObject);
+begin
+UniServerModule.MainFormDisplayMode := mfPage
 end;
 
 initialization
