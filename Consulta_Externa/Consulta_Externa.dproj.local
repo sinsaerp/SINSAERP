@@ -5,10 +5,13 @@
     <Transaction>2021/08/20 15:27:53.000.379,=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\ServerModule.pas</Transaction>
     <Transaction>2021/08/20 15:27:54.000.983,=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Main.pas</Transaction>
     <Transaction>2021/08/20 15:31:44.000.796,=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Unit2.pas</Transaction>
-    <Transaction>2021/08/20 15:31:54.000.135,C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Unit2.pas=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Login.pas</Transaction>
-    <Transaction>2021/08/20 15:31:54.000.135,C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Unit2.dfm=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Login.dfm</Transaction>
-    <Transaction>2021/08/23 13:48:13.535,=D:\sinsaerp\Consulta_Externa\Unit2.pas</Transaction>
-    <Transaction>2021/08/23 13:48:22.280,D:\sinsaerp\Consulta_Externa\MedicosCita.pas=D:\sinsaerp\Consulta_Externa\Unit2.pas</Transaction>
-    <Transaction>2021/08/23 13:48:22.280,D:\sinsaerp\Consulta_Externa\MedicosCita.dfm=D:\sinsaerp\Consulta_Externa\Unit2.dfm</Transaction>
+    <Transaction>2021/08/20 15:31:54.000.135,C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Login.pas=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Unit2.pas</Transaction>
+    <Transaction>2021/08/20 15:31:54.000.135,C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Login.dfm=C:\Users\Desarrollo\Documents\Embarcadero\Studio\Projects\Consulta_Externa\Unit2.dfm</Transaction>
+    <Transaction>2021/08/23 13:48:13.000.535,=D:\sinsaerp\Consulta_Externa\Unit2.pas</Transaction>
+    <Transaction>2021/08/23 13:48:22.000.280,D:\sinsaerp\Consulta_Externa\Unit2.pas=D:\sinsaerp\Consulta_Externa\MedicosCita.pas</Transaction>
+    <Transaction>2021/08/23 13:48:22.000.280,D:\sinsaerp\Consulta_Externa\Unit2.dfm=D:\sinsaerp\Consulta_Externa\MedicosCita.dfm</Transaction>
+    <Transaction>2021/08/25 13:46:32.385,=D:\sinsaerp\Consulta_Externa\Unit2.pas</Transaction>
+    <Transaction>2021/08/25 13:46:39.221,D:\sinsaerp\Consulta_Externa\Busquedas.dfm=D:\sinsaerp\Consulta_Externa\Unit2.dfm</Transaction>
+    <Transaction>2021/08/25 13:46:39.221,D:\sinsaerp\Consulta_Externa\Busquedas.pas=D:\sinsaerp\Consulta_Externa\Unit2.pas</Transaction>
   </Transactions>
 </BorlandProject>

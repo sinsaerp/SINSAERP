@@ -14,7 +14,8 @@ uses
   MainModule in 'MainModule.pas' {UniMainModule: TUniGUIMainModule},
   Main in 'Main.pas' {MainForm: TUniForm},
   Login in 'Login.pas' {FLogin: TUniLoginForm},
-  MedicosCita in 'MedicosCita.pas' {FMedicosCita: TUniForm};
+  MedicosCita in 'MedicosCita.pas' {FMedicosCita: TUniForm},
+  Busquedas in 'Busquedas.pas' {FBusquedas: TUniForm};
 
 {$R *.res}
 

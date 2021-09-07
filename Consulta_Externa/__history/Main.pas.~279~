@@ -1,0 +1,910 @@
+unit Main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIRegClasses, uniGUIForm, uniDateTimePicker, uniCheckBox,
+  uniBasicGrid, uniDBGrid, uniButton, uniBitBtn, uniSpeedButton, uniEdit,
+  uniMemo, uniMultiItem, uniComboBox, uniLabel, uniPanel, uniPageControl,
+  uniGUIBaseClasses, uniImage, Vcl.Imaging.jpeg, uniImageList, Data.DB,
+  System.Math;
+
+type
+  TMainForm = class(TUniForm)
+    UniPageControl1: TUniPageControl;
+    UniTabSheet1: TUniTabSheet;
+    UniPanel1: TUniPanel;
+    motivo: TUniMemo;
+    UniLabel5: TUniLabel;
+    enfermedadActual: TUniMemo;
+    UniLabel6: TUniLabel;
+    UniLabel7: TUniLabel;
+    sistolica: TUniEdit;
+    UniLabel8: TUniLabel;
+    diastolica: TUniEdit;
+    UniLabel9: TUniLabel;
+    fr: TUniEdit;
+    UniLabel10: TUniLabel;
+    fc: TUniEdit;
+    UniLabel11: TUniLabel;
+    temp: TUniEdit;
+    UniLabel12: TUniLabel;
+    peso: TUniEdit;
+    UniLabel13: TUniLabel;
+    cintura: TUniEdit;
+    UniLabel14: TUniLabel;
+    talla: TUniEdit;
+    UniLabel15: TUniLabel;
+    imc: TUniEdit;
+    UniLabel16: TUniLabel;
+    dxNutricional: TUniEdit;
+    UniLabel17: TUniLabel;
+    detalleExamen: TUniMemo;
+    UniLabel18: TUniLabel;
+    descipciondxp: TUniEdit;
+    BtnBuscarDX: TUniSpeedButton;
+    UniLabel19: TUniLabel;
+    revisionSistemas: TUniMemo;
+    Btnguardar: TUniSpeedButton;
+    BtnOrdenesMedicas: TUniSpeedButton;
+    UniLabel42: TUniLabel;
+    UniLabel43: TUniLabel;
+    nombrea: TUniEdit;
+    UniLabel44: TUniLabel;
+    UniLabel45: TUniLabel;
+    parentescoA: TUniComboBox;
+    UniLabel46: TUniLabel;
+    planConducta: TUniMemo;
+    UniLabel47: TUniLabel;
+    finalidad: TUniComboBox;
+    UniLabel48: TUniLabel;
+    causaExterna: TUniComboBox;
+    UniLabel49: TUniLabel;
+    impresionDiagnostica: TUniComboBox;
+    dxp: TUniEdit;
+    UniPanel2: TUniPanel;
+    UniDBGrid1: TUniDBGrid;
+    UniLabel20: TUniLabel;
+    UniLabel21: TUniLabel;
+    ResumenEvo: TUniMemo;
+    UniLabel22: TUniLabel;
+    UniCheckBox1: TUniCheckBox;
+    UniSpeedButton3: TUniSpeedButton;
+    UniSpeedButton4: TUniSpeedButton;
+    UniSpeedButton5: TUniSpeedButton;
+    UniPanel3: TUniPanel;
+    UniLabel23: TUniLabel;
+    identificacionMedico: TUniLabel;
+    UniLabel25: TUniLabel;
+    nombreMedico: TUniLabel;
+    UniLabel27: TUniLabel;
+    lblfechanacpac: TUniLabel;
+    UniLabel29: TUniLabel;
+    lblidenpac: TUniLabel;
+    UniLabel31: TUniLabel;
+    lblnombrepac: TUniLabel;
+    UniLabel33: TUniLabel;
+    lblsexopac: TUniLabel;
+    UniLabel35: TUniLabel;
+    lbledadpac: TUniLabel;
+    UniLabel37: TUniLabel;
+    lblmuncipiopac: TUniLabel;
+    UniLabel39: TUniLabel;
+    lblepspac: TUniLabel;
+    UniLabel41: TUniLabel;
+    fechaAsignacion: TUniDateTimePicker;
+    btnListadoPacientes: TUniSpeedButton;
+    imagenPerfil: TUniImage;
+    ResumenDx: TUniMemo;
+    UniLabel24: TUniLabel;
+    lblContrato: TUniLabel;
+    da_impresion: TUniMemo;
+    UniLabel1: TUniLabel;
+    lblRips: TUniLabel;
+    telefonoa: TUniNumberEdit;
+    fecha: TUniDateTimePicker;
+    hora: TUniDateTimePicker;
+    UniLabel2: TUniLabel;
+    quirurgicos: TUniMemo;
+    UniLabel3: TUniLabel;
+    medicamentos: TUniMemo;
+    UniLabel4: TUniLabel;
+    otrosantecedentes: TUniMemo;
+    UniLabel26: TUniLabel;
+    familiares: TUniMemo;
+    UniLabel28: TUniLabel;
+    CDiabetes: TUniCheckBox;
+    CTrataDiabetes: TUniCheckBox;
+    CAlteraciones: TUniCheckBox;
+    CHipertension: TUniCheckBox;
+    CTrataHipertension: TUniCheckBox;
+    CEvc: TUniCheckBox;
+    UniSpeedButton1: TUniSpeedButton;
+    DataSource1: TDataSource;
+    procedure btnListadoPacientesClick(Sender: TObject);
+    procedure UniFormShow(Sender: TObject);
+    procedure ShowCallback(Sender: TComponent; Asresult: Integer);
+    procedure LlenarCombox();
+    procedure BtnBuscarDXClick(Sender: TObject);
+    procedure UniSpeedButton1Click(Sender: TObject);
+    procedure BtnguardarClick(Sender: TObject);
+    procedure Limpiar();
+    procedure fechaAsignacionKeyPress(Sender: TObject; var Key: Char);
+    procedure ListadoEvoluciones();
+    procedure UniDBGrid1CellClick(Column: TUniDBGridColumn);
+    procedure UniFormDestroy(Sender: TObject);
+    procedure imcChange(Sender: TObject);
+    procedure tallaChange(Sender: TObject);
+    procedure pesoChange(Sender: TObject);
+    function masacorporal(talla, peso: Double): string;
+    procedure imcChangeValue(Sender: TObject);
+    procedure nombreaEnter(Sender: TObject);
+    procedure insertarActualizarEvo();
+    procedure insertActSegPac();
+  private
+    { Private declarations }
+    fechaCita, horaCita, generalespersonales: string;
+    insertarEvo, primeraVez: Boolean;
+
+  public
+    { Public declarations }
+    rips, servicio, ide_evoluciones: string;
+  end;
+
+function MainForm: TMainForm;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  uniGUIVars, MainModule, uniGUIApplication, MedicosCita, Busquedas;
+
+function MainForm: TMainForm;
+begin
+  Result := TMainForm(UniMainModule.GetFormInstance(TMainForm));
+end;
+
+procedure TMainForm.BtnguardarClick(Sender: TObject);
+var
+  Enter: Char;
+begin
+
+  Enter := #13;
+  generalespersonales := 'Diabetes: ' + UniMainModule.boolstr(CDiabetes.Checked,
+    1) + '; Tratamiento Diabetes: ' + UniMainModule.boolstr
+    (CTrataDiabetes.Checked, 1) + '; Hipertensión: ' + UniMainModule.boolstr
+    (CHipertension.Checked, 1) + '; Tratamiento Hipertensión: ' +
+    UniMainModule.boolstr(CTrataHipertension.Checked, 1) + '; ECV: ' +
+    UniMainModule.boolstr(CEvc.Checked, 1) + ';' + Enter + #10 +
+    'Alteraciones Cardiacas: ' + UniMainModule.boolstr(CAlteraciones.Checked, 1)
+    + '; ' + Enter + #10 + 'Quirúrgicos: ' + quirurgicos.Text + ';' + Enter +
+    #10 + ' Medicamentos: ' + medicamentos.Text + '; ' + Enter + #10 +
+    'Otros antecedentes: ' + otrosantecedentes.Text + '; ';
+
+  // UniMainModule.FDConnection.StartTransaction;
+  if (primeraVez) then
+  begin
+    if (motivo.Text = '') and (motivo.GetTextLen < 3) then
+    begin
+      ShowMessage('Debe ingresar un motivo de la consulta');
+      motivo.SetFocus;
+      exit;
+    end;
+    if (enfermedadActual.Text = '') and (enfermedadActual.GetTextLen > 3) then
+    begin
+      ShowMessage('Debe ingresar una Enfermedad Actual');
+      enfermedadActual.SetFocus;
+      exit;
+    end;
+    if (medicamentos.Text = '') then
+    begin
+      ShowMessage('Debe ingresar un Medicamento');
+      medicamentos.Focused;
+      exit;
+    end;
+    if (quirurgicos.Text = '') then
+    begin
+      ShowMessage('Debe ingresar un valor en el campo Quirúrgicos');
+      enfermedadActual.SetFocus;
+      exit;
+    end;
+
+    if (dxp.Text = '') then
+    begin
+      ShowMessage('Debe seleccionar un DX Principal');
+      dxp.SetFocus;
+      exit;
+    end;
+    if (finalidad.Text = '') then
+    begin
+      ShowMessage('Debe seleccionar una Finalidad');
+      dxp.SetFocus;
+      exit;
+    end;
+    if (causaExterna.Text = '') then
+    begin
+      ShowMessage('Debe seleccionar una Causa Externa');
+      dxp.SetFocus;
+      exit;
+    end;
+    if (impresionDiagnostica.Text = '') then
+    begin
+      ShowMessage('Debe seleccionar una Impresión Diagnostica');
+      dxp.SetFocus;
+      exit;
+    end;
+    if (revisionSistemas.Text = '') then
+    begin
+      ShowMessage('Debe ingresar un valor Revisión por Sistemas');
+      dxp.SetFocus;
+      exit;
+    end;
+    if (planConducta.Text = '') then
+    begin
+      ShowMessage('Debe ingresar un valor en Plan y Conducta');
+      dxp.SetFocus;
+      exit;
+    end;
+    insertarActualizarEvo;
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add('select * from dxrips where rips = ' + rips);
+    UniMainModule.Query.Open;
+    if UniMainModule.Query.IsEmpty then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Text :=
+        'Insert into dxrips(rips, fechai, horai, dxp, dx1, dx2, dx3, causa, finalidadc, dipodx, servicio) VALUES '
+        + '(:Rips, :Fec, :Hor, :Dxp, :Dx1, :Dx2, :Dx3, :Cau, :Fin, :Dipo, :Ser)';
+      UniMainModule.Query.ParamByName('Rips').Value := rips;
+      UniMainModule.Query.ParamByName('Fec').Value := StrToDate(fechaCita);;
+      UniMainModule.Query.ParamByName('Hor').Value := StrToDateTime(horaCita);
+      UniMainModule.Query.ParamByName('Dxp').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Dx1').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Dx2').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Dx3').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Cau').Value := causaExterna.Text;
+      UniMainModule.Query.ParamByName('Fin').Value := finalidad.Text;
+      UniMainModule.Query.ParamByName('Dipo').Value :=
+        impresionDiagnostica.Text;
+      UniMainModule.Query.ParamByName('Ser').Value := servicio;
+      UniMainModule.Query.ExecSQL;
+    end
+    else
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Text :=
+        'Update dxrips SET fechai=:Fec, horai=:Hor, dxp=:Dxp, dx1=:Dx1, dx2=:Dx2, dx3=:Dx3, causa=:Cau, finalidadc=:Fin, dipodx=:Dipo, '
+        + ' NombreA=:Nom, TelefonoA=:Tel, ParentescoA=:Par Where rips=:Rips ';
+      UniMainModule.Query.ParamByName('Fec').Value := StrToDate(fechaCita);;
+      UniMainModule.Query.ParamByName('Hor').Value := StrToDateTime(horaCita);
+      UniMainModule.Query.ParamByName('Dxp').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Dx1').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Dx2').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Dx3').Value := dxp.Text;
+      UniMainModule.Query.ParamByName('Cau').Value := causaExterna.Text;
+      UniMainModule.Query.ParamByName('Fin').Value := finalidad.Text;
+      UniMainModule.Query.ParamByName('Dipo').Value :=
+        impresionDiagnostica.Text;
+      UniMainModule.Query.ParamByName('Nom').Value := nombrea.Text;
+      UniMainModule.Query.ParamByName('Tel').Value := telefonoa.Text;
+      UniMainModule.Query.ParamByName('Par').Value := parentescoA.Text;
+      UniMainModule.Query.ParamByName('Rips').Value := rips;
+      UniMainModule.Query.ExecSQL;
+    end;
+
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add
+      ('Update Citas set Asistio = 5 where  medico = ''' + UniMainModule.codigoM
+      + ''' and Consecutivo = ' + rips);
+    UniMainModule.Query.ExecSQL;
+    ShowMessage('Datos registrados exitosamente');
+  end
+  else
+  begin
+
+    if dxp.Text = '' then
+    begin
+      ShowMessage('Debe especificar el Diagnóstico Principal');
+      dxp.SetFocus;
+      exit
+    end;
+
+    if motivo.Text = '' then
+    begin
+      ShowMessage('Diligencie el Motivo de la Consulta');
+      motivo.SetFocus;
+      exit
+    end;
+
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add
+      ('update dxrips set finalidadc = 10 , causa = 15 , dipodx = 1 , dxp = '''
+      + dxp.Text +
+      ''', fechas = getdate(), horas = getdate() where rips = ' + rips);
+    UniMainModule.Query.ExecSQL;
+    UniMainModule.Query.SQL.Clear;
+
+    if ide_evoluciones = '' then
+    begin
+      insertActSegPac;
+
+    end;
+  end;
+  ListadoEvoluciones;
+
+end;
+
+procedure TMainForm.fechaAsignacionKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    btnListadoPacientes.Click;
+  end;
+end;
+
+procedure TMainForm.imcChange(Sender: TObject);
+var
+  imci: Double;
+begin
+  imci := (StrToFloat(imc.Text) * 100);
+
+  case Trunc(imci) of
+    0 .. 1799:
+      dxNutricional.Text := 'Peso Bajo';
+    1800 .. 2499:
+      dxNutricional.Text := 'Normal';
+    2500 .. 2999:
+      dxNutricional.Text := 'Sobre Peso';
+    3000 .. 3499:
+      dxNutricional.Text := 'Obesidad I';
+    3500 .. 3999:
+      dxNutricional.Text := 'Obesidad II'
+  else
+    dxNutricional.Text := 'Obesidad III';
+  end;
+end;
+
+procedure TMainForm.imcChangeValue(Sender: TObject);
+var
+  imci: Double;
+begin
+  imci := (StrToFloat(imc.Text) * 100);
+
+  case Trunc(imci) of
+    0 .. 1799:
+      dxNutricional.Text := 'Peso Bajo';
+    1800 .. 2499:
+      dxNutricional.Text := 'Normal';
+    2500 .. 2999:
+      dxNutricional.Text := 'Sobre Peso';
+    3000 .. 3499:
+      dxNutricional.Text := 'Obesidad I';
+    3500 .. 3999:
+      dxNutricional.Text := 'Obesidad II'
+  else
+    dxNutricional.Text := 'Obesidad III';
+  end;
+
+end;
+
+procedure TMainForm.insertActSegPac;
+begin
+
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Text :=
+    'select * from seguir_pacientes where rips=:Rips and servicio=:Ser and fecha=:Fec';
+  UniMainModule.Query.ParamByName('Rips').Value := rips;
+  UniMainModule.Query.ParamByName('Ser').Value := servicio;
+  UniMainModule.Query.ParamByName('Fec').Value := fecha.DateTime;
+  UniMainModule.Query.Open;
+
+  if UniMainModule.Query.IsEmpty then
+  begin
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Text :=
+      'insert into seguir_pacientes( rips, fecha, hora, detalle, usuario, servicio, diagnosticos, ta, peso, fc, '
+      + 'fr, temp, fisico_general, talla, planevolucion, estado, dxnutricional, sistole, diastole, pexo, imc, notaevolucion, cintura, antecedentes, '
+      + 'reporte, paciente) values( :Rips, :Fec, :Hor, :Det, :Usu, :Ser, :Dia, :Ta, :Pes, :Fc, :Fr, :Temp, :Fis, :Tal, :Plan, :Est, :Dxn, :Sis, :Dias, :Peso, :Imc, :Not, :Cin, :Ant, :Rep, :Pac )';
+    UniMainModule.Query.ParamByName('Rips').Value := rips;
+    UniMainModule.Query.ParamByName('Fec').Value := fecha.DateTime;
+    UniMainModule.Query.ParamByName('Hor').Value := hora.DateTime;
+    UniMainModule.Query.ParamByName('Det').Value := motivo.Text;
+    UniMainModule.Query.ParamByName('Usu').Value := UniMainModule.codigoM;
+    UniMainModule.Query.ParamByName('Ser').Value := servicio;
+    UniMainModule.Query.ParamByName('Dia').Value := da_impresion.Text;
+    UniMainModule.Query.ParamByName('Ta').Value := '0';
+    UniMainModule.Query.ParamByName('Pes').Value := StrToFloat(peso.Text);
+    UniMainModule.Query.ParamByName('Fc').Value := StrToFloat(fc.Text);
+    UniMainModule.Query.ParamByName('Fr').Value := StrToFloat(fr.Text);
+    UniMainModule.Query.ParamByName('Temp').Value := StrToFloat(temp.Text);
+    UniMainModule.Query.ParamByName('Fis').Value := detalleExamen.Text;
+    UniMainModule.Query.ParamByName('Tal').Value := StrToFloat(talla.Text);
+    UniMainModule.Query.ParamByName('Plan').Value := planConducta.Text;
+    UniMainModule.Query.ParamByName('Est').Value := '1';
+    UniMainModule.Query.ParamByName('Dxn').Value := dxNutricional.Text;
+    UniMainModule.Query.ParamByName('Sis').Value := StrToFloat(sistolica.Text);
+    UniMainModule.Query.ParamByName('Dias').Value :=
+      StrToFloat(diastolica.Text);
+    UniMainModule.Query.ParamByName('Peso').Value := StrToFloat(peso.Text);
+    UniMainModule.Query.ParamByName('Imc').Value := StrToFloat(imc.Text);
+    UniMainModule.Query.ParamByName('Not').Value := enfermedadActual.Text;
+    UniMainModule.Query.ParamByName('Cin').Value := StrToFloat(cintura.Text);
+    UniMainModule.Query.ParamByName('Ant').Value := generalespersonales;
+    UniMainModule.Query.ParamByName('Rep').Value := 'evo_conext.fr3';
+    UniMainModule.Query.ParamByName('Pac').Value := lblidenpac.Text;
+    UniMainModule.Query.ExecSQL;
+    ShowMessage('Evolución registrada exitosamente');
+  end
+  else
+  begin
+
+    if (UniMainModule.Query.FieldByName('usuario')
+      .AsString = UniMainModule.codigoM) and
+      (UniMainModule.Query.FieldByName('fecha').AsDateTime = fecha.DateTime)
+    then
+    begin
+      UniMainModule.Query.SQL.Clear;
+      UniMainModule.Query.SQL.Text :=
+        'update seguir_pacientes set fecha=:Fec, hora=:Hor, detalle=:Det, diagnosticos=:Dia, ta=:Ta, peso=:Pes, fc=:Fc, '
+        + ' fr=:Fr, temp=:Temp, fisico_general=:Fis, talla=:Tal, planevolucion=:Plan, estado=:Est, dxnutricional=:Dxn, sistole=:Sis, diastole=:Dias, '
+        + ' pexo=:Peso, imc=:Imc, notaevolucion=:Not, cintura=:Cin, antecedentes=:Ant,  paciente=:Pac where rips=:Rips and fecha=:Fech and usuario=:Usu';
+      UniMainModule.Query.ParamByName('Fec').Value := fecha.DateTime;
+      UniMainModule.Query.ParamByName('Hor').Value := hora.DateTime;
+      UniMainModule.Query.ParamByName('Det').Value := motivo.Text;
+      UniMainModule.Query.ParamByName('Dia').Value := da_impresion.Text;
+      UniMainModule.Query.ParamByName('Ta').Value := '0';
+      UniMainModule.Query.ParamByName('Pes').Value := StrToFloat(peso.Text);
+      UniMainModule.Query.ParamByName('Fc').Value := StrToFloat(fc.Text);
+      UniMainModule.Query.ParamByName('Fr').Value := StrToFloat(fr.Text);
+      UniMainModule.Query.ParamByName('Temp').Value := StrToFloat(temp.Text);
+      UniMainModule.Query.ParamByName('Fis').Value := detalleExamen.Text;
+      UniMainModule.Query.ParamByName('Tal').Value := StrToFloat(talla.Text);
+      UniMainModule.Query.ParamByName('Plan').Value := planConducta.Text;
+      UniMainModule.Query.ParamByName('Est').Value := '1';
+      UniMainModule.Query.ParamByName('Dxn').Value := dxNutricional.Text;
+      UniMainModule.Query.ParamByName('Sis').Value :=
+        StrToFloat(sistolica.Text);
+      UniMainModule.Query.ParamByName('Dias').Value :=
+        StrToFloat(diastolica.Text);
+      UniMainModule.Query.ParamByName('Peso').Value := StrToFloat(peso.Text);
+      UniMainModule.Query.ParamByName('Imc').Value := StrToFloat(imc.Text);
+      UniMainModule.Query.ParamByName('Not').Value := enfermedadActual.Text;
+      UniMainModule.Query.ParamByName('Cin').Value := StrToFloat(cintura.Text);
+      UniMainModule.Query.ParamByName('Ant').Value := generalespersonales;
+      UniMainModule.Query.ParamByName('Pac').Value := lblidenpac.Text;
+      UniMainModule.Query.ParamByName('Rips').Value := rips;
+      UniMainModule.Query.ParamByName('Fech').Value := fecha.DateTime;
+      UniMainModule.Query.ParamByName('Usu').Value := UniMainModule.codigoM;
+      UniMainModule.Query.ExecSQL;
+      ShowMessage('Datos Actualizados Exitosamente');
+    end
+    else
+    begin
+      ShowMessage
+        ('No puede realizar actualización sobre esté registro Rips: ' + rips);
+
+    end;
+
+  end;
+
+end;
+
+procedure TMainForm.insertarActualizarEvo;
+begin
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Text :=
+    'select * from evoluciones where paciente=:Pac and servicio=:Ser and usuario=:Usu';
+  UniMainModule.Query.ParamByName('Pac').Value := lblidenpac.Text;
+  UniMainModule.Query.ParamByName('Ser').Value := servicio;
+  UniMainModule.Query.ParamByName('Usu').Value := UniMainModule.codigoM;
+  UniMainModule.Query.Open;
+  if UniMainModule.Query.IsEmpty then
+  begin
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Text :=
+      'INSERT INTO evoluciones (rips, quirurgicos, familiares, motivo, enfermedad, sistemas, fc, fr, tem, peso, talla, cintura, examenes, dxtexto, usuario, '
+      + ' servicio, fecha, hora_atencion, hora_aten, sistole, diastole, dxnut, imc, paciente) '
+      + 'VALUES (:Rips, :Qui, :Fam, :Mot, :Enf, :Sis, :Fc, :Fr, :Tem, :Pes, :Tall, :Cin,  :Exa, :Dxt, :Usu, :Ser, :Fec, :Hor1, :Hor2, :Sist, :Dias, :Dxnut, :Imc, :Pac)';
+    UniMainModule.Query.ParamByName('Rips').Value := rips;
+    UniMainModule.Query.ParamByName('Qui').Value := quirurgicos.Text;
+    UniMainModule.Query.ParamByName('Fam').Value := familiares.Text;
+    UniMainModule.Query.ParamByName('Mot').Value := motivo.Text;
+    UniMainModule.Query.ParamByName('Enf').Value := enfermedadActual.Text;
+    UniMainModule.Query.ParamByName('Sis').Value := revisionSistemas.Text;
+    UniMainModule.Query.ParamByName('Fc').Value := fc.Text;
+    UniMainModule.Query.ParamByName('Fr').Value := fr.Text;
+    UniMainModule.Query.ParamByName('Tem').Value := temp.Text;
+    UniMainModule.Query.ParamByName('Pes').Value := peso.Text;
+    UniMainModule.Query.ParamByName('Tall').Value := talla.Text;
+    UniMainModule.Query.ParamByName('Cin').Value := cintura.Text;
+    UniMainModule.Query.ParamByName('Exa').Value := detalleExamen.Text;
+    UniMainModule.Query.ParamByName('Dxt').Value := da_impresion.Text;
+    UniMainModule.Query.ParamByName('Usu').Value := UniMainModule.codigoM;
+    UniMainModule.Query.ParamByName('Ser').Value := servicio;
+    UniMainModule.Query.ParamByName('Fec').Value := StrToDate(fechaCita);
+    UniMainModule.Query.ParamByName('Hor1').Value := StrToDateTime(horaCita);
+    UniMainModule.Query.ParamByName('Hor2').Value := Now;
+    UniMainModule.Query.ParamByName('Sist').Value := sistolica.Text;
+    UniMainModule.Query.ParamByName('Dias').Value := diastolica.Text;
+    UniMainModule.Query.ParamByName('Dxnut').Value := dxNutricional.Text;
+    UniMainModule.Query.ParamByName('Imc').Value := StrToFloat(imc.Text);
+    UniMainModule.Query.ParamByName('Pac').Value := lblidenpac.Text;
+    UniMainModule.Query.ExecSQL;
+    ShowMessage('Inserto');
+
+  end
+  else
+  begin
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Text :=
+      ' UPDATE evoluciones SET  quirurgicos=:Qui, familiares=:Fam, motivo=:Mot, enfermedad=:Enf, sistemas=:Sis, fc=:Fc, fr=:Fr, tem=:Tem, peso=:Pes, '
+      + ' talla=:Tall, cintura=:Cin, examenes=:Exa, dxtexto=:Dxt, ' +
+      ' fecha=:Fec, hora_atencion=:Hor1, hora_aten=:Hor2, sistole=:Sist, diastole=:Dias, dxnut=:Dxnut, imc=:Imc, paciente=:Pac WHERE usuario=:Usu and fecha=:Fech and rips=:Rips ';
+    UniMainModule.Query.ParamByName('Qui').Value := quirurgicos.Text;
+    UniMainModule.Query.ParamByName('Fam').Value := familiares.Text;
+    UniMainModule.Query.ParamByName('Mot').Value := motivo.Text;
+    UniMainModule.Query.ParamByName('Enf').Value := enfermedadActual.Text;
+    UniMainModule.Query.ParamByName('Sis').Value := revisionSistemas.Text;
+    UniMainModule.Query.ParamByName('Fc').Value := fc.Text;
+    UniMainModule.Query.ParamByName('Fr').Value := fr.Text;
+    UniMainModule.Query.ParamByName('Tem').Value := temp.Text;
+    UniMainModule.Query.ParamByName('Pes').Value := peso.Text;
+    UniMainModule.Query.ParamByName('Tall').Value := talla.Text;
+    UniMainModule.Query.ParamByName('Cin').Value := cintura.Text;
+    UniMainModule.Query.ParamByName('Exa').Value := detalleExamen.Text;
+    UniMainModule.Query.ParamByName('Dxt').Value := da_impresion.Text;
+    UniMainModule.Query.ParamByName('Fec').Value := StrToDate(fechaCita);
+    UniMainModule.Query.ParamByName('Hor1').Value := StrToDateTime(horaCita);
+    UniMainModule.Query.ParamByName('Hor2').Value := Now;
+    UniMainModule.Query.ParamByName('Sist').Value := sistolica.Text;
+    UniMainModule.Query.ParamByName('Dias').Value := diastolica.Text;
+    UniMainModule.Query.ParamByName('Dxnut').Value := dxNutricional.Text;
+    UniMainModule.Query.ParamByName('Imc').Value := StrToFloat(imc.Text);
+    UniMainModule.Query.ParamByName('Pac').Value := lblidenpac.Text;
+    UniMainModule.Query.ParamByName('Usu').Value := UniMainModule.codigoM;
+    UniMainModule.Query.ParamByName('Fech').Value := StrToDate(fechaCita);
+    UniMainModule.Query.ParamByName('Rips').Value := (rips);
+    UniMainModule.Query.ExecSQL;
+    ShowMessage('Actualizo');
+  end;
+
+end;
+
+procedure TMainForm.Limpiar;
+begin
+  nombrea.Clear;
+  telefonoa.Clear;
+  parentescoA.ItemIndex := 0;
+  motivo.Clear;
+  quirurgicos.Clear;
+  enfermedadActual.Clear;
+  medicamentos.Clear;
+  familiares.Clear;
+  otrosantecedentes.Clear;
+  sistolica.Text := '0';
+  diastolica.Text := '0';
+  fr.Text := '0';
+  fc.Text := '0';
+  temp.Text := '0';
+  cintura.Text := '0';
+  peso.Text := '0';
+  talla.Text := '0';
+  imc.Text := '0,00';
+  dxNutricional.Clear;
+  detalleExamen.Clear;
+  dxp.Clear;
+  descipciondxp.Clear;
+  da_impresion.Clear;
+  finalidad.ItemIndex := -1;
+  causaExterna.ItemIndex := -1;
+  impresionDiagnostica.ItemIndex := -1;
+  revisionSistemas.Clear;
+  planConducta.Clear;
+  fecha.DateTime := Now;
+  hora.DateTime := Now;
+end;
+
+procedure TMainForm.ListadoEvoluciones;
+var
+  consulta: string;
+begin
+  consulta :=
+    'select s.rips, fecha, hora, detalle, s.usuario, s.servicio, diagnosticos, ta, peso, edi, fc, fr, temp,'
+    + 'fisico_general, talla, planevolucion, s.estado, dxnutricional, sistole, diastole, pexo, imc, notaevolucion, cintura, antecedentes, s.ide, '
+    + 'm.nombre nombre_medico, convert(varchar(5), s.hora, 108) hora3, null detalle1, s.reporte, 1 origen, impreso FROM seguir_pacientes s, medicos '
+    + 'm, DXRips d, RipsG r where s.rips = d.Rips and r.rips = s.rips and m.codigo = s.usuario and d.Rips = r.Rips and r.Identificacion = '''
+    + lblidenpac.Text +
+    ''' and s.estado = 1 union all select cast(kd.idconsulta as varchar(10)), kd.fecha, getdate() hora, kd.motivo, idmedico, '
+    + ' ''Consulta Externa'', kd.diagnostico, kd.ta, cast(kd.peso as varchar(10)), ''false'', cast(kd.fc as varchar(10)), null, null, kd.fisico, '
+    + 'cast(kd.talla as varchar(10)), kd.tratamiento, 1, null, null, null, cast(kd.peso as varchar(10)), cast(kd.imc as varchar(10)), kd.motivo, '
+    + 'null, null, kd.idconsulta, m.nombre, null, null, null, 0, ''true'' from kali_doctor kd, medicos m where kd.medico = m.codigo and '
+    + 'kd.idpaciente = ''' + lblidenpac.Text + ''' order by 2 desc';
+  UniMainModule.QueryGrid.SQL.Clear;
+  UniMainModule.QueryGrid.SQL.Add(consulta);
+  UniMainModule.QueryGrid.Open;
+  if UniMainModule.QueryGrid.IsEmpty then
+  begin
+    UniMainModule.QueryGrid.Close;
+  end;
+end;
+
+procedure TMainForm.LlenarCombox;
+begin
+  UniMainModule.Query.Close;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from finalidad order by fccodigo asc');
+  UniMainModule.Query.Open;
+  finalidad.Clear;
+  while not UniMainModule.Query.Eof do
+  begin
+    finalidad.Items.Add(UniMainModule.Query.FieldByName('fcnombre').AsString);
+    UniMainModule.Query.Next;
+  end;
+
+  UniMainModule.Query.Close;
+  UniMainModule.Query.SQL.Clear;
+  UniMainModule.Query.SQL.Add('select * from causa order by cacodigo asc');
+  UniMainModule.Query.Open;
+  causaExterna.Clear;
+  while not UniMainModule.Query.Eof do
+  begin
+    causaExterna.Items.Add(UniMainModule.Query.FieldByName('canombre')
+      .AsString);
+    UniMainModule.Query.Next;
+  end;
+end;
+
+function TMainForm.masacorporal(talla, peso: Double): string;
+begin
+  if talla = 0.0 then
+  begin
+    Result := '0,00';
+    exit;
+  end;
+  talla := talla / 100;
+  Result := FloatToStr(round(peso / (talla * talla)));
+end;
+
+procedure TMainForm.nombreaEnter(Sender: TObject);
+begin
+  telefonoa.SetFocus;
+end;
+
+procedure TMainForm.pesoChange(Sender: TObject);
+var
+  pes, tal: Float32;
+begin
+  if peso.Text = '' then
+  begin
+    exit;
+  end;
+  if talla.Text = '' then
+  begin
+    exit;
+  end;
+  tal := StrToFloat(talla.Text);
+  pes := StrToFloat(peso.Text);
+  imc.Text := masacorporal(tal, pes);
+end;
+
+procedure TMainForm.ShowCallback(Sender: TComponent; Asresult: Integer);
+begin
+  if not(UniMainModule.QueryBusq.IsEmpty) and (UniMainModule.i = 10) then
+  begin
+    dxp.Text := UniMainModule.QueryBusq.FieldByName('codigo').AsString;
+    descipciondxp.Text := UniMainModule.QueryBusq.FieldByName
+      ('descripcion').AsString;
+    exit;
+  end;
+
+  if not(UniMainModule.QueryBusq.IsEmpty) and (UniMainModule.i = 11) then
+  begin
+    da_impresion.Lines.Add(' * ' + UniMainModule.QueryBusq.FieldByName('codigo')
+      .AsString + ' - ' + UniMainModule.QueryBusq.FieldByName('descripcion')
+      .AsString);
+    exit;
+
+  end;
+
+  if not(UniMainModule.QueryGrid.IsEmpty) and (UniMainModule.i = 200) then
+  begin
+    lblnombrepac.Text := UniMainModule.QueryGrid.FieldByName
+      ('nombrecompleto').AsString;
+    lblidenpac.Text := UniMainModule.QueryGrid.FieldByName('afcodigo').AsString;
+    lblfechanacpac.Text := UniMainModule.QueryGrid.FieldByName
+      ('fecha_nacimiento').AsString;
+    lbledadpac.Text := UniMainModule.QueryGrid.FieldByName('e1').AsString;
+    lblsexopac.Text := UniMainModule.QueryGrid.FieldByName('sexo').AsString;
+    lblmuncipiopac.Text := UniMainModule.QueryGrid.FieldByName
+      ('municipio').AsString;
+    lblepspac.Text := UniMainModule.QueryGrid.FieldByName('nombre_eps')
+      .AsString;
+    lblRips.Text := UniMainModule.QueryGrid.FieldByName('consecutivo').AsString;
+    lblContrato.Text := UniMainModule.QueryGrid.FieldByName
+      ('tcontrato').AsString;
+    rips := UniMainModule.QueryGrid.FieldByName('consecutivo').AsString;
+    fechaCita := UniMainModule.QueryGrid.FieldByName('fechaCita').AsString;
+    horaCita := UniMainModule.QueryGrid.FieldByName('horas').AsString;
+    UniPanel1.Visible := true;
+    UniPanel2.Visible := true;
+    UniMainModule.Query.SQL.Clear;
+    UniMainModule.Query.SQL.Add('select * from evoluciones where paciente=''' +
+      lblidenpac.Text + ''' and servicio=''' + servicio + ''' ');
+    UniMainModule.Query.Open();
+    if not(UniMainModule.Query.IsEmpty) then
+    begin
+      primeraVez := false;
+
+      UniMainModule.QueryReporte.SQL.Clear;
+      UniMainModule.QueryReporte.SQL.Add
+        ('select top(1) * from seguir_pacientes where paciente=''' +
+        lblidenpac.Text + ''' and servicio=''' + servicio +
+        ''' order by ide desc ');
+        ShowMessage('select top(1) * from seguir_pacientes where paciente=''' +
+        lblidenpac.Text + ''' and servicio=''' + servicio +
+        ''' order by ide desc ');
+      UniMainModule.QueryReporte.Open();
+      if UniMainModule.QueryReporte.IsEmpty then
+      begin
+        quirurgicos.Text := UniMainModule.Query.FieldByName
+          ('quirurgicos').AsString;
+        motivo.Text := UniMainModule.Query.FieldByName('motivo').AsString;
+        enfermedadActual.Text := UniMainModule.Query.FieldByName
+          ('enfermedad').AsString;
+        revisionSistemas.Text := UniMainModule.Query.FieldByName
+          ('sistemas').AsString;
+        da_impresion.Text := UniMainModule.Query.FieldByName('dxtexto')
+          .AsString;
+      end
+      else
+      begin
+        quirurgicos.Text := UniMainModule.QueryReporte.FieldByName
+          ('quirurgicos').AsString;
+        motivo.Text := UniMainModule.Query.FieldByName('motivo').AsString;
+        enfermedadActual.Text := UniMainModule.QueryReporte.FieldByName
+          ('enfermedad').AsString;
+        revisionSistemas.Text := UniMainModule.QueryReporte.FieldByName
+          ('sistemas').AsString;
+        da_impresion.Text := UniMainModule.QueryReporte.FieldByName
+          ('dxtexto').AsString;
+      end;
+      ListadoEvoluciones;
+      exit;
+    end
+    else
+    begin
+      ShowMessage('Paciente viene por primera vez');
+      primeraVez := true;
+      Limpiar;
+      exit;
+    end;
+  end;
+
+end;
+
+procedure TMainForm.tallaChange(Sender: TObject);
+var
+  pes, tal, rimc: Float32;
+begin
+  if talla.Text = '' then
+  begin
+    exit;
+  end;
+  if talla.Text = '' then
+  begin
+    exit;
+  end;
+  pes := StrToFloat(peso.Text);
+  tal := StrToFloat(talla.Text);
+  imc.Text := masacorporal(tal, pes);
+end;
+
+procedure TMainForm.UniDBGrid1CellClick(Column: TUniDBGridColumn);
+begin
+  if not UniMainModule.QueryGrid.IsEmpty then
+  begin
+    ResumenEvo.Clear;
+    ResumenEvo.Font.Size := 10;
+    ResumenEvo.Lines.Add('Motivo de la Consulta');
+    ResumenEvo.Lines.Add(#13 + #10);
+
+    ResumenEvo.Font.Size := 8;
+    ResumenEvo.Lines.Add(UniMainModule.QueryGrid.FieldByName('detalle')
+      .AsString);
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Lines.Add('Enfermedad Actual');
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Font.Size := 8;
+    ResumenEvo.Lines.Add(UniMainModule.QueryGrid.FieldByName('notaevolucion')
+      .AsString);
+    ResumenEvo.Lines.Add(#13 + #10);
+
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Lines.Add('Antecedentes');
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Font.Size := 8;
+    ResumenEvo.Lines.Add(UniMainModule.QueryGrid.FieldByName('antecedentes')
+      .AsString);
+
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Lines.Add('Signos vitales');
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Font.Size := 8;
+    ResumenEvo.Lines.Add('Presión Arterial: ' +
+      UniMainModule.QueryGrid.FieldByName('antecedentes').AsString);
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Lines.Add('FC: ' + UniMainModule.QueryGrid.FieldByName('fc')
+      .AsString);
+    ResumenEvo.Lines.Add(#13 + #10);
+    ResumenEvo.Lines.Add('FR: ' + UniMainModule.QueryGrid.FieldByName('fr')
+      .AsString);
+
+    ResumenDx.Clear;
+    ResumenDx.Font.Size := 10;
+    ResumenDx.Lines.Add(UniMainModule.QueryGrid.FieldByName('diagnosticos')
+      .AsString);
+    ResumenDx.Lines.Add(#13 + #10);
+  end;
+
+end;
+
+procedure TMainForm.UniFormDestroy(Sender: TObject);
+begin
+  UniMainModule.Query.Close;
+  UniMainModule.QueryGrid.Close;
+
+end;
+
+procedure TMainForm.UniFormShow(Sender: TObject);
+begin
+  servicio := 'Consulta Externa';
+  fecha.DateTime := Now;
+  hora.DateTime := Now;
+  identificacionMedico.Text := UniMainModule.identificacion;
+  nombreMedico.Text := UniMainModule.NombreCompleto;
+  if not UniMainModule.Query.FieldByName('foto').AsString.IsEmpty then
+  begin
+    try
+      imagenPerfil.Picture.Assign
+        (UniMainModule.GetFieldToJPG(UniMainModule.Query, 'foto'));
+    finally
+      UniMainModule.Query.Close;
+    end;
+
+  end;
+  fechaAsignacion.DateTime := Now;
+  UniMainModule.Query.Close;
+  UniPanel1.Visible := false;
+  UniPanel2.Visible := false;
+  LlenarCombox;
+end;
+
+procedure TMainForm.BtnBuscarDXClick(Sender: TObject);
+begin
+  UniMainModule.i := 10;
+  FBusquedas.ShowModal(ShowCallback);
+end;
+
+procedure TMainForm.UniSpeedButton1Click(Sender: TObject);
+begin
+  UniMainModule.i := 11;
+  FBusquedas.ShowModal(ShowCallback);
+end;
+
+procedure TMainForm.btnListadoPacientesClick(Sender: TObject);
+begin
+  UniMainModule.i := 200;
+  UniMainModule.QueryGrid.Close;
+  FMedicosCita.fechaAsignacion.DateTime := fechaAsignacion.DateTime;
+  FMedicosCita.ShowModal(ShowCallback);
+
+end;
+
+initialization
+
+RegisterAppFormClass(TMainForm);
+
+end.

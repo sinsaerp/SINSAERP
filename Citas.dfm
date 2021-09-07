@@ -73,7 +73,7 @@ object citasF: TcitasF
         ReadOnly = True
       end
       object uiGuardar: TUniButton
-        Left = 1043
+        Left = 1039
         Top = 360
         Width = 75
         Height = 25
@@ -3557,7 +3557,6 @@ object citasF: TcitasF
     Top = 40
   end
   object DataSource1: TDataSource
-    DataSet = UniMainModule.QueryWeb
     Left = 916
     Top = 41
   end
@@ -3567,7 +3566,6 @@ object citasF: TcitasF
     Top = 33
   end
   object DataSource3: TDataSource
-    DataSet = UniMainModule.QueryAgenda
     Left = 560
     Top = 40
   end

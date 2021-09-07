@@ -17,7 +17,7 @@ type
     Query: TFDQuery;
     QueryGrid: TFDQuery;
     QueryReporte: TFDQuery;
-    procedure UniGUIMainModuleCreate(Sender: TObject);
+    QueryBusq: TFDQuery;
   private
     { Private declarations }
   public
@@ -25,6 +25,7 @@ type
     i: Integer;
    usuario, identificacion,  NombreCompleto, codigoM, ruta: string;
    function GetFieldToJPG(DataSet: TFDQuery; FieldName: String): TJPEGImage;
+   function boolstr(valor: boolean; tipo_r: integer = 0): string;
 
 
   end;
@@ -50,6 +51,22 @@ end;
 
 { TUniMainModule }
 
+function TUniMainModule.boolstr(valor: boolean; tipo_r: integer): string;
+begin
+  if tipo_r = 0 then
+  begin
+    Result := '''false''';
+    if valor then
+      Result := '''true''';
+  end
+  else
+  begin
+    Result := 'No';
+    if valor then
+      Result := 'Sí';
+  end;
+end;
+
 function TUniMainModule.GetFieldToJPG(DataSet: TFDQuery;
   FieldName: String): TJPEGImage;
 var
@@ -69,14 +86,12 @@ begin
         Result := nil;
     finally
       Stream.Free;
+      Stream.Clear;
     end;
   end;
 end;
 
-procedure TUniMainModule.UniGUIMainModuleCreate(Sender: TObject);
-begin
-UniServerModule.MainFormDisplayMode := mfPage
-end;
+
 
 initialization
   RegisterMainModuleClass(TUniMainModule);

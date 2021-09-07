@@ -1,9 +1,8 @@
 object UniMainModule: TUniMainModule
   OldCreateOrder = False
-  OnCreate = UniGUIMainModuleCreate
   MonitoredKeys.Keys = <>
-  Height = 208
-  Width = 366
+  Height = 227
+  Width = 384
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=MSOLEDBSQL.1;Password=12345;Persist Security Info=True;' +
@@ -40,5 +39,10 @@ object UniMainModule: TUniMainModule
     Connection = FDConnection
     Left = 282
     Top = 120
+  end
+  object QueryBusq: TFDQuery
+    Connection = FDConnection
+    Left = 202
+    Top = 168
   end
 end

@@ -19,7 +19,6 @@ type
     UniLabel2: TUniLabel;
     UniLabel3: TUniLabel;
     ueClave: TUniEdit;
-    UniPanel3: TUniPanel;
     ubIngresar: TUniSpeedButton;
     UniSpeedButton1: TUniSpeedButton;
     procedure ubIngresarClick(Sender: TObject);
@@ -90,6 +89,7 @@ begin
       Close;
     end
     else
+
     begin
       ShowMessage('No Existe usuario registrado en el sistema');
       UniMainModule.Query.Close;

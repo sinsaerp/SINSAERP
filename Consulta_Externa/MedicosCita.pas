@@ -28,7 +28,6 @@ type
     UniEdit3: TUniEdit;
     UniEdit4: TUniEdit;
     UniEdit5: TUniEdit;
-    ubVerCitas: TUniSpeedButton;
     oturno: TUniRadioButton;
     ohora: TUniRadioButton;
     onombre: TUniRadioButton;
@@ -41,6 +40,7 @@ type
     procedure UniDBGrid1DrawColumnCell(Sender: TObject; ACol, ARow: Integer;
       Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
     procedure UniDBGrid1DblClick(Sender: TObject);
+    procedure UniSpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -121,7 +121,7 @@ begin
       begin
         UniMainModule.QueryGrid.SQL.Clear;
         consulta :=
-          'select  c.turno, c.horacita as horas, c.consecutivo, u.nombrecompleto, u.codeps, c.asistio, '
+          'select c.fechaCita, c.turno, c.horacita as horas, c.consecutivo, u.nombrecompleto, u.codeps, c.asistio, '
           + 'c.codigoconsulta, tc.descripcion, u.afcodigo, u.telefono, e.nombre nombre_eps, u.fecha_nacimiento, tc.plantilla, u.sexo, c.autonumerico, '
           + 'c.tcontrato, m.municipio, c.programa, u.direccion, cast(datediff(year, u.fecha_nacimiento, getdate())as varchar(3))+'' años '' edad, '
           + 'datediff(year, u.fecha_nacimiento, getdate()) e1, isnull(cs.cantidad, 1)total, isnull(eje.hechos, 1)ej_ta, cs.tipoitem from citas c left join '
@@ -204,6 +204,11 @@ begin
   Medico.Text:=UniMainModule.NombreCompleto;
   coloresEstado;
   mostrar;
+end;
+
+procedure TFMedicosCita.UniSpeedButton2Click(Sender: TObject);
+begin
+close;
 end;
 
 end.
