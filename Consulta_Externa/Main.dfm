@@ -22,12 +22,9 @@ object MainForm: TMainForm
     ActivePage = UniTabSheet1
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 108
-    ExplicitHeight = 1022
     object UniTabSheet1: TUniTabSheet
       Hint = ''
       Caption = 'Historia de Paciente'
-      ExplicitHeight = 994
       object UniPanel1: TUniPanel
         Left = 0
         Top = 3
@@ -479,6 +476,7 @@ object MainForm: TMainForm
           ParentColor = False
           Color = clWindow
           TabOrder = 54
+          OnClick = BtnOrdenesMedicasClick
         end
         object UniLabel42: TUniLabel
           Left = 27

@@ -143,6 +143,7 @@ type
     procedure nombreaEnter(Sender: TObject);
     procedure insertarActualizarEvo();
     procedure insertActSegPac();
+    procedure BtnOrdenesMedicasClick(Sender: TObject);
   private
     { Private declarations }
     fechaCita, horaCita, generalespersonales: string;
@@ -160,7 +161,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uniGUIVars, MainModule, uniGUIApplication, MedicosCita, Busquedas;
+  uniGUIVars, MainModule, uniGUIApplication, MedicosCita, Busquedas, OrdenesMedicas;
 
 function MainForm: TMainForm;
 begin
@@ -224,6 +225,22 @@ begin
       dxp.SetFocus;
       exit;
     end;
+
+    if (sistolica.Text = '') then
+    begin
+      ShowMessage('Debe ingresar un valor en Sistolica');
+      sistolica.SetFocus;
+      exit;
+    end;
+
+    if (diastolica.Text = '') then
+    begin
+      ShowMessage('Debe ingresar un valor en Diastolica');
+      diastolica.SetFocus;
+      exit;
+    end;
+
+
     if (causaExterna.Text = '') then
     begin
       ShowMessage('Debe seleccionar una Causa Externa');
@@ -756,6 +773,14 @@ begin
           ('sistemas').AsString;
         da_impresion.Text := UniMainModule.Query.FieldByName('dxtexto')
           .AsString;
+           medicamentos.Text := UniMainModule.Query.FieldByName('medicamentos')
+          .AsString;
+           familiares.Text := UniMainModule.Query.FieldByName('familiares')
+          .AsString;
+           detalleExamen.Text := UniMainModule.Query.FieldByName('examenes')
+          .AsString;
+           revisionSistemas.Text := UniMainModule.Query.FieldByName('sistemas')
+          .AsString;
       end
       else
       begin
@@ -766,8 +791,11 @@ begin
           ('notaevolucion').AsString;
         da_impresion.Text := UniMainModule.QueryReporte.FieldByName
           ('diagnosticos').AsString;
+          planConducta.Text := UniMainModule.QueryReporte.FieldByName('planevolucion')
+          .AsString;
+
       end;
-      ListadoEvoluciones;
+      //ListadoEvoluciones;
       exit;
     end
     else
@@ -864,8 +892,8 @@ begin
   if not UniMainModule.Query.FieldByName('foto').AsString.IsEmpty then
   begin
     try
-      imagenPerfil.Picture.Assign
-        (UniMainModule.GetFieldToJPG(UniMainModule.Query, 'foto'));
+      //imagenPerfil.Picture.Assign
+        //(UniMainModule.GetFieldToJPG(UniMainModule.Query, 'foto'));
     finally
       UniMainModule.Query.Close;
     end;
@@ -896,6 +924,16 @@ begin
   UniMainModule.QueryGrid.Close;
   FMedicosCita.fechaAsignacion.DateTime := fechaAsignacion.DateTime;
   FMedicosCita.ShowModal(ShowCallback);
+
+end;
+
+procedure TMainForm.BtnOrdenesMedicasClick(Sender: TObject);
+begin
+
+FOrdenesMedicas.lblNomPac.Text:=lblnombrepac.Text;
+FOrdenesMedicas.rips:=rips;
+FOrdenesMedicas.paciente:=lblidenpac.Text;
+FOrdenesMedicas.ShowModal();
 
 end;
 

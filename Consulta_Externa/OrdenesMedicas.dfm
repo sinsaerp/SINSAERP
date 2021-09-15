@@ -1,0 +1,352 @@
+object FOrdenesMedicas: TFOrdenesMedicas
+  Left = 0
+  Top = 0
+  ClientHeight = 779
+  ClientWidth = 1425
+  Caption = 'Ordenes M'#233'dicas'
+  OnShow = UniFormShow
+  BorderStyle = bsDialog
+  OldCreateOrder = False
+  MonitoredKeys.Keys = <>
+  OnBeforeShow = UniFormBeforeShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object UniDBGrid1: TUniDBGrid
+    Left = 16
+    Top = 128
+    Width = 274
+    Height = 579
+    Hint = ''
+    DataSource = DataSource3
+    LoadMask.Message = 'Loading data...'
+    TabOrder = 0
+    Columns = <
+      item
+        FieldName = 'fecha'
+        Title.Caption = 'Fecha'
+        Width = 79
+      end
+      item
+        FieldName = 'numero'
+        Title.Caption = 'N'#250'mero'
+        Width = 71
+      end
+      item
+        FieldName = 'servicio'
+        Title.Caption = ' Servicio'
+        Width = 102
+      end>
+  end
+  object UniSpeedButton1: TUniSpeedButton
+    Left = 16
+    Top = 25
+    Width = 274
+    Height = 42
+    Hint = ''
+    Caption = 'Nueva Orden'
+    ParentColor = False
+    Color = clWindow
+    TabOrder = 1
+    OnClick = UniSpeedButton1Click
+  end
+  object UniSpeedButton2: TUniSpeedButton
+    Left = 16
+    Top = 97
+    Width = 274
+    Height = 25
+    Hint = ''
+    Caption = 'Historico de '#211'rdenes'
+    ParentColor = False
+    Color = clWindow
+    TabOrder = 2
+    OnClick = UniSpeedButton2Click
+  end
+  object UniLabel1: TUniLabel
+    Left = 296
+    Top = 35
+    Width = 85
+    Height = 13
+    Hint = ''
+    Caption = 'N'#250'mero de Orden'
+    TabOrder = 3
+  end
+  object lblNumOrd: TUniLabel
+    Left = 296
+    Top = 54
+    Width = 129
+    Height = 29
+    Hint = ''
+    Caption = 'NumOrden'
+    ParentFont = False
+    Font.Color = clMaroon
+    Font.Height = -24
+    Font.Style = [fsBold, fsItalic, fsUnderline]
+    TabOrder = 4
+  end
+  object lblNomPac: TUniLabel
+    Left = 488
+    Top = 35
+    Width = 179
+    Height = 25
+    Hint = ''
+    Caption = 'Nombre Paciente'
+    ParentFont = False
+    Font.Color = clBlue
+    Font.Height = -21
+    Font.Style = [fsBold]
+    TabOrder = 5
+  end
+  object ueItem: TUniEdit
+    Left = 296
+    Top = 102
+    Width = 449
+    Hint = ''
+    Text = ''
+    TabOrder = 6
+    OnChange = ueItemChange
+  end
+  object UniLabel2: TUniLabel
+    Left = 296
+    Top = 83
+    Width = 131
+    Height = 16
+    Hint = ''
+    Caption = 'Descripci'#243'n del Item'
+    ParentFont = False
+    Font.Height = -13
+    Font.Style = [fsBold]
+    TabOrder = 7
+  end
+  object UniLabel3: TUniLabel
+    Left = 744
+    Top = 80
+    Width = 54
+    Height = 13
+    Hint = ''
+    Caption = 'Frec Hora'
+    ParentFont = False
+    Font.Style = [fsBold]
+    TabOrder = 8
+  end
+  object frecHor: TUniNumberEdit
+    Left = 751
+    Top = 102
+    Width = 47
+    Hint = ''
+    TabOrder = 9
+    DecimalSeparator = ','
+  end
+  object detalle: TUniEdit
+    Left = 804
+    Top = 102
+    Width = 381
+    Hint = ''
+    Text = ''
+    TabOrder = 10
+  end
+  object UniLabel4: TUniLabel
+    Left = 804
+    Top = 80
+    Width = 45
+    Height = 16
+    Hint = ''
+    Caption = 'Detalle'
+    ParentFont = False
+    Font.Height = -13
+    Font.Style = [fsBold]
+    TabOrder = 11
+  end
+  object cantidad: TUniNumberEdit
+    Left = 1191
+    Top = 102
+    Width = 47
+    Hint = ''
+    TabOrder = 12
+    DecimalSeparator = ','
+  end
+  object ubAgregar: TUniSpeedButton
+    Left = 1278
+    Top = 85
+    Width = 85
+    Height = 39
+    Hint = ''
+    Caption = 'Agregar'
+    ParentColor = False
+    Color = clWindow
+    TabOrder = 13
+    OnClick = ubAgregarClick
+  end
+  object ubQuitar: TUniSpeedButton
+    Left = 1362
+    Top = 85
+    Width = 41
+    Height = 39
+    Hint = ''
+    Caption = ''
+    ParentColor = False
+    Color = clWindow
+    TabOrder = 14
+    OnClick = ubQuitarClick
+  end
+  object UniDBGrid2: TUniDBGrid
+    Left = 296
+    Top = 130
+    Width = 1105
+    Height = 455
+    Hint = ''
+    DataSource = DataSource2
+    LoadMask.Message = 'Loading data...'
+    TabOrder = 15
+    Columns = <
+      item
+        FieldName = 'tipo'
+        Title.Caption = 'tipo'
+        Width = 107
+      end
+      item
+        FieldName = 'codigo'
+        Title.Caption = 'codigo'
+        Width = 61
+      end
+      item
+        FieldName = 'medicamento'
+        Title.Caption = 'Descripci'#243'n'
+        Width = 379
+      end
+      item
+        FieldName = 'dosificasion'
+        Title.Caption = 'Detalle Orden '
+        Width = 327
+      end
+      item
+        FieldName = 'cantidad'
+        Title.Caption = 'cantidad'
+        Width = 50
+      end
+      item
+        FieldName = 'fecha'
+        Title.Caption = 'Fecha'
+        Width = 63
+      end
+      item
+        FieldName = 'hora'
+        Title.Caption = 'Hora'
+        Width = 64
+      end>
+  end
+  object UniLabel6: TUniLabel
+    Left = 296
+    Top = 591
+    Width = 1079
+    Height = 21
+    Hint = ''
+    Caption = 
+      'Descripci'#243'n de las Indicaciones Generales - Estancias- Oxigenote' +
+      'rapias- Signos Vitales- V'#237'a Acceso- Dieta- Valoraciones- Otras'
+    ParentFont = False
+    Font.Height = -17
+    Font.Style = [fsBold]
+    TabOrder = 16
+  end
+  object UniMemo1: TUniMemo
+    Left = 296
+    Top = 618
+    Width = 983
+    Height = 89
+    Hint = ''
+    Lines.Strings = (
+      'UniMemo1')
+    TabOrder = 17
+  end
+  object UniSpeedButton5: TUniSpeedButton
+    Left = 1285
+    Top = 618
+    Width = 116
+    Height = 86
+    Hint = ''
+    Caption = 'Guardar Indicaciones'
+    ParentColor = False
+    Color = clWindow
+    TabOrder = 18
+  end
+  object panelResultado: TUniPanel
+    Left = 296
+    Top = 128
+    Width = 609
+    Height = 375
+    Hint = ''
+    TabOrder = 19
+    Caption = ''
+    Color = clBtnHighlight
+    object DBResultadoItem: TUniDBGrid
+      Left = 3
+      Top = 24
+      Width = 603
+      Height = 285
+      Hint = ''
+      CellCursor = crHandPoint
+      DataSource = DataSource1
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgRowLines, dgConfirmDelete, dgFilterClearButton, dgAutoRefreshRow]
+      LoadMask.Message = 'Loading data...'
+      BorderStyle = ubsNone
+      TabOrder = 1
+      OnBodyClick = DBResultadoItemBodyClick
+      Columns = <
+        item
+          FieldName = 'codigo'
+          Title.Alignment = taCenter
+          Title.Caption = 'C'#243'digo'
+          Width = 65
+        end
+        item
+          FieldName = 'descripcion'
+          Title.Alignment = taCenter
+          Title.Caption = 'Descripci'#243'n'
+          Width = 373
+        end
+        item
+          FieldName = 'clasificacion'
+          Title.Alignment = taCenter
+          Title.Caption = 'Tipo'
+          Width = 154
+        end>
+    end
+    object UniDBMemo1: TUniDBMemo
+      Left = 0
+      Top = 315
+      Width = 606
+      Height = 60
+      Hint = ''
+      DataSource = DataSource1
+      TabOrder = 2
+      Color = clMenuHighlight
+    end
+  end
+  object UniLabel5: TUniLabel
+    Left = 1191
+    Top = 80
+    Width = 57
+    Height = 16
+    Hint = ''
+    Caption = 'Cantidad'
+    ParentFont = False
+    Font.Height = -13
+    Font.Style = [fsBold]
+    TabOrder = 20
+  end
+  object DataSource1: TDataSource
+    DataSet = UniMainModule.QueryGrid
+    Left = 600
+    Top = 210
+  end
+  object DataSource2: TDataSource
+    DataSet = UniMainModule.QueryReporte
+    Left = 944
+    Top = 248
+  end
+  object DataSource3: TDataSource
+    DataSet = UniMainModule.QueryGrid
+    Left = 80
+    Top = 224
+  end
+end
